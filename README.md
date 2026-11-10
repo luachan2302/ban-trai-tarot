@@ -12,7 +12,8 @@
 - Giải từng lá theo vị trí và theo chủ đề câu hỏi; giải chi tiết đủ 78 lá (xuôi, ngược, tình cảm, công việc, lời khuyên).
 - Tổng hợp: tỷ lệ Ẩn Chính, nguyên tố, con số lặp lại, tương quan nguyên tố.
 - Tra cứu 78 lá và nhật ký trải bài (lưu trong trình duyệt của bạn).
+- **Lá số tử vi**: đổi ngày sinh sang âm lịch (UTC+7), an Mệnh/Thân, 12 cung, Cục, 14 chính tinh, 14 phụ tinh, Tứ Hóa, Tuần, Triệt, vòng Tràng Sinh, 12 đại vận; luận giải tổng quan, cung Mệnh với tam phương tứ chính, từng cung, đại vận hiện tại và năm xem.
 
 Toàn bộ ứng dụng nằm trong một file `index.html`, không cần máy chủ.
 
-Tarot là công cụ để suy ngẫm, không thay thế lời khuyên y tế, pháp lý hay tài chính.
+Tarot và tử vi là công cụ để suy ngẫm, không thay thế lời khuyên y tế, pháp lý hay tài chính.
