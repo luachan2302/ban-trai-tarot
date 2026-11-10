@@ -1,0 +1,1727 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Hướng dẫn rút và giải bài tarot: 7 kiểu trải, đủ 78 lá xuôi/ngược, giải theo câu hỏi, dùng được với bộ bài thật.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 36'%3E%3Crect width='24' height='36' rx='3' fill='%231f2c5e'/%3E%3Crect x='2' y='2' width='20' height='32' rx='2' fill='none' stroke='%23d6b25e'/%3E%3Cpath d='M12 11l1.8 5.2H19l-4.3 3.1 1.6 5.2L12 21.4l-4.3 3.1 1.6-5.2L5 16.2h5.2z' fill='%23d6b25e'/%3E%3C/svg%3E">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Bàn Trải Tarot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap">
+<style>
+/* Layout: bàn nỉ xanh ở giữa (nơi đặt lá bài), bảng điều khiển bên trái, phần giải bài đọc như sổ tay bên dưới */
+:root{
+  --bg:#e4e9e3; --surface:#f4f6f1; --surface-2:#dbe2d9; --fg:#14291f; --muted:#4f6258; --line:#bccabd;
+  --accent:#8a5f14; --accent-soft:#efe2c2; --accent-fg:#fffaf0; --danger:#a43b25; --ok:#3d7a4f;
+  --felt:#163b31; --felt-hi:#21503f; --felt-line:rgba(233,214,160,.38); --felt-ink:#ece4cc; --felt-muted:#b6c4b2;
+  --el-fire:#c0533a; --el-water:#3a5fb8; --el-air:#6c7a8c; --el-earth:#b08a2e; --el-major:#1d2b55;
+  --c-paper:#f3ead6; --c-ink:#1d2b55; --c-red:#b4412b; --c-ultra:#2c4aa0; --c-ochre:#b58a28; --c-back:#1f2c5e; --c-gold:#d6b25e;
+  --display:"Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0d1f1a; --surface:#142c25; --surface-2:#1b3830; --fg:#ece5d1; --muted:#a2b2a5; --line:#2b4a40;
+  --accent:#d9b25c; --accent-soft:#33301f; --accent-fg:#1b1405; --danger:#e47b62; --ok:#7cc38f;
+  --felt:#11352b; --felt-hi:#1c4a3b; --felt-line:rgba(233,214,160,.3); --felt-ink:#ece4cc; --felt-muted:#a9b9a6;
+  --el-fire:#e07a5f; --el-water:#7d9ce8; --el-air:#a3afbf; --el-earth:#d6b25e; --el-major:#e9dcb4;
+  color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0d1f1a; --surface:#142c25; --surface-2:#1b3830; --fg:#ece5d1; --muted:#a2b2a5; --line:#2b4a40;
+  --accent:#d9b25c; --accent-soft:#33301f; --accent-fg:#1b1405; --danger:#e47b62; --ok:#7cc38f;
+  --felt:#11352b; --felt-hi:#1c4a3b; --felt-line:rgba(233,214,160,.3); --felt-ink:#ece4cc; --felt-muted:#a9b9a6;
+  --el-fire:#e07a5f; --el-water:#7d9ce8; --el-air:#a3afbf; --el-earth:#d6b25e; --el-major:#e9dcb4;
+  color-scheme:dark }
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1180px;margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.15;text-wrap:balance;margin:0}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.small{font-size:13px;color:var(--muted)}
+
+/* Header */
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-block:22px 14px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:34px;height:56px;flex:none}
+.brand h1{font-size:32px;letter-spacing:.01em}
+.brand p{font-size:13px;color:var(--muted)}
+nav.tabs{display:flex;flex-wrap:wrap;gap:4px}
+nav.tabs a{padding:8px 14px;border-radius:999px;text-decoration:none;color:var(--muted);font-weight:500;font-size:14px}
+nav.tabs a:hover{color:var(--fg);background:var(--surface-2)}
+nav.tabs a[aria-current="page"]{background:var(--fg);color:var(--bg)}
+main{padding-block:22px 60px}
+
+/* Draw view */
+.draw{display:grid;grid-template-columns:330px minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.draw{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:16px}
+.steps{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+.steps li{flex:1;height:5px;border-radius:3px;background:var(--surface-2)}
+.steps li.done{background:var(--accent);opacity:.55}
+.steps li.now{background:var(--accent)}
+.hint{background:var(--accent-soft);border-radius:8px;padding:12px 14px;font-size:14px}
+.hint b{display:block;font-family:var(--display);font-size:19px;margin-bottom:2px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field > label, .field > .lbl{font-weight:600;font-size:14px}
+.spread-picker{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.sp-opt{text-align:left;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);cursor:pointer;display:flex;flex-direction:column;gap:0;min-width:0}
+.sp-opt:hover{border-color:var(--accent)}
+.sp-opt .nm{font-weight:600;font-size:13.5px;line-height:1.3}
+.sp-opt .ct{font-size:12px;color:var(--muted)}
+.sp-opt[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.sp-use{font-size:13px;color:var(--muted)}
+textarea,input[type="search"]{width:100%;font:inherit;font-size:14.5px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;resize:vertical}
+textarea:focus,input[type="search"]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.toggle{display:flex;align-items:flex-start;gap:10px;font-size:14px;cursor:pointer}
+.toggle input{width:18px;height:18px;accent-color:var(--accent);margin-top:2px;flex:none}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn{padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--bg);font-weight:600;font-size:14px;cursor:pointer}
+.btn:hover:not(:disabled){border-color:var(--fg)}
+.btn.primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn.gold{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.qcheck{display:flex;flex-direction:column;gap:6px}
+.qcheck:empty{display:none}
+.qc{font-size:13px;display:grid;grid-template-columns:10px minmax(0,1fr);gap:8px;line-height:1.45}
+.qc i{width:8px;height:8px;border-radius:50%;margin-top:6px;background:var(--muted)}
+.qc.ok i{background:var(--ok)}
+.qc.warn i{background:var(--danger)}
+.qsug{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px}
+.qsug .btn{padding:5px 10px;font-size:12.5px}
+.qhelp{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--bg)}
+.qhelp summary{cursor:pointer;font-weight:600;font-size:13.5px;color:var(--accent)}
+.qhelp-body{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.qhelp-body .lbl{font-weight:600;font-size:13px}
+.qtips{margin:0;padding-left:18px;font-size:13px;display:flex;flex-direction:column;gap:3px;color:var(--muted)}
+.qhelp .filters button{padding:4px 10px;font-size:12.5px}
+.qtpl{display:flex;flex-direction:column;gap:5px}
+.qtpl button{text-align:left;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);cursor:pointer;font-size:13.5px;line-height:1.4;display:flex;flex-direction:column;gap:2px}
+.qtpl button:hover{border-color:var(--accent)}
+.qtpl span{font-size:11.5px;color:var(--muted)}
+.linkish{background:none;border:0;padding:0;color:var(--accent);font-weight:600;font-size:13.5px;cursor:pointer;text-align:left}
+.formula{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.formula span{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px;background:var(--surface)}
+.formula b{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--surface-2);border-radius:10px;padding:4px;gap:4px}
+.seg button{border:0;background:none;padding:8px;border-radius:7px;font-weight:600;font-size:13.5px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--bg);color:var(--fg);box-shadow:0 1px 2px rgba(0,0,0,.14)}
+.real-box{display:flex;flex-direction:column;gap:14px}
+.phys{counter-reset:ph;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+.phys li{counter-increment:ph;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px}
+.phys li::before{content:counter(ph);width:22px;height:22px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;display:grid;place-items:center}
+.phys b{display:block;font-size:14px}
+.entry{display:flex;flex-direction:column;gap:12px}
+.entry-title{font-size:26px}
+.entry-cur{font-size:13.5px;margin-top:4px}
+.pick-list{display:grid;grid-template-columns:1fr 1fr;gap:3px;max-height:250px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:6px;background:var(--bg)}
+.pick-list p{grid-column:1/-1;padding:6px}
+.pick-list button{text-align:left;font-size:13px;line-height:1.3;padding:6px 8px;border-radius:6px;border:1px solid transparent;background:none;cursor:pointer;display:flex;gap:7px;align-items:center;min-width:0}
+.pick-list button:hover:not(:disabled){background:var(--surface-2)}
+.pick-list button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.pick-list button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.pick-list i{width:8px;height:8px;border-radius:50%;flex:none}
+.entry-nav{display:flex;flex-wrap:wrap;gap:6px}
+.entry-nav .btn{padding:7px 10px;font-size:13px}
+details.phys-more summary{cursor:pointer;font-size:13.5px;font-weight:600;color:var(--muted)}
+details.phys-more[open] summary{margin-bottom:10px}
+
+/* Felt table */
+.felt{position:relative;border-radius:14px;background:radial-gradient(ellipse at 50% 30%, var(--felt-hi), var(--felt) 72%);
+  box-shadow:inset 0 0 0 1px var(--felt-line), inset 0 0 0 7px var(--felt), inset 0 0 0 8px var(--felt-line), 0 10px 30px -18px rgba(0,0,0,.6);
+  padding:22px 18px 26px;color:var(--felt-ink);display:flex;flex-direction:column;gap:18px;min-width:0}
+.felt-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.felt-head h2{font-size:24px;color:var(--felt-ink)}
+.felt-head .q{font-family:var(--display);font-style:italic;font-size:17px;color:var(--felt-muted);min-width:0;overflow-wrap:anywhere}
+.deck-zone{min-height:118px;display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+.stack{position:relative;width:62px;aspect-ratio:120/204;flex:none}
+.stack .bk{position:absolute;inset:0;border-radius:5px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.stack .bk:nth-child(1){transform:translate(-3px,3px)}
+.stack .bk:nth-child(2){transform:translate(-1.5px,1.5px)}
+.stack.shuffling .bk:nth-child(1){animation:riffleL .7s ease-in-out}
+.stack.shuffling .bk:nth-child(2){animation:riffleR .7s ease-in-out}
+.stack.shuffling .bk:nth-child(3){animation:riffleL .7s ease-in-out .08s}
+@keyframes riffleL{0%,100%{translate:0 0;rotate:0deg}40%{translate:-44px -6px;rotate:-12deg}70%{translate:6px 0;rotate:3deg}}
+@keyframes riffleR{0%,100%{translate:0 0;rotate:0deg}40%{translate:44px -6px;rotate:12deg}70%{translate:-6px 0;rotate:-3deg}}
+.deck-meta{font-size:13px;color:var(--felt-muted);max-width:220px}
+.deck-meta b{color:var(--felt-ink);font-family:var(--display);font-size:18px;display:block}
+.pile{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:6px;border-radius:10px;color:var(--felt-ink)}
+.pile:hover .stack,.pile:focus-visible .stack{translate:0 -6px}
+.pile .stack{transition:translate .2s}
+.pile span{font-size:12.5px;color:var(--felt-muted)}
+.spread{position:relative;width:100%;margin-inline:auto}
+.slot{position:absolute;border:1px dashed var(--felt-line);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4px;overflow:hidden;color:var(--felt-muted);font-size:11px;line-height:1.25}
+.slot .sn{font-family:var(--display);font-size:22px;font-weight:600;color:var(--felt-ink);line-height:1}
+.slot.rot{rotate:90deg;scale:.84;border-style:dotted;z-index:2;background:rgba(0,0,0,.08)}
+.slot.pick{cursor:pointer;background:none;font:inherit;font-size:11px;color:var(--felt-muted)}
+.slot.pick.rot{background:rgba(0,0,0,.18)}
+.slot.pick:hover,.slot.pick.on{border-style:solid;border-color:var(--c-gold);background:rgba(214,178,94,.14);color:var(--felt-ink)}
+.tcard{position:absolute;padding:0;border:0;background:none;cursor:pointer;perspective:900px;transition:translate .5s cubic-bezier(.2,.8,.2,1), opacity .5s}
+.tcard.rot{rotate:90deg;scale:.84;z-index:3}
+.tcard.incoming{translate:0 -40px;opacity:0}
+.tcard .inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,.7,.2,1)}
+.tcard.flipped .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:5px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.4)}
+.face.front{transform:rotateY(180deg)}
+.rv{display:block;width:100%;height:100%}
+.rv.is-rev{transform:rotate(180deg)}
+.cardsvg{display:block;width:100%;height:100%}
+.tcard .pn{position:absolute;top:-9px;left:-9px;z-index:4;width:22px;height:22px;border-radius:50%;background:var(--c-gold);color:var(--c-ink);font-size:12px;font-weight:700;display:grid;place-items:center;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.tcard.rot .pn{rotate:-90deg}
+.tcard:hover:not(.flipped) .inner{transform:translateY(-4px)}
+.tcard.active .face{box-shadow:0 0 0 3px var(--c-gold),0 3px 12px rgba(0,0,0,.5)}
+.felt-foot{font-size:12.5px;color:var(--felt-muted);text-align:center}
+
+/* Reading */
+.reading{margin-top:26px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:12px}
+.sec-head{margin-top:34px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.sec-head h2{font-size:30px}
+.ritem{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);cursor:pointer}
+.ritem.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.rnum{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-weight:700;font-size:14px}
+.rbody{display:flex;flex-direction:column;gap:8px;min-width:0}
+.rbody h3{font-size:22px}
+.rbody .pq{font-size:13.5px;color:var(--muted)}
+.rcard{display:grid;grid-template-columns:70px minmax(0,1fr);gap:14px;align-items:start}
+.thumb{width:70px;aspect-ratio:120/204;border-radius:4px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.25);background:none;border:0;padding:0;cursor:zoom-in}
+.cname{font-family:var(--display);font-size:21px;font-weight:700;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.cname .en{font-family:var(--body);font-size:12px;font-weight:500;color:var(--muted)}
+.chip{display:inline-block;font-family:var(--body);font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.chip.rev{border-color:var(--danger);color:var(--danger)}
+.chip.up{border-color:var(--accent);color:var(--accent)}
+.kw{font-weight:600;font-size:14px}
+.prompt{font-family:var(--display);font-style:italic;font-size:17px;line-height:1.4;border-left:2px solid var(--accent);padding-left:10px}
+.meta{font-size:12.5px;color:var(--muted)}
+.wait{font-size:14px;color:var(--muted);font-style:italic}
+.qans{background:var(--accent-soft);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.qans h5{font-family:var(--body);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0}
+.qans p{font-size:14.5px}
+.qnote{font-size:13px;color:var(--muted);font-style:italic}
+.box.answer{grid-column:1/-1}
+.ai-box{display:flex;flex-direction:column;gap:10px;align-items:flex-start;border-top:1px solid var(--line);padding-top:14px}
+.ai-out{display:flex;flex-direction:column;gap:8px;font-size:15px;max-width:72ch}
+.ai-out h4{font-family:var(--display);font-size:21px;margin-top:6px}
+.ai-out ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+details.more{border-top:1px solid var(--line);padding-top:10px;margin-top:2px}
+details.more summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:14px}
+.more-body{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.xsec h5{font-family:var(--body);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 2px}
+.xsec p{font-size:14.5px}
+
+/* Synthesis */
+.synth{margin-top:14px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.synth{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.box h3{font-size:22px}
+.tally{display:flex;flex-wrap:wrap;gap:6px}
+.tally span{font-size:12.5px;padding:3px 10px;border-radius:999px;background:var(--surface-2);font-variant-numeric:tabular-nums}
+.tally i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--surface-2)}
+.bar span{display:block;height:100%}
+.notes{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:14.5px}
+.story{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:14.5px}
+.save-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.toast{font-size:13px;color:var(--accent);font-weight:600}
+
+/* Guide */
+.guide{display:grid;grid-template-columns:220px minmax(0,1fr);gap:36px;align-items:start}
+@media (max-width:860px){.guide{grid-template-columns:1fr}.toc{display:none}}
+.toc{position:sticky;top:max(16px, env(safe-area-inset-top, 0px));display:flex;flex-direction:column;gap:2px;font-size:14px}
+.toc button{text-align:left;background:none;border:0;padding:6px 10px;border-radius:6px;cursor:pointer;color:var(--muted)}
+.toc button:hover{background:var(--surface-2);color:var(--fg)}
+.article{display:flex;flex-direction:column;gap:46px;min-width:0}
+.article section{display:flex;flex-direction:column;gap:14px;max-width:760px}
+.article h2{font-size:36px}
+.article h3{font-size:23px}
+.article p,.article li{max-width:68ch}
+.article ul,.article ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.lede{font-size:17px;color:var(--muted)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
+tr:last-child td{border-bottom:0}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:0}
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.trio .box h3{font-size:21px}
+.trio .box .eyebrow{margin-bottom:-6px}
+.timeline{list-style:none;padding:0!important;border-left:2px solid var(--line);margin-left:6px!important}
+.timeline li{position:relative;padding-left:18px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.timeline b{font-variant-numeric:tabular-nums}
+.process{counter-reset:st;list-style:none;padding:0!important;gap:12px!important}
+.process li{counter-increment:st;display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px}
+.process li::before{content:counter(st);font-family:var(--display);font-size:28px;font-weight:700;color:var(--accent);line-height:1}
+.process b{display:block}
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:620px){.qa{grid-template-columns:1fr}}
+.qa .box ul{padding-left:18px}
+.qa .good h3{color:var(--accent)}
+.qa .bad h3{color:var(--danger)}
+.methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.methods .box p{font-size:14.5px}
+.rev-ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.rev-ways div{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px}
+.rev-ways b{display:block;font-family:var(--display);font-size:18px}
+.spread-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:14px}
+.spcard{display:flex;flex-direction:column;gap:12px}
+.spcard .mini{background:var(--felt);border-radius:8px;padding:14px}
+.spcard .mini .slot{font-size:9.5px}
+.spcard .mini .slot .sn{font-size:15px}
+.spcard ol{font-size:13.5px;gap:2px!important}
+.example{display:flex;flex-direction:column;gap:12px}
+.ex-row{display:grid;grid-template-columns:60px minmax(0,1fr);gap:14px;align-items:start}
+.ex-row .thumb{width:60px;cursor:default}
+.callout{border-left:3px solid var(--accent);padding:12px 16px;background:var(--surface);border-radius:0 8px 8px 0}
+
+/* Lookup */
+.lookup-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px}
+.lookup-bar input{max-width:280px}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:13.5px;font-weight:500}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.grid78{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:16px 12px}
+.gcard{background:none;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;gap:6px;text-align:left;min-width:0}
+.gcard .thumb{width:100%;cursor:pointer;transition:translate .2s}
+.gcard:hover .thumb{translate:0 -4px}
+.gcard .gn{font-weight:600;font-size:13px;line-height:1.3}
+.gcard .gk{font-size:12px;color:var(--muted);line-height:1.35}
+.count{font-size:13px;color:var(--muted)}
+
+/* Journal */
+.jlist{display:flex;flex-direction:column;gap:12px;max-width:860px}
+.jitem{display:flex;flex-direction:column;gap:10px}
+.jhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.jhead h3{font-size:21px}
+.jcards{display:flex;flex-wrap:wrap;gap:6px}
+.jcards span{font-size:12.5px;padding:3px 10px;border-radius:999px;background:var(--surface-2)}
+.jq{font-family:var(--display);font-style:italic;font-size:18px}
+.jnote{font-size:14px;white-space:pre-wrap;border-left:2px solid var(--line);padding-left:10px}
+.empty{max-width:560px;display:flex;flex-direction:column;gap:12px}
+
+/* Overlay */
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(6,14,11,.62);display:flex;align-items:center;justify-content:center;
+  padding:max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px))}
+.ov-panel{background:var(--surface);color:var(--fg);border-radius:14px;max-width:760px;width:100%;max-height:100%;overflow:auto;padding:22px;display:grid;grid-template-columns:190px minmax(0,1fr);gap:22px;position:relative}
+@media (max-width:620px){.ov-panel{grid-template-columns:1fr}.ov-panel .big{max-width:160px;margin-inline:auto}}
+.ov-panel .big{width:100%;aspect-ratio:120/204;border-radius:6px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.ov-close{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;font-size:18px;line-height:1}
+.ov-body{display:flex;flex-direction:column;gap:14px;min-width:0}
+.ov-body h2{font-size:32px;padding-right:36px}
+.ov-sec{display:flex;flex-direction:column;gap:4px}
+.ov-sec h4{font-family:var(--body);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* Card SVG classes (card art is a physical object: same colours in both themes) */
+.c-paper{fill:var(--c-paper)}
+.c-frame{fill:none;stroke:var(--c-ink);stroke-width:1.4}
+.c-thin{fill:none;stroke:var(--c-ink);stroke-width:.6}
+.c-top{fill:var(--c-ink);font-family:var(--display);font-weight:700}
+.c-band{fill:var(--c-ink)}
+.c-name{fill:var(--c-paper);font-family:var(--display);font-weight:700}
+.e-line{fill:none;stroke:var(--c-ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.e-red-l{fill:none;stroke:var(--c-red);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.e-ultra-l{fill:none;stroke:var(--c-ultra);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.e-gold-l{fill:none;stroke:var(--c-ochre);stroke-width:3.5;stroke-linecap:round}
+.e-ink{fill:var(--c-ink)} .e-gold{fill:var(--c-ochre)} .e-red{fill:var(--c-red)} .e-ultra{fill:var(--c-ultra)} .e-paper{fill:var(--c-paper)}
+.g-W{fill:var(--c-red)} .g-C{fill:var(--c-ultra)} .g-S{fill:var(--c-ink)} .g-P{fill:var(--c-ochre)}
+.g-cut{fill:none;stroke:var(--c-paper);stroke-width:1}
+.b-bg{fill:var(--c-back)} .b-gold{fill:var(--c-gold)} .b-line{fill:none;stroke:var(--c-gold);stroke-width:1.2} .b-dot{fill:var(--c-gold);opacity:.5}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 120 204" aria-hidden="true" id="brand-mark"></svg>
+    <div><h1>Bàn Trải Tarot</h1><p>Rút bài, đọc từng vị trí, tổng hợp và ghi lại</p></div>
+  </div>
+  <nav class="tabs" aria-label="Mục">
+    <a href="#rut-bai">Rút bài</a>
+    <a href="#huong-dan">Hướng dẫn</a>
+    <a href="#tra-cuu">Tra cứu 78 lá</a>
+    <a href="#nhat-ky">Nhật ký</a>
+  </nav>
+</header>
+
+<main>
+<!-- ============ RÚT BÀI ============ -->
+<section id="view-rut-bai" class="view">
+  <div class="draw">
+    <aside class="panel" aria-label="Điều khiển">
+      <div class="seg" id="mode" role="group" aria-label="Cách rút bài"><button data-mode="app" aria-pressed="true">Rút trên app</button><button data-mode="real" aria-pressed="false">Dùng bộ bài thật</button></div>
+      <ol class="steps" id="steps" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li></ol>
+      <div class="hint" id="hint" aria-live="polite"></div>
+      <div class="field">
+        <span class="lbl">1 · Kiểu trải bài</span>
+        <div class="spread-picker" id="spread-picker"></div>
+        <p class="sp-use" id="sp-use"></p>
+      </div>
+      <div class="field">
+        <label for="q">2 · Câu hỏi của bạn</label>
+        <textarea id="q" rows="2" placeholder="Ví dụ: Tôi nên tập trung vào điều gì trong công việc tháng này?"></textarea>
+        <div class="qcheck" id="q-check" aria-live="polite"></div>
+        <details class="qhelp" id="qhelp">
+          <summary>Hướng dẫn đặt câu hỏi</summary>
+          <div class="qhelp-body">
+            <p class="small"><b>Công thức:</b> Điều gì / Làm sao / Tôi cần biết gì + về chính bạn + chủ đề cụ thể + khoảng thời gian.</p>
+            <ul class="qtips">
+              <li>Hỏi câu mở, tránh câu có/không.</li>
+              <li>Đặt bạn làm trung tâm, đừng đoán suy nghĩ người khác.</li>
+              <li>Mỗi lần trải chỉ hỏi một câu.</li>
+              <li>Tarot không đoán ngày giờ; hỏi “cần chuẩn bị gì” thay vì “bao giờ”.</li>
+            </ul>
+            <span class="lbl">Câu hỏi mẫu theo chủ đề</span>
+            <div class="filters" id="q-topics"></div>
+            <div class="qtpl" id="q-templates"></div>
+            <button class="linkish" id="q-more">Đọc hướng dẫn đầy đủ →</button>
+          </div>
+        </details>
+      </div>
+      <label class="toggle" for="use-rev"><input type="checkbox" id="use-rev" checked><span id="rev-label">Dùng lá ngược<br><span class="small">Khi xáo, mỗi lá có thể bị đảo chiều. Tắt nếu bạn mới học.</span></span></label>
+      <div class="actions" id="app-actions">
+        <button class="btn primary" id="btn-shuffle">Xáo bài</button>
+        <button class="btn" id="btn-cut">Cắt bài</button>
+        <button class="btn" id="btn-flipall">Lật tất cả</button>
+        <button class="btn" id="btn-reset">Trải lại</button>
+      </div>
+      <div class="real-box" id="real-box" hidden></div>
+    </aside>
+    <div class="felt" id="felt">
+      <div class="felt-head"><h2 id="felt-title"></h2><p class="q" id="felt-q"></p></div>
+      <div class="deck-zone" id="deck-zone"></div>
+      <div class="spread" id="spread"></div>
+      <p class="felt-foot" id="felt-foot"></p>
+    </div>
+  </div>
+
+  <div class="sec-head"><h2>Giải bài theo vị trí</h2><span class="small">Đọc ý nghĩa vị trí trước, rồi mới đến lá bài. Chạm hình lá để xem chi tiết.</span></div>
+  <div class="reading" id="reading"></div>
+
+  <div id="synth-wrap" hidden>
+    <div class="sec-head"><h2>Tổng hợp</h2><span class="small">Nhìn toàn cảnh trước khi kết luận từng lá</span></div>
+    <div class="synth" id="synth"></div>
+  </div>
+</section>
+
+<!-- ============ HƯỚNG DẪN ============ -->
+<section id="view-huong-dan" class="view" hidden>
+  <div class="guide">
+    <nav class="toc" aria-label="Mục lục hướng dẫn">
+      <span class="eyebrow" style="padding:0 10px 6px">Mục lục</span>
+      <button data-go="g-deck">Bộ bài 78 lá</button>
+      <button data-go="g-history">Nguồn gốc &amp; 3 truyền thống</button>
+      <button data-go="g-process">Quy trình rút bài</button>
+      <button data-go="g-question">Đặt câu hỏi</button>
+      <button data-go="g-methods">Phương pháp giải bài</button>
+      <button data-go="g-reversed">Lá ngược</button>
+      <button data-go="g-spreads">Các kiểu trải</button>
+      <button data-go="g-example">Ví dụ đọc 3 lá</button>
+      <button data-go="g-ethics">Lưu ý khi dùng</button>
+    </nav>
+    <div class="article">
+      <section id="g-deck">
+        <span class="eyebrow">Phần 1</span>
+        <h2>Bộ bài 78 lá</h2>
+        <p class="lede">Một bộ tarot chuẩn có 78 lá, chia làm hai nhóm. Ẩn Chính kể những bài học lớn của đời người, Ẩn Phụ kể chuyện thường ngày.</p>
+        <div class="trio">
+          <div class="box"><span class="eyebrow">22 lá</span><h3>Ẩn Chính (Major Arcana)</h3><p>Đánh số từ 0 Kẻ Khờ đến XXI Thế Giới. Người đọc thường xem chúng là “Hành trình của Kẻ Khờ”: từ hồn nhiên ban đầu, qua thử thách, sụp đổ, hồi phục, đến trọn vẹn. Khi một Ẩn Chính xuất hiện, chuyện đang hỏi có sức nặng lớn hơn bình thường.</p></div>
+          <div class="box"><span class="eyebrow">40 lá</span><h3>Lá số (Át đến 10)</h3><p>Mỗi chất có 10 lá số. Con số cho biết giai đoạn: Át là hạt giống, 5 là xung đột, 10 là kết thúc một chu kỳ. Ghép nghĩa của số với nghĩa của chất là cách nhanh nhất để đoán nghĩa lá mình chưa thuộc.</p></div>
+          <div class="box"><span class="eyebrow">16 lá</span><h3>Lá triều đình</h3><p>Thị Đồng, Hiệp Sĩ, Hoàng Hậu, Vua của mỗi chất. Thường chỉ một người cụ thể, một vai trò, hoặc một mặt tính cách của chính bạn. Thị Đồng còn có thể là tin tức.</p></div>
+        </div>
+        <h3>Bốn chất và bốn nguyên tố</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Chất</th><th>Nguyên tố</th><th>Lĩnh vực</th><th>Bài Tây tương ứng</th></tr></thead>
+          <tbody>
+            <tr><td><span class="dot" style="background:var(--el-fire)"></span><b>Gậy</b> (Wands)</td><td>Lửa</td><td>Đam mê, hành động, ý chí, sự nghiệp, dự án sáng tạo</td><td>Nhép (Chuồn)</td></tr>
+            <tr><td><span class="dot" style="background:var(--el-water)"></span><b>Cốc</b> (Cups)</td><td>Nước</td><td>Cảm xúc, tình yêu, các mối quan hệ, trực giác</td><td>Cơ</td></tr>
+            <tr><td><span class="dot" style="background:var(--el-air)"></span><b>Kiếm</b> (Swords)</td><td>Khí</td><td>Suy nghĩ, lời nói, quyết định, xung đột, sự thật</td><td>Bích</td></tr>
+            <tr><td><span class="dot" style="background:var(--el-earth)"></span><b>Tiền</b> (Pentacles)</td><td>Đất</td><td>Tiền bạc, công việc, sức khỏe, cơ thể, của cải</td><td>Rô</td></tr>
+          </tbody></table></div>
+        <h3>Ý nghĩa con số</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Số</th><th>Chủ đề</th><th>Số</th><th>Chủ đề</th></tr></thead>
+          <tbody id="num-table"></tbody></table></div>
+      </section>
+
+      <section id="g-history">
+        <span class="eyebrow">Phần 2</span>
+        <h2>Nguồn gốc và ba truyền thống</h2>
+        <p>Tarot ra đời như một trò chơi bài, rồi mới trở thành công cụ bói toán và phản tư. Hiểu lịch sử giúp bạn biết vì sao cùng một lá lại có nghĩa khác nhau ở các bộ bài.</p>
+        <ul class="timeline">
+          <li><b>Thế kỷ 15</b> · Ở miền Bắc nước Ý, giới quý tộc chơi <i>tarocchi</i>, bộ bài có thêm các lá “át chủ bài” vẽ tay, như bộ Visconti-Sforza.</li>
+          <li><b>1781</b> · Antoine Court de Gébelin cho rằng tarot có nguồn gốc Ai Cập cổ. Giả thuyết này nay không được giới sử học chấp nhận, nhưng nó mở đầu việc dùng tarot để bói.</li>
+          <li><b>khoảng 1789</b> · Etteilla phát hành bộ bài đầu tiên thiết kế riêng cho việc bói, kèm nghĩa xuôi và nghĩa ngược.</li>
+          <li><b>1888</b> · Hội Hermetic Order of the Golden Dawn ở Anh hệ thống hóa tương ứng giữa tarot, chiêm tinh, nguyên tố và Kabbalah.</li>
+          <li><b>1909</b> · A. E. Waite và họa sĩ Pamela Colman Smith ra bộ Rider–Waite–Smith. Năm 1910, sách <i>The Pictorial Key to the Tarot</i> giới thiệu trải bài Celtic Cross.</li>
+          <li><b>1944 / 1969</b> · Aleister Crowley viết <i>The Book of Thoth</i>; bộ bài Thoth do Lady Frieda Harris vẽ được in màu năm 1969.</li>
+        </ul>
+        <div class="trio">
+          <div class="box"><span class="eyebrow">Phổ biến nhất</span><h3>Rider–Waite–Smith</h3><p>Cả 78 lá đều có tranh cảnh, kể cả lá số, nên dễ đọc bằng hình ảnh và trực giác. Phần lớn sách và ứng dụng hiện nay, gồm ứng dụng này, dùng nghĩa theo hệ RWS. Sức Mạnh là VIII, Công Lý là XI.</p></div>
+          <div class="box"><span class="eyebrow">Huyền học</span><h3>Thoth</h3><p>Dày đặc biểu tượng chiêm tinh và Kabbalah. Một số lá đổi tên: Công Lý thành <i>Adjustment</i>, Sức Mạnh thành <i>Lust</i>, Tiết Độ thành <i>Art</i>, Phán Xét thành <i>The Aeon</i>. Người đọc Thoth thường dùng tương quan nguyên tố thay cho lá ngược.</p></div>
+          <div class="box"><span class="eyebrow">Cổ điển</span><h3>Tarot de Marseille</h3><p>Mẫu bài Pháp từ thế kỷ 17–18. Lá số chỉ vẽ biểu tượng chất xếp theo hình, không có cảnh. Người đọc dựa vào con số, nguyên tố và hướng nhìn của nhân vật giữa các lá cạnh nhau.</p></div>
+        </div>
+        <p class="small">Hình lá bài trong ứng dụng là thiết kế giản lược kiểu Marseille (chỉ biểu tượng), không phải tranh gốc. Nếu bạn có bộ bài thật, hãy đối chiếu thêm hình ảnh trên lá.</p>
+      </section>
+
+      <section id="g-process">
+        <span class="eyebrow">Phần 3</span>
+        <h2>Quy trình rút bài</h2>
+        <p>Thứ tự này là cách làm phổ biến khi đọc với bộ bài thật. Tab Rút bài đi theo đúng các bước này. Nếu bạn có bộ bài thật, chọn <b>Dùng bộ bài thật</b>: app hướng dẫn từng bước, bạn tự rút rồi nhập các lá để app giải.</p>
+        <ol class="process">
+          <li><div><b>Chuẩn bị</b>Chọn chỗ yên tĩnh, mặt bàn sạch, có thể trải một tấm khăn. Hít thở chậm vài nhịp để gạt bớt chuyện khác ra khỏi đầu.</div></li>
+          <li><div><b>Đặt câu hỏi</b>Viết câu hỏi ra giấy. Câu hỏi càng rõ, phần đọc càng có trọng tâm (xem Phần 4).</div></li>
+          <li><div><b>Chọn kiểu trải</b>Câu hỏi đơn giản dùng 1 hoặc 3 lá. Chuyện nhiều mặt mới dùng Móng ngựa hay Celtic Cross. Quyết định vị trí trước khi xáo, không đổi sau khi đã thấy bài.</div></li>
+          <li><div><b>Xáo bài</b>Ba cách thường dùng: xáo tay (rút từng xấp từ sau ra trước), xáo bắn (riffle, nhanh nhưng làm cong bài), và trộn bài trên mặt bàn (dễ tạo lá ngược). Xáo đến khi bạn thấy đủ, vừa xáo vừa giữ câu hỏi trong đầu.</div></li>
+          <li><div><b>Cắt bài</b>Truyền thống dùng tay trái chia bộ bài thành ba chồng, rồi chọn một chồng đặt lên trên và gộp lại.</div></li>
+          <li><div><b>Trải bài</b>Rút từ trên cùng, hoặc trải hình quạt rồi chọn lá. Đặt úp, đúng thứ tự vị trí. Khi lật, lật theo chiều ngang (như lật trang sách) để không vô tình đảo chiều lá.</div></li>
+          <li><div><b>Lật và đọc từng vị trí</b>Đọc tên vị trí, rồi lật lá. Ghi lại ấn tượng đầu tiên trước khi tra nghĩa: màu sắc, cảm xúc, chi tiết bạn để ý.</div></li>
+          <li><div><b>Tổng hợp và ghi chép</b>Nhìn cả trải bài: tỷ lệ Ẩn Chính, chất nào nhiều, số nào lặp lại, lá nào “nói chuyện” với nhau. Ghi vào nhật ký để đối chiếu sau vài tuần.</div></li>
+        </ol>
+      </section>
+
+      <section id="g-question">
+        <span class="eyebrow">Phần 4</span>
+        <h2>Đặt câu hỏi</h2>
+        <p class="lede">Câu hỏi quyết định chất lượng của cả lượt đọc. Tarot trả lời tốt nhất các câu hỏi mở, hướng về chính người hỏi và về điều họ có thể làm.</p>
+        <h3>Công thức một câu hỏi tốt</h3>
+        <div class="formula">
+          <span><b>Mở đầu</b>Điều gì · Làm sao · Tôi cần biết gì</span>
+          <span><b>Chủ thể</b>Chính bạn</span>
+          <span><b>Chủ đề</b>Cụ thể, một việc</span>
+          <span><b>Thời gian</b>Vài tuần đến vài tháng</span>
+        </div>
+        <p class="callout">Ví dụ: “<b>Tôi cần biết gì</b> về việc thích nghi ở công ty mới <b>trong 3 tháng tới</b>?”</p>
+        <h3>Sáu nguyên tắc</h3>
+        <ol>
+          <li><b>Hỏi câu mở.</b> “Điều gì”, “làm sao”, “như thế nào” mở ra nhiều tầng nghĩa. Câu có/không chỉ cho bạn một chữ, và một lá bài khó trả lời gọn như vậy.</li>
+          <li><b>Đặt bạn làm trung tâm.</b> Bạn chỉ thay đổi được suy nghĩ và hành động của mình. Hỏi “tôi có thể làm gì” hữu ích hơn “người ấy nghĩ gì”.</li>
+          <li><b>Cụ thể.</b> “Công việc” quá rộng; “dự án đang làm với nhóm mới” rõ hơn nhiều.</li>
+          <li><b>Mỗi lần một câu.</b> Gộp hai câu vào một lượt trải sẽ khiến các lá trả lời lẫn vào nhau.</li>
+          <li><b>Khung thời gian vừa phải.</b> Vài tuần đến vài tháng là hợp. Tarot cho thấy xu hướng, không đoán được ngày giờ.</li>
+          <li><b>Hỏi khi đã bình tĩnh.</b> Đừng hỏi lại cùng một câu ngay sau đó chỉ vì chưa thích câu trả lời.</li>
+        </ol>
+        <h3>Sửa những câu hỏi thường gặp</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Câu ban đầu</th><th>Sửa thành</th><th>Vì sao</th></tr></thead>
+          <tbody>
+            <tr><td>Anh ấy có yêu tôi không?</td><td>Tôi nên nhìn mối quan hệ này thế nào, và tôi muốn gì từ nó?</td><td>Không đoán suy nghĩ người khác; đặt bạn làm trung tâm.</td></tr>
+            <tr><td>Bao giờ tôi có việc mới?</td><td>Tôi cần chuẩn bị gì để tìm được công việc phù hợp?</td><td>Tarot không đoán thời điểm.</td></tr>
+            <tr><td>Tôi có nên nghỉ việc không?</td><td>Tôi nên cân nhắc gì khi chọn giữa ở lại và nghỉ việc? (trải Hai lựa chọn)</td><td>Biến câu có/không thành so sánh hai hướng.</td></tr>
+            <tr><td>Năm nay tôi có giàu không?</td><td>Thói quen nào giúp tài chính của tôi tốt hơn trong năm nay?</td><td>Hướng vào điều bạn làm được.</td></tr>
+            <tr><td>Chuyện gì sẽ xảy ra với tôi?</td><td>Tôi cần chú ý điều gì trong công việc tháng này?</td><td>Quá rộng; thêm chủ đề và thời gian.</td></tr>
+            <tr><td>Bạn thân có nói xấu tôi không? Tôi có nên nghỉ chơi không?</td><td>Tôi có thể làm gì để tình bạn này rõ ràng hơn?</td><td>Hai câu một lúc, lại đoán ý người khác.</td></tr>
+          </tbody></table></div>
+        <h3>Ghép câu hỏi với kiểu trải</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>Bạn muốn</th><th>Kiểu trải nên dùng</th></tr></thead>
+          <tbody>
+            <tr><td>Một lời nhắn nhanh, câu hỏi hằng ngày</td><td>Một lá</td></tr>
+            <tr><td>Hiểu một chuyện đã và đang diễn biến ra sao</td><td>Ba lá: Thời gian</td></tr>
+            <tr><td>Biết nên làm gì tiếp theo</td><td>Ba lá: Hành động</td></tr>
+            <tr><td>Nhìn lại một mối quan hệ</td><td>Mối quan hệ</td></tr>
+            <tr><td>Chọn giữa A và B</td><td>Hai lựa chọn (ghi rõ A, B trong câu hỏi)</td></tr>
+            <tr><td>Chuyện nhiều mặt, cần nhìn kỹ</td><td>Móng ngựa hoặc Celtic Cross</td></tr>
+          </tbody></table></div>
+        <p class="small">Trong tab Rút bài, ô câu hỏi tự kiểm tra khi bạn gõ, gợi ý kiểu trải và có sẵn câu hỏi mẫu theo chủ đề.</p>
+        <div class="qa">
+          <div class="box good"><h3>Nên hỏi</h3><ul>
+            <li>Tôi cần hiểu điều gì về công việc hiện tại?</li>
+            <li>Làm sao để tôi cải thiện cách nói chuyện với mẹ?</li>
+            <li>Điều gì đang cản tôi hoàn thành dự án này?</li>
+            <li>Tôi nên nhìn mối quan hệ này theo cách nào?</li></ul></div>
+          <div class="box bad"><h3>Nên tránh</h3><ul>
+            <li>“Anh ấy có yêu tôi không?” Câu hỏi về suy nghĩ người khác và chỉ có có/không.</li>
+            <li>“Bao giờ tôi trúng số?” Câu hỏi về thời điểm chính xác.</li>
+            <li>Hỏi lại cùng một câu nhiều lần cho đến khi ra đáp án mình muốn.</li>
+            <li>Câu hỏi thay cho chẩn đoán bệnh, tư vấn pháp lý hay tài chính.</li></ul></div>
+        </div>
+      </section>
+
+      <section id="g-methods">
+        <span class="eyebrow">Phần 5</span>
+        <h2>Các phương pháp giải bài</h2>
+        <p>Người đọc giỏi thường kết hợp nhiều lớp. Bắt đầu từ lớp 1 và 2, thêm dần các lớp còn lại khi đã quen.</p>
+        <div class="methods">
+          <div class="box"><span class="eyebrow">Lớp 1</span><h3>Nghĩa truyền thống</h3><p>Mỗi lá có bộ từ khóa xuôi và ngược đã được nhiều thế hệ dùng. Đây là nền tảng. Tab Tra cứu có đủ 78 lá.</p></div>
+          <div class="box"><span class="eyebrow">Lớp 2</span><h3>Vị trí × lá</h3><p>Cùng một lá nhưng đọc khác nhau tùy vị trí. Tòa Tháp ở “Quá khứ” là biến cố đã qua; ở “Lời khuyên” là hãy chủ động phá bỏ cái không còn đúng.</p></div>
+          <div class="box"><span class="eyebrow">Lớp 3</span><h3>Hình ảnh và trực giác</h3><p>Với bộ có tranh, để ý màu sắc, nhân vật nhìn về đâu, lá nào “quay lưng” với lá nào. Ấn tượng đầu tiên thường có giá trị.</p></div>
+          <div class="box"><span class="eyebrow">Lớp 4</span><h3>Kể chuyện</h3><p>Nối các lá thành một mạch: chuyện bắt đầu thế nào, đang vướng ở đâu, dẫn đến đâu. Đọc rời từng lá dễ ra kết luận mâu thuẫn.</p></div>
+          <div class="box"><span class="eyebrow">Lớp 5</span><h3>Số học</h3><p>Nhiều lá cùng số là tín hiệu mạnh. Ví dụ ba lá số 5 cho thấy một giai đoạn biến động, xung đột. Số Ẩn Chính cũng có thể cộng rút gọn: XIII → 1+3 = 4 (Hoàng Đế).</p></div>
+          <div class="box"><span class="eyebrow">Lớp 6</span><h3>Tương quan nguyên tố</h3><p>Phương pháp của Golden Dawn, dùng nhiều với bộ Thoth. Cùng nguyên tố thì củng cố nhau. Lửa và Khí hỗ trợ nhau, Nước và Đất hỗ trợ nhau. Lửa và Nước, Khí và Đất đối nghịch, làm yếu nghĩa của nhau.</p></div>
+          <div class="box"><span class="eyebrow">Lớp 7</span><h3>Đếm tỷ lệ</h3><p>Hơn nửa là Ẩn Chính: chuyện mang tính bước ngoặt. Một chất áp đảo: lĩnh vực đó là trọng tâm. Nhiều lá triều đình: nhiều người liên quan. Thiếu hẳn một nguyên tố: có thể bạn đang bỏ quên mặt đó.</p></div>
+        </div>
+      </section>
+
+      <section id="g-reversed">
+        <span class="eyebrow">Phần 6</span>
+        <h2>Lá ngược</h2>
+        <p>Lá ngược xuất hiện khi lá bài nằm lộn đầu sau khi xáo. Không phải người đọc nào cũng dùng. Nếu dùng, hãy chọn một cách đọc trước khi trải và giữ nhất quán.</p>
+        <div class="rev-ways">
+          <div><b>Bị chặn</b>Năng lượng của lá có mặt nhưng bị cản trở, chưa thể hiện ra được.</div>
+          <div><b>Hướng vào trong</b>Chủ đề của lá diễn ra trong suy nghĩ, cảm xúc riêng, chưa lộ ra ngoài.</div>
+          <div><b>Thiếu hoặc thừa</b>Nghĩa xuôi bị đẩy quá mức hoặc chưa đủ. Sức Mạnh ngược là thiếu tự tin, hoặc cố gồng.</div>
+          <div><b>Chậm lại</b>Điều lá báo hiệu sẽ đến muộn hơn hoặc đang dần qua đi.</div>
+          <div><b>Không dùng</b>Đọc mọi lá theo chiều xuôi và để các lá xung quanh (tương quan nguyên tố) quyết định sắc thái tốt hay xấu.</div>
+        </div>
+      </section>
+
+      <section id="g-spreads">
+        <span class="eyebrow">Phần 7</span>
+        <h2>Các kiểu trải bài</h2>
+        <p>Số trên sơ đồ là thứ tự đặt và lật bài.</p>
+        <div class="spread-cards" id="guide-spreads"></div>
+      </section>
+
+      <section id="g-example">
+        <span class="eyebrow">Phần 8</span>
+        <h2>Ví dụ đọc 3 lá</h2>
+        <p class="callout"><b>Câu hỏi:</b> “Tôi nên tập trung vào điều gì trong công việc tháng này?” · Trải Quá khứ · Hiện tại · Tương lai</p>
+        <div class="example" id="example"></div>
+        <div class="box">
+          <h3>Tổng hợp</h3>
+          <p>Một Ẩn Chính nằm ở giữa, nên trọng tâm là một bài học nội tâm, không phải biến cố bên ngoài. Bài đi từ Khí (tranh cãi, lời nói) sang Đất (việc cụ thể). Theo tương quan nguyên tố, Khí và Đất đối nghịch: muốn đi tiếp phải chuyển năng lượng từ tranh luận sang làm.</p>
+          <p><b>Lời khuyên rút ra:</b> bớt cố thắng trong các cuộc tranh luận, dành tháng này để mài giũa chuyên môn bằng những việc nhỏ, làm thật kỹ.</p>
+        </div>
+      </section>
+
+      <section id="g-ethics">
+        <span class="eyebrow">Phần 9</span>
+        <h2>Lưu ý khi dùng</h2>
+        <ul>
+          <li>Hãy xem tarot là công cụ để suy ngẫm và nhìn vấn đề từ góc khác. Lá bài cho thấy xu hướng, không quyết định số phận.</li>
+          <li>Không dùng tarot thay cho bác sĩ, luật sư hay chuyên gia tài chính. Với chuyện sức khỏe tinh thần nghiêm trọng, hãy tìm người có chuyên môn.</li>
+          <li>Lá Cái Chết, Tòa Tháp hay 10 Kiếm hiếm khi mang nghĩa đen. Đừng dùng chúng để dọa mình hay người khác.</li>
+          <li>Khi đọc cho người khác, hỏi trước họ muốn biết điều gì và tôn trọng quyền không muốn biết.</li>
+          <li>Ghi chép đều đặn. Sau vài tuần, đọc lại nhật ký giúp bạn hiểu các lá theo trải nghiệm của chính mình.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRA CỨU ============ -->
+<section id="view-tra-cuu" class="view" hidden>
+  <div class="sec-head" style="margin-top:0;margin-bottom:14px"><h2>Tra cứu 78 lá</h2><span class="count" id="lookup-count"></span></div>
+  <div class="lookup-bar">
+    <input type="search" id="lookup-q" placeholder="Tìm tên lá hoặc từ khóa, ví dụ: tình yêu">
+    <div class="filters" id="filters"></div>
+  </div>
+  <div class="grid78" id="grid78"></div>
+</section>
+
+<!-- ============ NHẬT KÝ ============ -->
+<section id="view-nhat-ky" class="view" hidden>
+  <div class="sec-head" style="margin-top:0;margin-bottom:14px"><h2>Nhật ký trải bài</h2><span class="small">Lưu trong trình duyệt này, chỉ bạn thấy</span></div>
+  <div id="journal"></div>
+</section>
+</main>
+</div>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="ov-panel" role="dialog" aria-modal="true" aria-labelledby="ov-title">
+    <button class="ov-close" id="ov-close" aria-label="Đóng">×</button>
+    <div class="big" id="ov-card"></div>
+    <div class="ov-body" id="ov-body"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+
+/* ---------------- DATA ---------------- */
+const SUITS = {
+  W:{name:'Gậy', en:'Wands', el:'Lửa', key:'fire', area:'đam mê, hành động, sự nghiệp, dự án'},
+  C:{name:'Cốc', en:'Cups', el:'Nước', key:'water', area:'cảm xúc, tình yêu, các mối quan hệ'},
+  S:{name:'Kiếm', en:'Swords', el:'Khí', key:'air', area:'suy nghĩ, lời nói, quyết định, xung đột'},
+  P:{name:'Tiền', en:'Pentacles', el:'Đất', key:'earth', area:'tiền bạc, công việc, sức khỏe, vật chất'}
+};
+const RANK_VN = {1:'Át',11:'Thị Đồng',12:'Hiệp Sĩ',13:'Hoàng Hậu',14:'Vua'};
+const RANK_EN = ['','Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Page','Knight','Queen','King'];
+const NUM = {1:'Khởi đầu, hạt giống, tiềm năng',2:'Cân bằng, lựa chọn, đối tác',3:'Phát triển, sáng tạo, hợp tác',4:'Ổn định, cấu trúc, nền móng',5:'Xung đột, mất cân bằng, thay đổi',6:'Hài hòa, phục hồi, cho và nhận',7:'Thử thách, đánh giá, chiều sâu',8:'Chuyển động, làm chủ, sức mạnh',9:'Gần hoàn tất, đỉnh điểm',10:'Kết thúc chu kỳ, trọn vẹn, chuyển giao'};
+const COURT = {11:'Người học việc, tin tức, sự tò mò; năng lượng mới chớm',12:'Hành động, chuyển động, theo đuổi đến cùng',13:'Làm chủ từ bên trong, nuôi dưỡng, thấu hiểu',14:'Làm chủ bên ngoài, lãnh đạo, chịu trách nhiệm'};
+
+// [tên, tên Anh, từ khóa xuôi, từ khóa ngược, nghĩa xuôi, nghĩa ngược, tương ứng Golden Dawn]
+const MAJ = [
+ ['Kẻ Khờ','The Fool','khởi đầu mới, tự do, hồn nhiên, liều lĩnh','bất cẩn, sợ bước đi, liều thiếu suy nghĩ','Một hành trình mới mở ra. Hãy bước tới với tâm thế cởi mở, chấp nhận rằng mình chưa biết hết.','Hoặc bạn đang lao đi mà thiếu chuẩn bị, hoặc nỗi sợ khiến bạn không dám bắt đầu.','Khí (hiện đại: Thiên Vương)'],
+ ['Nhà Ảo Thuật','The Magician','ý chí, kỹ năng, biến ý tưởng thành hiện thực','tài năng bị bỏ phí, thao túng, thiếu tập trung','Bạn có đủ công cụ trong tay. Đây là lúc tập trung ý chí và hành động.','Năng lực có nhưng chưa được dùng đúng chỗ; cẩn thận với lời hứa hào nhoáng.','Sao Thủy'],
+ ['Nữ Tư Tế','The High Priestess','trực giác, bí ẩn, tiềm thức, lắng nghe','phớt lờ trực giác, bí mật, rối trí','Câu trả lời nằm bên trong. Hãy chậm lại và lắng nghe cảm nhận của chính mình.','Bạn đang bỏ qua tiếng nói bên trong, hoặc có điều chưa được nói ra.','Mặt Trăng'],
+ ['Nữ Hoàng','The Empress','nuôi dưỡng, sung túc, sáng tạo, gần gũi thiên nhiên','bỏ bê bản thân, phụ thuộc, bế tắc sáng tạo','Giai đoạn sinh sôi: chăm sóc ý tưởng, mối quan hệ và cơ thể sẽ cho quả ngọt.','Bạn cho đi quá nhiều mà quên nuôi dưỡng chính mình.','Sao Kim'],
+ ['Hoàng Đế','The Emperor','cấu trúc, kỷ luật, quyền lực, bảo vệ','độc đoán, cứng nhắc, mất kiểm soát','Cần trật tự, kế hoạch rõ ràng và trách nhiệm. Hãy xây nền móng vững.','Kiểm soát quá mức hoặc thiếu kỷ luật đang gây hại.','Bạch Dương'],
+ ['Giáo Hoàng','The Hierophant','truyền thống, niềm tin, người thầy, khuôn phép','phá lệ, nghi ngờ khuôn mẫu, tự tìm đường','Học từ người đi trước, đi theo hệ thống hoặc giá trị đã được kiểm chứng.','Khuôn phép cũ không còn hợp; bạn muốn tự đặt luật chơi.','Kim Ngưu'],
+ ['Những Người Yêu Nhau','The Lovers','tình yêu, hòa hợp, lựa chọn theo giá trị','lệch giá trị, mất cân bằng, chọn sai','Một lựa chọn quan trọng, thường về tình cảm hoặc giá trị sống. Chọn bằng cả trái tim và sự thật.','Có sự lệch pha giữa bạn và người khác, hoặc giữa điều bạn muốn và điều bạn làm.','Song Tử'],
+ ['Cỗ Xe','The Chariot','quyết tâm, chiến thắng, làm chủ hướng đi','mất phương hướng, giằng co, thiếu kiểm soát','Kết hợp các lực đối lập và tiến lên bằng ý chí.','Bạn bị kéo về nhiều hướng; cần xác định lại đích đến.','Cự Giải'],
+ ['Sức Mạnh','Strength','can đảm, kiên nhẫn, dịu dàng mà vững','tự ti, nóng giận, để cảm xúc lấn át','Sức mạnh thật đến từ sự bình tĩnh và lòng trắc ẩn, không phải từ sức ép.','Nghi ngờ bản thân, hoặc đang để cảm xúc chi phối.','Sư Tử'],
+ ['Ẩn Sĩ','The Hermit','tĩnh lặng, tự soi, tìm kiếm chân lý','cô lập, trốn tránh, cô đơn','Lùi lại một bước để suy ngẫm; câu trả lời đến trong yên tĩnh.','Rút lui đã thành cô lập; đến lúc kết nối lại với mọi người.','Xử Nữ'],
+ ['Bánh Xe Số Phận','Wheel of Fortune','chu kỳ, bước ngoặt, may mắn, vận động','lặp lại vòng cũ, kháng cự thay đổi, vận xui','Hoàn cảnh đang xoay chuyển. Hãy linh hoạt và nắm lấy cơ hội.','Bạn đang lặp lại một khuôn mẫu cũ hoặc chống lại thay đổi không tránh được.','Sao Mộc'],
+ ['Công Lý','Justice','công bằng, sự thật, nhân quả, trách nhiệm','bất công, né trách nhiệm, thiếu trung thực','Mọi lựa chọn đều có hệ quả. Hãy hành động trung thực và cân nhắc kỹ.','Có điều chưa công bằng, hoặc bạn chưa nhìn thẳng vào phần trách nhiệm của mình.','Thiên Bình'],
+ ['Người Treo Ngược','The Hanged Man','tạm dừng, buông bỏ, góc nhìn mới, hy sinh','trì hoãn, bế tắc, hy sinh vô ích','Dừng lại và nhìn sự việc từ góc khác; buông bớt kiểm soát.','Sự chờ đợi kéo quá lâu; bạn đang kẹt mà không học được gì.','Nước (hiện đại: Hải Vương)'],
+ ['Cái Chết','Death','kết thúc, chuyển hóa, khép lại để mở ra','níu kéo, sợ thay đổi, chuyển hóa dang dở','Hiếm khi mang nghĩa đen. Một giai đoạn kết thúc để điều mới bắt đầu.','Bạn đang cố giữ một thứ đã hết thời.','Bọ Cạp'],
+ ['Tiết Độ','Temperance','cân bằng, điều độ, kiên nhẫn, hòa trộn','thái quá, mất cân bằng, nóng vội','Tìm điểm giữa, phối hợp các yếu tố từ từ, đúng liều lượng.','Có điều gì đó đang quá đà hoặc thiếu hài hòa.','Nhân Mã'],
+ ['Ác Quỷ','The Devil','ràng buộc, cám dỗ, nghiện, ham muốn vật chất','thoát ra, tỉnh ngộ, phá xiềng xích','Bạn bị trói bởi một thói quen, nỗi sợ hay ham muốn. Xiềng xích thường lỏng hơn bạn nghĩ.','Bạn nhận ra sự ràng buộc và bắt đầu gỡ bỏ.','Ma Kết'],
+ ['Tòa Tháp','The Tower','biến cố bất ngờ, sụp đổ, thức tỉnh','trì hoãn thay đổi tất yếu, sụp đổ âm thầm','Cấu trúc dựng trên nền sai đang đổ. Đau, nhưng giải phóng.','Bạn đang trì hoãn một thay đổi tất yếu, hoặc biến động diễn ra âm thầm bên trong.','Sao Hỏa'],
+ ['Ngôi Sao','The Star','hy vọng, chữa lành, cảm hứng, niềm tin','mất niềm tin, chán nản, mất kết nối','Sau giông bão là sự hồi phục. Hãy tin vào tương lai và chăm sóc bản thân.','Bạn đang mất hy vọng; hãy tìm lại những điều nhỏ nuôi dưỡng tinh thần.','Bảo Bình'],
+ ['Mặt Trăng','The Moon','ảo ảnh, lo âu, tiềm thức, mơ hồ','sáng tỏ dần, nỗi sợ lùi bước, sự thật lộ ra','Mọi thứ chưa như vẻ ngoài. Đi chậm, tin trực giác nhưng kiểm chứng sự thật.','Màn sương tan dần; điều mập mờ bắt đầu rõ ra.','Song Ngư'],
+ ['Mặt Trời','The Sun','niềm vui, thành công, rõ ràng, sức sống','niềm vui bị che, lạc quan quá mức, thành công chậm','Một trong những lá tích cực nhất: rõ ràng, ấm áp, thành công.','Niềm vui vẫn có nhưng tạm thời bị mây che.','Mặt Trời'],
+ ['Phán Xét','Judgement','thức tỉnh, đánh giá lại, tiếng gọi, tái sinh','tự phán xét, nghi ngờ, bỏ qua tiếng gọi','Nhìn lại chặng đường, tha thứ và đáp lại tiếng gọi mới.','Bạn đang quá khắt khe với bản thân, hoặc né một quyết định quan trọng.','Lửa (hiện đại: Diêm Vương)'],
+ ['Thế Giới','The World','hoàn thành, viên mãn, trọn vẹn, hội nhập','dang dở, thiếu khép lại, đi đường tắt','Một chu kỳ hoàn tất trọn vẹn; hãy ghi nhận thành quả trước khi bước tiếp.','Còn một mảnh ghép chưa xong; đừng vội bỏ qua bước cuối.','Sao Thổ']
+];
+
+// [từ khóa xuôi, từ khóa ngược, nghĩa xuôi, nghĩa ngược] cho Át..10, Thị Đồng, Hiệp Sĩ, Hoàng Hậu, Vua
+const MIN = {
+W:[
+ ['cảm hứng, khởi đầu, tiềm năng','trì hoãn, thiếu động lực','Một tia lửa mới: ý tưởng hay dự án đầy năng lượng đang chờ bạn bắt tay vào.','Năng lượng có nhưng chưa có lối ra; ý tưởng còn mơ hồ hoặc bạn đang chần chừ.'],
+ ['lên kế hoạch, tầm nhìn, chọn hướng','sợ thay đổi, kế hoạch mơ hồ','Bạn đang nhìn ra thế giới rộng hơn và cần quyết định sẽ mở rộng theo hướng nào.','Nỗi sợ rời vùng an toàn khiến kế hoạch dậm chân tại chỗ.'],
+ ['mở rộng, nhìn xa, tín hiệu đầu tiên','chậm trễ, thiếu chuẩn bị','Những gì đã gieo bắt đầu cho tín hiệu tốt; hãy nghĩ dài hạn.','Kết quả đến chậm hơn kỳ vọng; xem lại khâu chuẩn bị.'],
+ ['ăn mừng, ổn định, mái ấm','bất ổn trong nhà, thiếu gắn kết','Một cột mốc đáng ăn mừng cùng những người thân thiết.','Niềm vui bị gián đoạn, hoặc bạn thấy mình chưa thực sự thuộc về nơi này.'],
+ ['cạnh tranh, va chạm, bất đồng','né xung đột, giằng co nội tâm','Nhiều ý kiến va vào nhau; cạnh tranh có ích nếu mọi người cùng luật chơi.','Bạn né tránh mâu thuẫn, hoặc xung đột đã chuyển vào bên trong.'],
+ ['chiến thắng, được công nhận','tự cao, thiếu ghi nhận','Nỗ lực của bạn được ghi nhận công khai.','Lời khen chưa tới, hoặc thành công khiến bạn chủ quan.'],
+ ['giữ vững lập trường, phòng thủ','kiệt sức, muốn buông','Bạn đang phải bảo vệ điều mình tin; vị trí của bạn vẫn có lợi thế.','Áp lực từ nhiều phía khiến bạn muốn bỏ cuộc.'],
+ ['tốc độ, tin tức, tiến triển nhanh','tắc nghẽn, vội vàng','Mọi thứ chuyển động nhanh; tin tức hoặc cơ hội đến dồn dập.','Tiến độ bị kẹt, hoặc bạn đang vội quá mức cần thiết.'],
+ ['kiên cường, đề phòng, gần đích','mệt mỏi, đa nghi','Bạn đã qua nhiều thử thách và vẫn đứng vững; chỉ còn một chặng nữa.','Kiệt sức và đề phòng quá mức khiến bạn khép mình với người khác.'],
+ ['gánh nặng, quá tải trách nhiệm','buông bớt, ủy thác','Bạn đang ôm quá nhiều việc trên vai.','Đã đến lúc đặt bớt gánh nặng xuống hoặc nhờ người khác chia sẻ.'],
+ ['tò mò, khám phá, tin vui','thiếu định hướng, cả thèm chóng chán','Tinh thần ham học hỏi, sẵn sàng thử điều mới.','Nhiều ý tưởng nhưng thiếu kiên trì đi đến cùng.'],
+ ['phiêu lưu, hành động táo bạo','bốc đồng, nóng nảy','Lao vào hành động với nhiệt huyết lớn, có thể là một chuyến đi hay một bước nhảy.','Hành động trước khi nghĩ; năng lượng mạnh nhưng thiếu kiểm soát.'],
+ ['tự tin, ấm áp, quyết đoán','ghen tị, bất an, nóng tính','Một người (hoặc một phần trong bạn) tự tin, cuốn hút và truyền lửa cho người khác.','Sự tự tin lung lay, dễ biến thành ghen tị hoặc kiểm soát.'],
+ ['lãnh đạo, tầm nhìn, dám làm','độc đoán, kỳ vọng phi thực tế','Người có tầm nhìn và dám chịu trách nhiệm dẫn dắt.','Muốn mọi người theo ý mình; tầm nhìn lớn nhưng thiếu thực tế.']],
+C:[
+ ['tình cảm mới, mở lòng, trực giác','kìm nén cảm xúc, cạn kiệt','Trái tim mở ra: một tình cảm, tình bạn hay cảm hứng mới đang tràn tới.','Cảm xúc bị dồn nén, hoặc bạn đã cho đi đến cạn kiệt.'],
+ ['kết đôi, hòa hợp, đồng điệu','lệch nhịp, rạn nứt','Hai người gặp nhau ở sự tôn trọng và đồng cảm.','Mối quan hệ mất cân bằng; một bên cho nhiều hơn bên kia.'],
+ ['bạn bè, ăn mừng, cộng đồng','tách nhóm, vui chơi quá đà','Niềm vui được chia sẻ cùng bạn bè; cộng đồng nâng đỡ bạn.','Vui chơi quá mức, hoặc có người thứ ba làm xáo trộn nhóm.'],
+ ['thờ ơ, chán nản, bỏ lỡ','tỉnh ra, đón nhận lại','Bạn chán những gì đang có và chưa thấy cơ hội đang được đưa tới.','Bạn bắt đầu thoát khỏi trạng thái thờ ơ và mở lòng trở lại.'],
+ ['mất mát, tiếc nuối','chấp nhận, chữa lành','Bạn đang nhìn vào những gì đã đổ vỡ; vẫn còn hai chiếc cốc đứng sau lưng.','Bạn bắt đầu chấp nhận mất mát và quay lại với điều còn lại.'],
+ ['kỷ niệm, tuổi thơ, hồn nhiên','mắc kẹt trong quá khứ','Ký ức đẹp, người cũ hoặc sự hồn nhiên quay trở lại.','Hoài niệm khiến bạn khó sống trọn với hiện tại.'],
+ ['nhiều lựa chọn, mơ mộng, ảo tưởng','tỉnh táo, chọn rõ ràng','Quá nhiều lựa chọn hấp dẫn, nhưng không phải lựa chọn nào cũng thật.','Bạn gạt bớt ảo tưởng và chọn được điều thực tế.'],
+ ['rời đi, tìm ý nghĩa sâu hơn','sợ rời bỏ, lưỡng lự','Bạn sẵn sàng bỏ lại điều không còn nuôi dưỡng mình để đi tìm điều sâu hơn.','Biết nên đi nhưng vẫn chần chừ ở lại.'],
+ ['mãn nguyện, điều ước thành','tự mãn, hài lòng hời hợt','Lá bài “điều ước”: bạn hài lòng với những gì đạt được.','Sự hài lòng bề ngoài che đi một khoảng trống bên trong.'],
+ ['hạnh phúc gia đình, viên mãn','bất hòa, kỳ vọng lý tưởng hóa','Hạnh phúc trọn vẹn về tình cảm, gia đình hòa thuận.','Hình ảnh gia đình lý tưởng không khớp với thực tế.'],
+ ['tin nhắn tình cảm, nhạy cảm, sáng tạo','thất thường, non nớt cảm xúc','Một lời mời, tin nhắn hay ý tưởng sáng tạo bất ngờ.','Cảm xúc thất thường, dễ tổn thương vì chuyện nhỏ.'],
+ ['lãng mạn, lời mời, theo đuổi lý tưởng','hão huyền, hứa suông','Người theo đuổi bằng trái tim, mang đến lời đề nghị lãng mạn.','Lãng mạn nhưng thiếu thực tế; lời hứa khó thành.'],
+ ['thấu cảm, dịu dàng, trực giác','phụ thuộc, quá nhạy cảm','Sự thấu hiểu và chăm sóc cảm xúc sâu sắc.','Bạn hấp thụ cảm xúc của người khác đến mức quên mình.'],
+ ['điềm tĩnh, cân bằng cảm xúc','lạnh lùng, thao túng cảm xúc','Người làm chủ cảm xúc, bình tĩnh giữa sóng gió.','Kìm nén cảm xúc đến lạnh lùng, hoặc dùng cảm xúc để điều khiển người khác.']],
+S:[
+ ['sáng suốt, sự thật, đột phá','rối trí, thông tin sai','Một ý tưởng sắc bén cắt qua màn sương; sự thật lộ rõ.','Suy nghĩ rối hoặc thông tin bị bóp méo.'],
+ ['do dự, bế tắc, né tránh','quá tải thông tin, buộc phải chọn','Bạn đang tự bịt mắt trước một quyết định khó.','Không thể trì hoãn nữa; thông tin dồn dập buộc bạn phải chọn.'],
+ ['đau lòng, tổn thương, chia ly','hồi phục, tha thứ','Nỗi đau rõ ràng; cần thừa nhận nó thay vì lảng tránh.','Vết thương bắt đầu lành; bạn sẵn sàng buông bỏ.'],
+ ['nghỉ ngơi, hồi sức, tĩnh lặng','bồn chồn, kiệt sức','Đã đến lúc nghỉ ngơi để hồi sức trước chặng tiếp theo.','Bạn không cho mình nghỉ, hoặc nghỉ quá lâu thành trì trệ.'],
+ ['thắng bằng mọi giá, mâu thuẫn','hòa giải, rút lui','Một cuộc tranh cãi có người thắng nhưng không ai thực sự vui.','Muốn làm hòa, hoặc rút khỏi một cuộc chiến vô ích.'],
+ ['chuyển tiếp, rời xa khó khăn','kẹt lại, mang theo gánh cũ','Bạn đang rời khỏi vùng nước động để tới nơi bình yên hơn.','Muốn đi nhưng vẫn mang theo gánh nặng cũ.'],
+ ['chiến thuật, lén lút, một mình','bị lộ, thú nhận','Có điều đang được làm âm thầm; hãy cân nhắc tính trung thực.','Bí mật bị lộ, hoặc bạn quyết định nói ra.'],
+ ['tự giới hạn, thấy mắc kẹt','tự giải phóng, góc nhìn mới','Bạn thấy bị trói, nhưng dây trói phần lớn nằm trong suy nghĩ.','Bạn nhận ra lối thoát và bắt đầu bước ra.'],
+ ['lo âu, mất ngủ, sợ hãi','lo âu dịu bớt, tìm trợ giúp','Nỗi lo lớn hơn thực tế, nhất là vào ban đêm.','Nỗi sợ dịu đi khi bạn chia sẻ với ai đó.'],
+ ['chạm đáy, kết thúc đau','hồi phục, qua cơn tệ nhất','Một chuyện đã kết thúc hẳn; từ đáy chỉ có thể đi lên.','Bạn đang dần đứng dậy sau cú ngã.'],
+ ['tò mò, quan sát, ham tìm hiểu','nói không suy nghĩ, buôn chuyện','Tinh thần học hỏi sắc sảo, đặt nhiều câu hỏi.','Lời nói nhanh hơn suy nghĩ; coi chừng thị phi.'],
+ ['quyết liệt, thẳng thắn, lao tới','hấp tấp, gây hấn','Lao thẳng vào mục tiêu với lý lẽ sắc bén.','Nói hoặc làm quá vội, làm tổn thương người khác.'],
+ ['rõ ràng, độc lập, ranh giới','lạnh lùng, cay nghiệt','Nhìn thẳng sự thật, đặt ranh giới rõ ràng.','Sự sắc sảo trở thành lời phán xét lạnh lùng.'],
+ ['lý trí, công bằng, uy tín trí tuệ','cứng nhắc, thao túng','Người ra quyết định dựa trên lý lẽ và nguyên tắc.','Dùng lý lẽ để áp đặt, lạnh lùng thiếu cảm thông.']],
+P:[
+ ['cơ hội tài chính, khởi đầu vững','lỡ cơ hội, kế hoạch kém','Một cơ hội cụ thể: việc mới, khoản thu hoặc nền tảng vật chất.','Cơ hội bị bỏ lỡ, hoặc kế hoạch tài chính chưa chắc chắn.'],
+ ['cân bằng, linh hoạt, xoay xở','quá tải, mất cân đối','Bạn đang tung hứng nhiều việc và vẫn giữ được nhịp.','Quá nhiều việc cùng lúc; cần chọn ưu tiên.'],
+ ['hợp tác, tay nghề, làm nhóm','thiếu phối hợp','Tay nghề được công nhận nhờ làm việc cùng người khác.','Nhóm không cùng nhịp, mỗi người một hướng.'],
+ ['giữ chặt, tiết kiệm, an toàn','keo kiệt, sợ mất','Bạn bảo vệ những gì mình có và cần cảm giác an toàn.','Giữ quá chặt khiến dòng chảy bị tắc.'],
+ ['khó khăn vật chất, bị bỏ rơi','hồi phục, nhận trợ giúp','Giai đoạn thiếu thốn; sự giúp đỡ có thể ở ngay gần nhưng bạn chưa thấy.','Khó khăn qua dần; bạn chịu mở lời nhờ giúp.'],
+ ['cho và nhận, hào phóng','nợ nần, cho có điều kiện','Dòng chảy cho và nhận cân bằng; lòng hào phóng được đáp lại.','Sự giúp đỡ đi kèm điều kiện, hoặc quyền lực mất cân bằng.'],
+ ['kiên nhẫn, đầu tư dài hạn, đánh giá','nóng vội, đầu tư kém hiệu quả','Dừng lại đánh giá công sức đã bỏ ra; quả cần thêm thời gian.','Nóng lòng muốn kết quả, hoặc đầu tư vào chỗ không sinh lời.'],
+ ['rèn luyện, chăm chỉ, tay nghề','cầu toàn, làm qua loa','Tập trung mài giũa kỹ năng, làm từng việc thật kỹ.','Hoặc làm cho xong, hoặc cầu toàn đến kiệt sức.'],
+ ['độc lập tài chính, tận hưởng','phụ thuộc, sống quá mức','Thành quả tự tay xây dựng cho bạn sự tự do và thoải mái.','Sự sung túc bề ngoài dựa trên nền chưa vững.'],
+ ['di sản, gia đình, ổn định lâu dài','tranh chấp tài sản, bất ổn','Sự giàu có bền vững, nối tiếp qua nhiều thế hệ.','Mâu thuẫn quanh tiền bạc, tài sản hoặc truyền thống gia đình.'],
+ ['học kỹ năng, cơ hội mới','chần chừ, thiếu tiến bộ','Người học việc nghiêm túc; một cơ hội học tập hoặc việc làm mới.','Có cơ hội nhưng chưa bắt tay vào làm.'],
+ ['chăm chỉ, đáng tin, đều đặn','trì trệ, nhàm chán','Tiến chậm mà chắc, làm đến nơi đến chốn.','Kẹt trong thói quen, chậm đến mức trì trệ.'],
+ ['chăm lo, thực tế, đủ đầy','lo toan quá mức, bỏ bê bản thân','Người vừa thực tế vừa ấm áp, biết lo cho tổ ấm và tài chính.','Lo cho mọi người mà quên chăm sóc chính mình.'],
+ ['thịnh vượng, vững vàng, giỏi làm ăn','tham lam, cứng nhắc vì tiền','Người đã xây được nền tảng vững và biết quản lý tài sản.','Đặt tiền bạc và địa vị lên trên mọi thứ.']]
+};
+
+const CARDS = [];
+MAJ.forEach((m, i) => CARDS.push({id:'M'+i, type:'major', n:i, name:m[0], en:m[1], k:m[2], r:m[3], u:m[4], d:m[5], astro:m[6]}));
+for (const s of 'WCSP') MIN[s].forEach((m, j) => { const n = j + 1;
+  CARDS.push({id:s+n, type:'minor', suit:s, n, name:(RANK_VN[n] || String(n)) + ' ' + SUITS[s].name, en:RANK_EN[n] + ' of ' + SUITS[s].en, k:m[0], r:m[1], u:m[2], d:m[3]}); });
+const BY = Object.fromEntries(CARDS.map(c => [c.id, c]));
+
+// Giải chi tiết: [hình ảnh RWS, tình cảm, công việc & tiền bạc, lời khuyên khi xuôi, lời khuyên khi ngược, câu tự hỏi]
+const DETAIL = {
+M0:['Chàng trai trẻ mang tay nải, cầm bông hồng trắng, ngẩng nhìn trời và sắp bước qua mép vực; chú chó nhỏ nhảy bên chân.','Một mối quan hệ mới, nhẹ nhàng, chưa ràng buộc; hoặc làm mới một mối quan hệ cũ.','Bắt đầu việc mới, đổi ngành, thử điều chưa từng làm. Cẩn thận chi tiêu bốc đồng.','Cứ bắt đầu dù chưa biết hết, nhưng nhìn đường dưới chân.','Trước khi nhảy, kiểm tra lại: bạn đã chuẩn bị tối thiểu chưa?','Nếu không sợ sai, bạn sẽ bắt đầu điều gì?'],
+M1:['Một người giơ đũa lên trời, tay kia chỉ xuống đất; trên bàn có đủ gậy, cốc, kiếm, tiền; trên đầu là biểu tượng vô cực.','Chủ động thể hiện, nói ra điều mình muốn; người có sức hút, khéo ăn nói.','Bạn có đủ kỹ năng để khởi động dự án. Thời điểm tốt để đàm phán, thuyết trình, ra mắt.','Liệt kê những gì bạn đang có trong tay và bắt đầu dùng chúng ngay.','Kiểm tra những lời hứa nghe quá hay, kể cả lời hứa của chính bạn.','Kỹ năng nào của bạn đang bị bỏ phí?'],
+M2:['Người phụ nữ ngồi giữa hai cột đen và trắng, ôm cuộn sách khép hờ, dưới chân là vầng trăng, sau lưng là tấm màn che.','Có cảm xúc chưa được nói ra. Để ý tín hiệu nhỏ, đừng ép câu trả lời.','Chưa phải lúc hành động: quan sát, thu thập thông tin, tin vào linh cảm khi chọn đối tác.','Dành thời gian yên tĩnh, viết ra cảm nhận trước khi quyết định.','Đừng lờ đi cảm giác “có gì đó không ổn”.','Trực giác của bạn đang nói gì mà bạn chưa chịu nghe?'],
+M3:['Người phụ nữ ngồi thư thái giữa cánh đồng lúa chín và rừng cây, đội vương miện mười hai ngôi sao.','Tình cảm ấm áp, chăm sóc lẫn nhau; có thể liên quan chuyện gia đình, con cái.','Dự án đang lớn dần; hợp với việc sáng tạo, chăm sóc khách hàng. Tài chính dồi dào hơn.','Nuôi dưỡng điều bạn muốn phát triển, kể cả cơ thể và tinh thần mình.','Cho mình nghỉ ngơi, đừng chỉ lo cho người khác.','Tuần này bạn đã chăm sóc bản thân thế nào?'],
+M4:['Vị vua râu bạc ngồi trên ngai đá khắc đầu cừu, tay cầm quyền trượng và quả cầu, phía sau là núi đá.','Cần ổn định và cam kết rõ ràng; coi chừng một bên muốn kiểm soát.','Cần cấu trúc, quy trình, kế hoạch. Cấp trên hoặc người có quyền đóng vai trò lớn.','Đặt kế hoạch và kỷ luật cụ thể, rồi giữ lời với chính mình.','Nới lỏng kiểm soát, hoặc ngược lại, lấy lại kỷ luật đã mất.','Chỗ nào trong đời bạn đang cần thêm trật tự?'],
+M5:['Vị giáo chủ ngồi giữa hai cột, giơ tay ban phước cho hai người quỳ bên dưới; dưới chân là hai chìa khóa bắt chéo.','Hướng truyền thống: cam kết, cưới hỏi; ý kiến gia đình có trọng lượng.','Học từ người thầy, theo quy trình chuẩn, làm trong tổ chức lớn. Tốt cho học tập, thi cử.','Tìm một người có kinh nghiệm để hỏi ý kiến.','Tự hỏi quy tắc nào còn đúng với bạn, quy tắc nào chỉ là thói quen.','Bạn đang sống theo luật của ai?'],
+M6:['Một người đàn ông và một người phụ nữ đứng dưới thiên thần tỏa sáng; sau lưng là cây trái và cây lửa.','Tình yêu sâu, sự đồng điệu thật sự; hoặc một lựa chọn quan trọng trong tình cảm.','Hợp tác ăn ý; một quyết định cần dựa trên giá trị bạn coi trọng.','Chọn điều hợp với giá trị của bạn, không chỉ điều dễ chịu lúc này.','Nhìn lại chỗ lệch giữa lời nói và việc làm, của bạn hoặc của người kia.','Điều gì quan trọng với bạn đến mức không thể đánh đổi?'],
+M7:['Chiến binh đứng trên cỗ xe do hai nhân sư một đen một trắng kéo; anh không cầm dây cương mà điều khiển bằng ý chí.','Cần chủ động vượt qua khác biệt; có thể là chuyến đi chung hoặc yêu xa.','Tiến lên mạnh mẽ, thắng cạnh tranh; có thể liên quan xe cộ, đi lại.','Xác định một đích đến duy nhất và dồn sức vào đó.','Dừng lại xác định hướng trước khi tăng tốc.','Hai lực nào trong bạn đang kéo về hai hướng?'],
+M8:['Người phụ nữ áo trắng nhẹ nhàng khép miệng con sư tử; trên đầu là biểu tượng vô cực.','Kiên nhẫn và dịu dàng sẽ hóa giải căng thẳng, đừng dùng ép buộc.','Giữ bình tĩnh trước áp lực; thuyết phục bằng sự mềm mỏng thay vì đối đầu.','Vỗ về cảm xúc mạnh của mình thay vì đánh nhau với nó.','Tin vào khả năng của mình hơn; nghỉ ngơi trước khi bùng nổ.','Bạn có thể mềm mỏng hơn ở đâu mà vẫn vững?'],
+M9:['Ông lão áo xám đứng một mình trên đỉnh núi tuyết, cầm đèn lồng có ngôi sao sáu cánh, tay kia chống gậy.','Cần thời gian riêng để hiểu mình muốn gì; giai đoạn độc thân có ý nghĩa.','Hợp với nghiên cứu, làm việc độc lập, đào sâu chuyên môn; tạm lùi khỏi ồn ào.','Dành thời gian một mình, tắt bớt thông báo, để nghĩ cho rõ.','Gọi cho một người bạn tin tưởng; đừng tự cô lập quá lâu.','Nếu không ai tác động, bạn sẽ tự trả lời câu hỏi này thế nào?'],
+M10:['Bánh xe lớn giữa trời: nhân sư ngồi trên đỉnh, con rắn trượt xuống, Anubis đi lên; bốn góc là bốn sinh vật đang đọc sách.','Bước ngoặt bất ngờ, gặp gỡ tình cờ, hoặc mối quan hệ sang giai đoạn mới.','Cơ hội đến đột ngột, hoàn cảnh đổi chiều; hãy linh hoạt.','Nắm lấy cơ hội đang tới; mọi giai đoạn rồi sẽ qua.','Nhận ra khuôn mẫu bạn cứ lặp lại và thử làm khác đi một lần.','Chu kỳ nào trong đời bạn đang lặp lại?'],
+M11:['Người ngồi thẳng giữa hai cột, tay phải giơ kiếm, tay trái cầm cán cân, mắt nhìn thẳng.','Cân bằng cho và nhận; trung thực là nền tảng; có thể liên quan giấy tờ, hôn nhân.','Hợp đồng, pháp lý, quyết định công bằng; kết quả tương xứng công sức.','Cân nhắc kỹ hai phía, rồi quyết định và chịu trách nhiệm.','Nhìn thẳng phần lỗi của mình, hoặc lên tiếng nếu bị đối xử bất công.','Nếu là người ngoài cuộc công bằng, bạn sẽ phán xử thế nào?'],
+M12:['Một người treo ngược chân trên cây hình chữ T, tay chắp sau lưng, gương mặt bình thản, đầu có hào quang.','Tạm dừng, chờ đợi; thử đặt mình vào vị trí người kia.','Dự án bị hoãn, chờ thời; dùng lúc này để xem lại cách tiếp cận.','Đừng cố đẩy; dừng lại và nhìn chuyện từ góc ngược lại.','Đặt thời hạn cho việc chờ đợi, rồi quyết định.','Nếu nhìn ngược lại, chuyện này trông thế nào?'],
+M13:['Bộ xương mặc giáp cưỡi ngựa trắng, cầm cờ đen có bông hồng trắng; xa xa mặt trời mọc giữa hai tòa tháp.','Một giai đoạn kết thúc: chia tay, hoặc mối quan hệ chuyển sang hình thức khác.','Khép lại công việc, dự án hay cách làm cũ để mở ra cái mới.','Chấp nhận điều đã hết và dọn chỗ cho cái mới.','Hỏi mình: điều gì bạn đang cố níu dù biết đã xong?','Điều gì cần kết thúc để bạn bắt đầu lại?'],
+M14:['Thiên thần một chân dưới nước, một chân trên đất, rót nước qua lại giữa hai chiếc cốc; con đường dẫn tới núi xa.','Hòa hợp, nhường nhịn, chữa lành; cả hai cùng điều chỉnh.','Phối hợp tốt, tiến độ đều; tài chính cân đối, tránh chi tiêu quá đà.','Làm từ từ, đúng liều lượng; tìm điểm giữa thay vì cực đoan.','Tìm chỗ bạn đang làm quá nhiều hoặc quá ít, rồi điều chỉnh.','Điều gì trong đời bạn đang thiếu cân bằng?'],
+M15:['Con quỷ sừng dê ngồi trên bệ, dưới chân là một nam một nữ bị xích cổ; vòng xích lỏng, họ có thể tự tháo ra.','Sức hút mạnh, ghen tuông, phụ thuộc; mối quan hệ khó dứt.','Bị trói vì tiền, nợ hay công việc không thích; cám dỗ làm ăn thiếu minh bạch.','Gọi đúng tên thứ đang trói bạn; xích thường lỏng hơn bạn tưởng.','Giữ vững bước đầu thoát ra và tìm người hỗ trợ.','Thói quen hay nỗi sợ nào đang giữ bạn lại?'],
+M16:['Tòa tháp trên đỉnh núi bị sét đánh, vương miện văng ra, lửa bốc lên, hai người rơi xuống.','Sự thật bất ngờ lộ ra; đổ vỡ hoặc cú sốc giúp làm lại từ đầu.','Biến động lớn: tái cơ cấu, mất việc, kế hoạch sụp; cũng là lúc xây lại cho chắc.','Đừng cố giữ phần đã nứt; giữ an toàn rồi xây lại trên nền thật.','Chủ động thay đổi bây giờ còn đỡ hơn để nó tự sụp sau.','Điều gì trong đời bạn đang được xây trên nền không thật?'],
+M17:['Người phụ nữ quỳ bên hồ, đổ nước từ hai bình, một xuống hồ một lên đất; trên trời có một ngôi sao lớn và bảy sao nhỏ.','Chữa lành sau tổn thương; tình cảm chân thành, nhẹ nhàng, đầy hy vọng.','Cảm hứng trở lại, mục tiêu dài hạn rõ hơn; hợp với nghệ thuật, chữa lành, cộng đồng.','Mỗi ngày làm một việc nhỏ nuôi dưỡng niềm tin của bạn.','Bắt đầu từ việc thật nhỏ: ngủ đủ, ra ngoài, gặp một người bạn.','Điều gì vẫn khiến bạn hy vọng?'],
+M18:['Vầng trăng có gương mặt chiếu xuống con đường giữa hai tòa tháp; chó và sói tru lên, con tôm bò ra từ hồ nước.','Mơ hồ, nghi ngờ, có điều chưa rõ; đừng kết luận khi chưa có bằng chứng.','Thông tin chưa đầy đủ, có thể có lừa dối; kiểm tra kỹ hợp đồng và con số.','Đi chậm và kiểm chứng; phân biệt điều bạn sợ với điều đang thật sự xảy ra.','Sự thật đang lộ ra; hãy đối diện thay vì né.','Nỗi sợ nào đang tô màu cách bạn nhìn tình huống?'],
+M19:['Đứa trẻ cưỡi ngựa trắng dưới mặt trời rực rỡ, phía sau là hàng hoa hướng dương.','Hạnh phúc, cởi mở, vui vẻ; tốt cho gia đình, con cái.','Thành công, được công nhận, mọi thứ rõ ràng.','Cứ tự tin và chia sẻ niềm vui; lúc này hợp để thể hiện mình.','Niềm vui vẫn đó; đừng để chuyện nhỏ che mất nó.','Điều gì làm bạn thấy sống động nhất?'],
+M20:['Thiên thần thổi kèn trên mây; người từ những chiếc quan tài đứng dậy, giang tay đón tiếng gọi.','Nhìn lại và tha thứ; có thể người cũ quay lại, hoặc khép lại hẳn.','Đánh giá lại sự nghiệp; một tiếng gọi về hướng đi đúng với mình hơn.','Nhìn lại chặng đường một cách trung thực rồi trả lời tiếng gọi.','Bớt khắt khe với mình; quyết định tốt vẫn hơn quyết định hoàn hảo.','Bạn đang được gọi để trở thành ai?'],
+M21:['Người múa giữa vòng nguyệt quế, tay cầm hai cây gậy; bốn góc là thiên thần, đại bàng, sư tử và con bò.','Mối quan hệ trọn vẹn, cùng đạt một cột mốc lớn.','Hoàn thành dự án, tốt nghiệp, đạt mục tiêu; có thể liên quan đi nước ngoài.','Ăn mừng và ghi nhận thành quả trước khi bắt đầu vòng mới.','Hoàn tất bước cuối cùng thay vì vội sang việc khác.','Bạn cần hoàn tất điều gì để thật sự khép lại?'],
+W1:['Bàn tay từ đám mây cầm cây gậy đang đâm chồi; xa là lâu đài và dòng sông.','Đam mê mới, sức hút mạnh.','Ý tưởng hay dự án mới đầy năng lượng; hợp để khởi nghiệp, thử sức.','Bắt tay vào ý tưởng trong 48 giờ tới, đừng chỉ nghĩ.','Tìm lại lý do bạn từng hào hứng và bắt đầu bằng một bước nhỏ.','Điều gì khiến bạn hào hứng nhất lúc này?'],
+W2:['Người đứng trên tường thành, tay cầm quả địa cầu, nhìn ra biển xa; một cây gậy cắm bên cạnh.','Cân nhắc tương lai chung, có thể có xa cách địa lý.','Lập kế hoạch mở rộng, cân nhắc chuyển việc hoặc đi xa.','Viết ra hai hướng đi và chọn một.','Vùng an toàn có thể đang thành nhà tù; thử một bước nhỏ ra ngoài.','Bạn muốn mình ở đâu sau một năm?'],
+W3:['Người đứng trên đồi nhìn những con thuyền ra khơi, bên cạnh là ba cây gậy.','Mối quan hệ mở rộng, cùng nhìn về tương lai; có thể yêu xa.','Kết quả bước đầu, mở rộng thị trường, làm việc với đối tác ở xa.','Kiên nhẫn chờ kết quả và chuẩn bị bước tiếp theo.','Xem lại kế hoạch và điều chỉnh kỳ vọng về thời gian.','Bạn đang chờ “con thuyền” nào trở về?'],
+W4:['Bốn cây gậy kết hoa thành cổng, hai người giơ bó hoa ăn mừng, lâu đài phía sau.','Gắn kết, ra mắt gia đình, đám cưới, về chung nhà.','Hoàn thành một giai đoạn, ăn mừng cùng nhóm, môi trường ổn định.','Dành thời gian ăn mừng cùng người thân.','Tìm hiểu điều gì khiến bạn chưa thấy mình “ở nhà”.','Nơi nào cho bạn cảm giác thuộc về?'],
+W5:['Năm người cầm gậy vung loạn xạ, như đang tranh đấu hoặc chơi đùa.','Cãi vã nhỏ, khác biệt quan điểm.','Cạnh tranh, bất đồng trong nhóm, nhiều ý kiến trái chiều.','Đặt luật chơi rõ ràng để tranh luận trở nên có ích.','Nói ra bất đồng một cách bình tĩnh thay vì giữ trong lòng.','Cuộc tranh đấu này có thực sự đáng không?'],
+W6:['Người cưỡi ngựa trắng đội vòng nguyệt quế, đám đông cầm gậy đi theo.','Được trân trọng, tự hào về nhau.','Thăng tiến, được khen, chiến thắng công khai.','Nhận lời khen và chia công với những người đã giúp bạn.','Đừng phụ thuộc vào sự công nhận; tự ghi nhận nỗ lực của mình.','Gần đây bạn tự hào về điều gì?'],
+W7:['Người đứng trên cao cầm gậy chống lại sáu cây gậy từ bên dưới.','Bảo vệ mối quan hệ trước ý kiến của người ngoài.','Giữ vị trí trước cạnh tranh, bảo vệ quan điểm của mình.','Đứng vững; bạn đang ở thế cao hơn bạn nghĩ.','Chọn trận mà đánh; không phải việc gì cũng cần giữ bằng được.','Điều gì đáng để bạn bảo vệ?'],
+W8:['Tám cây gậy bay song song trên bầu trời, lao về phía mặt đất.','Tiến triển nhanh, tin nhắn đến liên tục; có thể là tiếng sét ái tình.','Tin tức, email dồn dập; dự án tăng tốc; đi lại nhiều.','Hành động nhanh khi cơ hội đến.','Kiểm tra lại trước khi gửi; chậm một chút để tránh sai sót.','Việc gì cần bạn phản hồi ngay?'],
+W9:['Người đàn ông băng đầu tựa vào cây gậy, cảnh giác nhìn quanh; sau lưng là hàng rào tám cây gậy.','Từng tổn thương nên dè chừng; hãy mở lòng từng chút.','Mệt nhưng đã gần đích; đừng bỏ ngang.','Cố thêm một chút, nhưng nhớ nghỉ ngơi.','Hãy nghỉ; không phải ai cũng là mối đe dọa.','Bạn còn đủ sức cho chặng cuối không?'],
+W10:['Người còng lưng ôm bó mười cây gậy, lê bước về phía ngôi làng.','Một người gánh hết trách nhiệm trong mối quan hệ; cần chia sẻ.','Quá tải công việc, ôm đồm.','Liệt kê việc đang gánh, rồi bỏ bớt hoặc giao lại một phần.','Đặt xuống thứ không thuộc về mình.','Việc nào bạn có thể nhờ người khác làm?'],
+W11:['Người trẻ đứng giữa sa mạc, chăm chú ngắm cây gậy đang đâm chồi.','Tình cảm mới đầy háo hức, tin nhắn vui.','Ý tưởng mới, học điều mới, tin vui về công việc.','Thử điều mới với tâm thế học hỏi.','Chọn một ý tưởng và theo nó đến cùng.','Bạn đang tò mò về điều gì?'],
+W12:['Hiệp sĩ cưỡi ngựa chồm lên, tay cầm gậy, áo in hình kỳ nhông.','Đam mê mãnh liệt nhưng có thể chóng qua.','Hành động nhanh, chuyển chỗ, khởi động dự án táo bạo.','Dùng nhiệt huyết, nhưng chuẩn bị phương án dự phòng.','Nghĩ hai lần trước khi lao vào.','Bạn đang hào hứng hay đang bốc đồng?'],
+W13:['Nữ hoàng ngồi trên ngai có hình sư tử, cầm gậy và hoa hướng dương; dưới chân là con mèo đen.','Tự tin, cuốn hút, ấm áp.','Dẫn dắt bằng cảm hứng; tự tin thể hiện năng lực.','Tự tin thể hiện mình.','Tự hỏi điều gì làm bạn bất an, thay vì so sánh với người khác.','Lúc nào bạn thấy tự tin nhất?'],
+W14:['Vị vua ngồi trên ngai trang trí sư tử và kỳ nhông, cầm cây gậy đâm chồi, mắt nhìn xa.','Người chủ động, che chở, nhưng cần lắng nghe hơn.','Lãnh đạo, khởi nghiệp, tầm nhìn lớn.','Đặt tầm nhìn và dẫn dắt người khác.','Lắng nghe ý kiến khác trước khi quyết.','Bạn muốn dẫn mọi người đến đâu?'],
+C1:['Bàn tay từ đám mây nâng chiếc cốc tràn năm dòng nước; chim bồ câu bay xuống, mặt hồ đầy hoa sen.','Tình yêu mới, mở lòng, cảm xúc dạt dào.','Công việc mang lại cảm hứng, môi trường thân thiện.','Cho phép mình cảm nhận và đón nhận.','Tìm cách thể hiện cảm xúc thay vì giữ trong lòng.','Trái tim bạn đang muốn điều gì?'],
+C2:['Hai người trao cốc cho nhau, phía trên là biểu tượng đầu sư tử có cánh.','Kết nối đôi lứa, tình yêu cân bằng.','Hợp tác ăn ý, đối tác tốt.','Chủ động kết nối và chia sẻ.','Nói chuyện thẳng thắn về điều đang lệch.','Mối quan hệ này có cân bằng giữa cho và nhận không?'],
+C3:['Ba người phụ nữ nâng cốc nhảy múa giữa vườn quả chín.','Vui vẻ cùng bạn bè; coi chừng người thứ ba.','Tinh thần đồng đội, ăn mừng thành công.','Dành thời gian cho bạn bè.','Xem lại những cuộc vui có làm bạn mệt hơn không.','Ai khiến bạn vui khi ở cạnh?'],
+C4:['Người ngồi dưới gốc cây khoanh tay nhìn ba chiếc cốc; một bàn tay từ mây đưa chiếc cốc thứ tư mà anh không để ý.','Chán nản, thờ ơ; bỏ lỡ sự quan tâm của người khác.','Mất động lực, từ chối cơ hội.','Ngẩng lên: có cơ hội nào đang được đưa tới không?','Nhận lấy cơ hội mới khi bạn đã sẵn sàng.','Bạn đang bỏ lỡ điều gì vì mải nhìn vào điều còn thiếu?'],
+C5:['Người mặc áo choàng đen cúi nhìn ba chiếc cốc đổ; sau lưng còn hai chiếc cốc đứng, xa là cây cầu.','Buồn bã sau mất mát, chia tay.','Thất bại, mất mát, nhưng vẫn còn thứ để làm lại.','Cho phép mình buồn, rồi quay lại nhìn hai chiếc cốc còn đứng.','Bước qua cây cầu: tha thứ và đi tiếp.','Điều gì vẫn còn lại với bạn?'],
+C6:['Hai đứa trẻ trong khu vườn; đứa lớn trao cho đứa nhỏ chiếc cốc cắm hoa.','Người cũ, kỷ niệm, tình cảm trong sáng.','Quay lại việc cũ; công việc liên quan trẻ em hoặc quê nhà.','Dùng ký ức đẹp làm điểm tựa.','Trở về sống với hiện tại.','Kỷ niệm nào đang gọi bạn?'],
+C7:['Người đứng nhìn bảy chiếc cốc lơ lửng trên mây, mỗi cốc chứa một thứ: lâu đài, châu báu, rắn, rồng…','Nhiều lựa chọn, mơ mộng, lý tưởng hóa người kia.','Nhiều hướng đi nhưng thiếu tập trung.','Chọn một hướng và kiểm chứng nó bằng việc thật.','Bám vào lựa chọn thực tế đã rõ.','Lựa chọn nào là thật, lựa chọn nào chỉ là mơ?'],
+C8:['Người khoác áo đỏ quay lưng rời tám chiếc cốc xếp chồng, đi về phía núi dưới ánh trăng.','Rời bỏ mối quan hệ không còn nuôi dưỡng mình.','Bỏ việc để tìm điều có ý nghĩa hơn.','Dũng cảm rời đi khi đã biết.','Viết ra lý do ở lại và lý do ra đi.','Điều gì không còn nuôi dưỡng bạn?'],
+C9:['Người đàn ông ngồi khoanh tay mãn nguyện, sau lưng là chín chiếc cốc xếp hàng.','Hạnh phúc, điều ước thành sự thật.','Đạt mục tiêu, hài lòng với thành quả.','Tận hưởng và biết ơn.','Hỏi mình điều gì sâu hơn mà bạn thực sự cần.','Nếu được ước một điều, bạn ước gì?'],
+C10:['Gia đình đứng dưới cầu vồng mười chiếc cốc; cha mẹ giang tay, hai đứa trẻ nhảy múa.','Gia đình hạnh phúc, cam kết lâu dài.','Môi trường làm việc thân thiết như gia đình.','Trân trọng người thân.','Chấp nhận rằng gia đình không cần hoàn hảo.','Hạnh phúc trọn vẹn với bạn trông như thế nào?'],
+C11:['Người trẻ cầm chiếc cốc có con cá nhô đầu lên, nhìn nó ngạc nhiên.','Tin nhắn tình cảm, lời tỏ tình bất ngờ.','Ý tưởng sáng tạo, công việc nghệ thuật.','Đón nhận điều bất ngờ với sự tò mò.','Chăm sóc cảm xúc của mình như chăm một đứa trẻ.','Điều bất ngờ nào khiến bạn mỉm cười gần đây?'],
+C12:['Hiệp sĩ cưỡi ngựa đi chậm rãi, tay nâng chiếc cốc như mang quà tới.','Lời mời, lời cầu hôn, người lãng mạn.','Lời mời hợp tác, công việc sáng tạo.','Theo đuổi điều trái tim muốn, nhưng giữ chân trên mặt đất.','Kiểm tra xem lời hứa có đi kèm hành động không.','Bạn đang theo đuổi lý tưởng hay ảo tưởng?'],
+C13:['Nữ hoàng ngồi bên bờ biển, chăm chú ngắm chiếc cốc có nắp tinh xảo.','Yêu thương sâu sắc, thấu hiểu.','Hợp với nghề chăm sóc, tư vấn, nghệ thuật.','Lắng nghe bằng trái tim.','Đặt ranh giới cảm xúc.','Bạn chăm sóc cảm xúc của chính mình ra sao?'],
+C14:['Vị vua ngồi trên ngai giữa biển động, vẫn điềm tĩnh cầm cốc và quyền trượng.','Người chín chắn, bao dung.','Lãnh đạo bằng sự thấu cảm.','Giữ bình tĩnh, cân bằng giữa lý trí và cảm xúc.','Thừa nhận cảm xúc thay vì kìm nén.','Bạn có đang kìm nén cảm xúc nào không?'],
+S1:['Bàn tay từ đám mây nắm thanh kiếm dựng thẳng, đầu kiếm xuyên qua chiếc vương miện.','Nói rõ ràng; sự thật được nói ra.','Ý tưởng đột phá, quyết định rõ ràng.','Nói điều cần nói một cách rõ ràng.','Chờ thông tin đầy đủ rồi hãy quyết.','Sự thật nào bạn cần đối diện?'],
+S2:['Người phụ nữ bịt mắt ngồi trước biển, hai tay bắt chéo cầm hai thanh kiếm.','Né tránh, chưa quyết.','Bế tắc giữa hai lựa chọn.','Tháo khăn bịt mắt: thu thập thông tin rồi chọn.','Chọn bên ít tệ hơn rồi tiến lên.','Bạn đang tránh nhìn điều gì?'],
+S3:['Trái tim đỏ bị ba thanh kiếm xuyên qua, phía sau là mây mưa.','Tổn thương, chia ly, sự thật đau lòng.','Thất vọng, bị từ chối.','Cho phép mình buồn và nói ra.','Chủ động chữa lành và tha thứ.','Vết thương nào cần được chăm sóc?'],
+S4:['Hiệp sĩ nằm trên mộ đá như đang ngủ, tay chắp; ba thanh kiếm treo trên tường, một thanh nằm dưới thân.','Cần khoảng lặng.','Nghỉ phép, tạm ngừng.','Lên lịch nghỉ ngơi thật sự.','Từ từ quay lại hoạt động.','Lần cuối bạn thật sự nghỉ ngơi là khi nào?'],
+S5:['Người đàn ông nhếch mép ôm ba thanh kiếm, hai người khác bỏ đi, hai thanh kiếm nằm dưới đất.','Cãi nhau phân thắng thua, làm tổn thương nhau.','Tranh chấp, cạnh tranh không lành mạnh.','Tự hỏi chiến thắng này có đáng cái giá phải trả không.','Chủ động làm hòa.','Bạn muốn thắng hay muốn hòa thuận?'],
+S6:['Người lái đò chở người phụ nữ và đứa trẻ sang bờ bên kia; sáu thanh kiếm cắm trên thuyền.','Cùng nhau vượt qua khó khăn.','Chuyển việc, chuyển nơi ở.','Bước tiếp, bỏ lại vùng nước động.','Gỡ bỏ gánh nặng cũ trước khi đi.','Bạn muốn đi đến đâu?'],
+S7:['Người đàn ông rón rén ôm năm thanh kiếm rời khỏi trại, ngoái nhìn lại.','Có điều đang bị giấu giếm.','Chiến thuật khôn ngoan, hoặc mánh khóe.','Khôn ngoan nhưng giữ trung thực.','Nói thật khi còn kịp.','Bạn có đang giấu điều gì không?'],
+S8:['Người phụ nữ bị bịt mắt và trói lỏng, đứng giữa tám thanh kiếm cắm quanh.','Cảm thấy mắc kẹt.','Bế tắc, tự giới hạn mình.','Nhận ra dây trói đang lỏng và bước một bước.','Tiếp tục bước ra ngoài.','Niềm tin nào đang trói bạn?'],
+S9:['Người ngồi bật dậy trên giường, hai tay ôm mặt; chín thanh kiếm treo trên bức tường tối.','Lo lắng, mất ngủ vì chuyện tình cảm.','Lo âu, áp lực công việc.','Viết nỗi lo ra giấy và chia sẻ với ai đó.','Tìm sự trợ giúp, kể cả từ chuyên gia.','Nỗi lo nào đang lớn hơn thực tế?'],
+S10:['Người nằm sấp, lưng cắm mười thanh kiếm; nhưng xa xa chân trời đã hửng sáng.','Một mối quan hệ kết thúc hẳn.','Thất bại, chạm đáy.','Chấp nhận rằng chuyện đã kết thúc; ngày mai trời sẽ sáng.','Đứng dậy từ từ.','Bạn học được gì từ lần chạm đáy này?'],
+S11:['Người trẻ đứng trên đồi lộng gió, giơ kiếm lên, cảnh giác nhìn quanh.','Tò mò, hay hỏi han.','Học hỏi, nghiên cứu.','Đặt câu hỏi và tìm hiểu.','Nghĩ trước khi nói.','Bạn muốn tìm hiểu điều gì?'],
+S12:['Hiệp sĩ giơ kiếm cao, phi ngựa lao ngược gió; mây và cây bị gió thổi xô.','Thẳng thắn, nói rõ, nhưng dễ vội.','Quyết đoán, hành động nhanh.','Nói điều cần nói và quyết nhanh, nhưng giữ lời nói tử tế.','Chậm lại một nhịp; đọc lại tin nhắn trước khi gửi.','Bạn cần dứt khoát hơn hay cần bình tĩnh hơn?'],
+S13:['Nữ hoàng ngồi nghiêng, nhìn thẳng, một tay cầm kiếm dựng đứng, tay kia giơ ra như mời.','Rõ ràng, độc lập.','Phân tích sắc bén, đặt ranh giới rõ.','Nói rõ điều mình cần.','Thêm sự ấm áp vào lời nói.','Ranh giới nào bạn cần đặt?'],
+S14:['Vị vua ngồi thẳng nhìn trực diện, tay cầm kiếm hơi nghiêng.','Người lý trí, công bằng.','Ra quyết định bằng logic; vai trò chuyên gia.','Quyết định dựa trên sự thật và nguyên tắc.','Cân nhắc cảm xúc của người khác.','Lý trí của bạn nói gì về chuyện này?'],
+P1:['Bàn tay từ đám mây nâng đồng tiền vàng khắc ngôi sao năm cánh; bên dưới là khu vườn và cổng hoa.','Mối quan hệ vững chắc, thực tế.','Cơ hội việc làm, một khoản tiền mới.','Nắm lấy cơ hội cụ thể.','Lập kế hoạch tài chính kỹ hơn.','Cơ hội cụ thể nào đang trước mắt bạn?'],
+P2:['Người tung hứng hai đồng tiền trong vòng vô cực; sau lưng là biển động với những con thuyền nhấp nhô.','Cân bằng tình cảm với những việc khác.','Xoay xở nhiều việc, quản lý dòng tiền.','Giữ nhịp linh hoạt.','Chọn ra việc ưu tiên.','Việc nào đáng được ưu tiên nhất?'],
+P3:['Người thợ đá đứng trên ghế làm việc trong nhà thờ; hai người cầm bản vẽ đứng bàn bạc.','Cùng nhau xây dựng mối quan hệ.','Làm việc nhóm, tay nghề được công nhận.','Phối hợp với người khác.','Thống nhất mục tiêu chung.','Ai có thể giúp bạn làm tốt hơn?'],
+P4:['Người ngồi ôm chặt đồng tiền trước ngực, một đồng trên đầu, hai đồng dưới chân.','Chiếm hữu, sợ mất.','Tiết kiệm, giữ an toàn.','Giữ an toàn nhưng đừng khép kín.','Mở lòng chia sẻ.','Bạn đang giữ chặt điều gì?'],
+P5:['Hai người nghèo khổ đi trong tuyết, ngang qua ô cửa sổ nhà thờ sáng đèn.','Cô đơn, cảm thấy bị bỏ rơi.','Khó khăn tài chính, mất việc.','Tìm sự giúp đỡ ở ngay gần.','Nhận lấy sự trợ giúp.','Ai có thể giúp bạn lúc này?'],
+P6:['Người giàu cầm cân, chia tiền cho hai người ăn xin.','Cho và nhận cân bằng.','Nhận hỗ trợ, đầu tư, làm từ thiện.','Hào phóng khi có thể.','Kiểm tra xem sự giúp đỡ có kèm điều kiện không.','Bạn đang cho hay đang nhận?'],
+P7:['Người nông dân tựa cuốc, nhìn bụi cây đầy đồng tiền.','Kiên nhẫn vun đắp.','Đầu tư dài hạn, đánh giá kết quả.','Kiên nhẫn chờ thu hoạch.','Xem lại khoản đầu tư.','Công sức của bạn có đang đặt đúng chỗ?'],
+P8:['Người thợ chăm chú khắc từng đồng tiền; những đồng đã xong treo thành hàng.','Chăm chút từng chút một.','Rèn luyện kỹ năng, làm việc chăm chỉ.','Mài giũa kỹ năng.','Cân bằng giữa làm kỹ và làm nhanh.','Kỹ năng nào bạn muốn giỏi hơn?'],
+P9:['Người phụ nữ sang trọng đứng trong vườn nho, chim ưng đậu trên tay.','Độc lập, tự tin.','Độc lập tài chính, tận hưởng thành quả.','Tận hưởng điều bạn tự xây dựng.','Kiểm tra lại nền tảng tài chính.','Bạn tự hào về thành quả nào?'],
+P10:['Ông lão ngồi cùng đàn chó dưới cổng vòm, gia đình nhiều thế hệ quây quần; mười đồng tiền xếp hình cây sự sống.','Gia đình bền vững.','Thành công lâu dài, di sản, tài sản gia đình.','Nghĩ đến giá trị lâu dài.','Giải quyết mâu thuẫn về tài sản.','Bạn muốn để lại điều gì?'],
+P11:['Người trẻ đứng giữa đồng cỏ, nâng niu nhìn đồng tiền trên tay.','Tình cảm chậm mà chắc.','Học kỹ năng mới, cơ hội việc làm.','Học hỏi nghiêm túc.','Bắt tay vào làm.','Bạn muốn học điều gì?'],
+P12:['Hiệp sĩ ngồi yên trên con ngựa đen đứng im giữa cánh đồng đã cày, tay cầm đồng tiền.','Chung thủy, đáng tin.','Làm việc đều đặn, có trách nhiệm.','Tiến chậm mà chắc.','Thay đổi những thói quen nhàm chán.','Điều gì cần sự kiên trì của bạn?'],
+P13:['Nữ hoàng ngồi giữa vườn hoa, ôm đồng tiền trong lòng; dưới chân có con thỏ.','Chăm lo, ấm áp.','Quản lý tài chính tốt, thực tế.','Chăm lo cho mình và người khác.','Đừng quên bản thân.','Bạn chăm sóc mình bằng cách nào?'],
+P14:['Vị vua ngồi trên ngai chạm đầu bò, áo choàng thêu chùm nho, tay cầm đồng tiền.','Người chu đáo, ổn định.','Kinh doanh thành công, quản lý tài sản.','Xây dựng nền tảng vững chắc.','Đừng để tiền chi phối mình.','Thành công với bạn là gì?']
+};
+const PERSON = {
+W11:'Người trẻ nhiệt tình, ham thử cái mới, hay mang tin vui.', W12:'Người năng động, thích phiêu lưu, nóng vội, khó ngồi yên một chỗ.', W13:'Người tự tin, cởi mở, cuốn hút, giỏi truyền lửa cho người khác.', W14:'Người lãnh đạo có tầm nhìn, dám nghĩ dám làm, đôi khi nóng nảy.',
+C11:'Người trẻ nhạy cảm, mơ mộng, giàu sáng tạo.', C12:'Người lãng mạn, nói lời ngọt ngào, sống theo cảm xúc.', C13:'Người dịu dàng, thấu cảm, giỏi lắng nghe.', C14:'Người điềm tĩnh, bao dung, giữ được cảm xúc giữa sóng gió.',
+S11:'Người trẻ lanh lợi, tò mò, hay hỏi, đôi khi nhiều chuyện.', S12:'Người nhanh nhảu, thẳng tính, giỏi lý lẽ, có khi hơi gắt.', S13:'Người sắc sảo, độc lập, nói thẳng, có ranh giới rõ ràng.', S14:'Người lý trí, công bằng, có chuyên môn, quyết định dựa trên lý lẽ.',
+P11:'Người trẻ chăm chỉ, ham học, thực tế.', P12:'Người cẩn thận, đáng tin, làm việc đều đặn, hơi chậm.', P13:'Người đảm đang, thực tế, ấm áp, biết lo toan.', P14:'Người thành đạt, vững vàng, giỏi làm ăn, coi trọng sự ổn định.'
+};
+const COURT_ROLE = {11:'là người học việc: năng lượng mới chớm, sự tò mò, đôi khi là tin tức', 12:'là người cưỡi ngựa lao đi: hành động, chuyển động, tốc độ', 13:'là người làm chủ từ bên trong: nuôi dưỡng, thấu hiểu, giữ lửa', 14:'là người làm chủ bên ngoài: lãnh đạo, quyết định, chịu trách nhiệm'};
+function stageText(i){
+  if (i === 0) return 'điểm khởi đầu của “Hành trình của Kẻ Khờ”';
+  if (i <= 7) return 'chặng thứ nhất của “Hành trình của Kẻ Khờ”: học cách sống với thế giới bên ngoài như gia đình, xã hội, các lựa chọn';
+  if (i <= 14) return 'chặng thứ hai: quay vào nội tâm, đối diện với chính mình';
+  return 'chặng thứ ba: những biến đổi sâu sắc dẫn tới sự trọn vẹn';
+}
+function understandHTML(c){
+  if (c.type === 'major') return 'Đây là lá Ẩn Chính số '+roman(c.n)+', thuộc '+stageText(c.n)+'. Ẩn Chính nói về bài học lớn, nên chuyện bạn hỏi có sức nặng hơn chuyện thường ngày. Ý chính: <b>'+esc(c.k)+'</b>.';
+  const s = SUITS[c.suit];
+  const rank = c.n <= 10 ? '<b>'+(c.n === 1 ? 'Át (số 1)' : 'Số '+c.n)+'</b> nói về '+NUM[c.n].toLowerCase() : '<b>'+RANK_VN[c.n]+'</b> '+COURT_ROLE[c.n];
+  return 'Tách lá làm hai phần. <b>'+s.name+'</b> thuộc nguyên tố '+s.el+', nói về '+s.area+'. '+rank+'. Ghép lại: '+esc(c.u.charAt(0).toLowerCase() + c.u.slice(1));
+}
+function xsec(t, body){ return '<div class="xsec"><h5>'+t+'</h5><p>'+body+'</p></div>'; }
+function detailsHTML(c, rev, open){
+  const D = DETAIL[c.id];
+  return '<details class="more"'+(open ? ' open' : '')+'><summary>Giải chi tiết</summary><div class="more-body">'
+   + xsec('Hiểu lá này', understandHTML(c))
+   + xsec('Hình ảnh trên lá', esc(D[0]) + ' <span class="small">(theo bộ Rider–Waite–Smith)</span>')
+   + xsec('Lời khuyên', esc(rev ? D[4] : D[3]))
+   + xsec('Tình cảm', esc(D[1]))
+   + xsec('Công việc &amp; tiền bạc', esc(D[2]))
+   + (rev ? xsec('Vì lá đang ngược', 'Các ý trên nghiêng về mặt trái: '+esc(c.r)+'.') : xsec('Nếu lá ra chiều ngược', esc(c.d)+' Lời khuyên khi ngược: '+esc(D[4])))
+   + (PERSON[c.id] ? xsec('Nếu lá chỉ một người', esc(PERSON[c.id])) : '')
+   + xsec('Câu tự hỏi thêm', '<i>'+esc(D[5])+'</i>')
+   + '</div></details>';
+}
+
+const SPREADS = [
+ {id:'one', name:'Một lá', sub:'Lá của ngày', use:'Câu hỏi nhanh, lời nhắn cho hôm nay, luyện đọc từng lá.', cols:1, rows:1, cell:170, pos:[
+  {n:'Thông điệp', q:'Năng lượng hoặc lời nhắn chính cho câu hỏi của bạn.', p:'Lá này nhắc bạn chú ý điều gì trong hôm nay?', x:0, y:0}]},
+ {id:'ppf', name:'Ba lá: Thời gian', sub:'Quá khứ · Hiện tại · Tương lai', use:'Hiểu diễn biến của một tình huống theo thời gian.', cols:3, rows:1, cell:150, pos:[
+  {n:'Quá khứ', q:'Điều đã xảy ra và vẫn còn ảnh hưởng.', p:'Điều gì từ quá khứ bạn vẫn đang mang theo?', x:0, y:0},
+  {n:'Hiện tại', q:'Năng lượng đang chi phối lúc này.', p:'Bạn đang thực sự cảm thấy gì về tình huống này?', x:1, y:0},
+  {n:'Tương lai', q:'Xu hướng sắp tới nếu mọi thứ giữ nguyên. Đây không phải định mệnh cố định.', p:'Bạn muốn giữ hay đổi hướng đi này?', x:2, y:0}]},
+ {id:'sao', name:'Ba lá: Hành động', sub:'Tình huống · Hành động · Kết quả', use:'Khi bạn cần lời khuyên cụ thể nên làm gì.', cols:3, rows:1, cell:150, pos:[
+  {n:'Tình huống', q:'Bức tranh hiện tại của vấn đề.', p:'Phần nào của tình huống bạn đang bỏ qua?', x:0, y:0},
+  {n:'Hành động', q:'Điều nên làm hoặc thái độ nên có.', p:'Bước nhỏ nhất bạn có thể làm trong tuần này là gì?', x:1, y:0},
+  {n:'Kết quả', q:'Kết quả khả dĩ nếu bạn làm theo.', p:'Kết quả này có phải điều bạn thực sự muốn không?', x:2, y:0}]},
+ {id:'rel', name:'Mối quan hệ', sub:'5 lá', use:'Nhìn lại một mối quan hệ tình cảm, gia đình hay công việc.', cols:3, rows:2, cell:140, pos:[
+  {n:'Bạn', q:'Cảm nhận và vai trò của bạn trong mối quan hệ.', p:'Bạn đang mang gì vào mối quan hệ này?', x:0, y:0},
+  {n:'Người kia', q:'Năng lượng của người kia theo cách bạn đang thấy, không phải đọc suy nghĩ của họ.', p:'Bạn đã thực sự hỏi họ về điều này chưa?', x:2, y:0},
+  {n:'Kết nối', q:'Điều gắn kết hai người.', p:'Điều gì ở đây đáng được trân trọng?', x:1, y:0},
+  {n:'Thử thách', q:'Điểm vướng mắc cần nhìn thẳng.', p:'Phần vướng mắc nào thuộc về bạn, và bạn có thể làm gì với nó?', x:0.5, y:1},
+  {n:'Hướng đi', q:'Hướng phát triển nếu cả hai cùng nỗ lực.', p:'Bạn mong mối quan hệ này đi về đâu?', x:1.5, y:1}]},
+ {id:'choice', name:'Hai lựa chọn', sub:'5 lá', use:'Đang phân vân giữa A và B. Gán rõ A và B trong câu hỏi trước khi xáo.', cols:3, rows:2.5, cell:140, pos:[
+  {n:'Hiện tại', q:'Bạn đang đứng ở đâu trước lựa chọn.', p:'Điều gì khiến bạn thấy khó chọn?', x:1, y:1.5},
+  {n:'Lựa chọn A', q:'Bản chất và trải nghiệm khi đi theo A.', p:'Cơ thể bạn phản ứng thế nào khi nghĩ đến A?', x:0, y:1.05},
+  {n:'Kết quả A', q:'Hướng kết quả nếu chọn A.', p:'Bạn sẵn sàng trả giá gì cho kết quả này?', x:0, y:0},
+  {n:'Lựa chọn B', q:'Bản chất và trải nghiệm khi đi theo B.', p:'Cơ thể bạn phản ứng thế nào khi nghĩ đến B?', x:2, y:1.05},
+  {n:'Kết quả B', q:'Hướng kết quả nếu chọn B.', p:'Nếu không ai phán xét, bạn sẽ chọn bên nào?', x:2, y:0}]},
+ {id:'horse', name:'Móng ngựa', sub:'7 lá', use:'Tình huống phức tạp, cần cái nhìn khá đầy đủ nhưng gọn hơn Celtic Cross.', cols:7, rows:2.3, cell:104, pos:[
+  {n:'Quá khứ', q:'Điều đã dẫn đến tình huống này.', p:'Bài học nào từ quá khứ còn dùng được?', x:0, y:0},
+  {n:'Hiện tại', q:'Tình trạng lúc này.', p:'Điều gì đang tốn năng lượng của bạn nhất?', x:1, y:0.55},
+  {n:'Điều ẩn giấu', q:'Yếu tố bạn chưa thấy hoặc chưa thừa nhận.', p:'Điều gì bạn biết nhưng chưa muốn nhìn thẳng?', x:2, y:1.05},
+  {n:'Trở ngại', q:'Lực cản chính.', p:'Trở ngại này nằm ở bên ngoài hay bên trong bạn?', x:3, y:1.3},
+  {n:'Người xung quanh', q:'Ảnh hưởng từ người khác và môi trường.', p:'Ai có thể giúp, và ai đang làm bạn chệch hướng?', x:4, y:1.05},
+  {n:'Lời khuyên', q:'Cách tiếp cận nên chọn.', p:'Nếu làm theo lời khuyên này, việc đầu tiên bạn làm là gì?', x:5, y:0.55},
+  {n:'Kết quả', q:'Hướng kết quả nếu tiếp tục.', p:'Bạn muốn điều gì khác với kết quả này?', x:6, y:0}]},
+ {id:'celtic', name:'Celtic Cross', sub:'Thập tự Celtic · 10 lá', use:'Trải bài kinh điển (Waite giới thiệu năm 1910) cho câu hỏi lớn, nhiều mặt.', cols:5.1, rows:4, cell:92, pos:[
+  {n:'Hiện tại', q:'Trái tim của vấn đề.', p:'Nếu tóm vấn đề trong một câu, đó là câu gì?', x:1.35, y:1.5},
+  {n:'Thử thách', q:'Lực cản đặt chéo lên tình huống. Lá này luôn đọc như thử thách, kể cả khi là lá tốt.', p:'Thử thách này đang dạy bạn điều gì?', x:1.35, y:1.5, rot:true},
+  {n:'Nền tảng', q:'Gốc rễ, nguyên nhân sâu xa, tiềm thức.', p:'Chuyện này bắt nguồn từ đâu?', x:1.35, y:2.78},
+  {n:'Quá khứ gần', q:'Điều vừa đi qua.', p:'Điều gì vừa kết thúc mà bạn chưa kịp nhận ra?', x:0, y:1.5},
+  {n:'Mục tiêu', q:'Điều bạn ý thức hướng tới, khả năng tốt nhất.', p:'Phiên bản tốt nhất của chuyện này trông ra sao?', x:1.35, y:0.22},
+  {n:'Tương lai gần', q:'Điều sắp đến trong thời gian ngắn.', p:'Bạn cần chuẩn bị gì cho vài tuần tới?', x:2.7, y:1.5},
+  {n:'Bản thân', q:'Thái độ của bạn, cách bạn đang nhìn mình.', p:'Bạn đang tự kể câu chuyện gì về mình?', x:4.1, y:3},
+  {n:'Môi trường', q:'Người khác và hoàn cảnh xung quanh.', p:'Người khác đang thấy bạn thế nào trong chuyện này?', x:4.1, y:2},
+  {n:'Hy vọng & nỗi sợ', q:'Điều bạn mong và điều bạn sợ, nhiều khi là một.', p:'Điều bạn sợ có phải mặt trái của điều bạn mong?', x:4.1, y:1},
+  {n:'Kết quả', q:'Hướng kết quả nếu mọi thứ tiếp diễn.', p:'Kết quả này cần bạn thay đổi điều gì, hay giữ điều gì?', x:4.1, y:0}]}
+];
+const SP = Object.fromEntries(SPREADS.map(s => [s.id, s]));
+
+/* ---------------- CARD ART ---------------- */
+function roman(n){ if(n===0) return '0'; const t=[[10,'X'],[9,'IX'],[5,'V'],[4,'IV'],[1,'I']]; let s=''; for(const [v,r] of t){ while(n>=v){s+=r;n-=v;} } return s; }
+function starPts(cx, cy, R, r, n){ const p=[]; for(let i=0;i<n*2;i++){ const a=-Math.PI/2+i*Math.PI/n; const rr=i%2?r:R; p.push((cx+rr*Math.cos(a)).toFixed(2)+','+(cy+rr*Math.sin(a)).toFixed(2)); } return p.join(' '); }
+const LEM = 'M30 50c0-11 9-14 20 0s20 11 20 0-9-14-20 0-20 11-20 0z';
+function glyph(s, cx, cy, sc){
+  const g = {
+    W:'<rect x="8.8" y="1" width="2.4" height="18" rx="1"/><ellipse cx="13.6" cy="6" rx="2.6" ry="1.2" transform="rotate(-30 13.6 6)"/><ellipse cx="6.4" cy="12" rx="2.6" ry="1.2" transform="rotate(30 6.4 12)"/>',
+    C:'<path d="M4 2.5h12c0 6-2.6 8.5-6 8.5S4 8.5 4 2.5z"/><path d="M9 10.5h2v4.8H9z"/><path d="M5.2 18.2c0-1.6 2.1-2.6 4.8-2.6s4.8 1 4.8 2.6z"/>',
+    S:'<path d="M10 .8l1.5 3.1v9.6H8.5V3.9z"/><path d="M4.8 13.2h10.4v1.7H4.8z"/><path d="M9.2 14.9h1.6v2.9H9.2z"/><circle cx="10" cy="18.6" r="1.2"/>',
+    P:'<circle cx="10" cy="10" r="8.6"/><path class="g-cut" d="M10 4L13.53 14.85L4.29 8.15H15.71L6.47 14.85Z"/>'
+  }[s];
+  return '<g class="g-'+s+'" transform="translate('+(cx-10*sc).toFixed(2)+' '+(cy-10*sc).toFixed(2)+') scale('+sc+')">'+g+'</g>';
+}
+const PIPS = {1:[[50,50]],2:[[50,20],[50,80]],3:[[50,14],[50,50],[50,86]],4:[[30,20],[70,20],[30,80],[70,80]],
+ 5:[[30,18],[70,18],[50,50],[30,82],[70,82]],6:[[30,14],[70,14],[30,50],[70,50],[30,86],[70,86]],
+ 7:[[30,14],[70,14],[50,32],[30,50],[70,50],[30,86],[70,86]],8:[[30,14],[70,14],[50,32],[30,50],[70,50],[50,68],[30,86],[70,86]],
+ 9:[[30,10],[70,10],[30,37],[70,37],[50,50],[30,63],[70,63],[30,90],[70,90]],10:[[30,10],[70,10],[50,24],[30,38],[70,38],[30,62],[70,62],[50,76],[30,90],[70,90]]};
+function majorEmblem(i){
+  const E = [
+   '<circle class="e-gold" cx="74" cy="20" r="10"/><circle class="e-line" cx="42" cy="46" r="17"/><path class="e-line" d="M8 84H60L74 98"/><path class="e-red-l" d="M42 63V84"/>',
+   '<path class="e-gold-l" d="'+LEM+'" transform="translate(0 -26)"/><path class="e-line" d="M50 40V86"/><circle class="e-red" cx="50" cy="40" r="5"/><path class="e-line" d="M20 90H80"/>',
+   '<rect class="e-ink" x="12" y="16" width="14" height="74" rx="2"/><rect class="e-line" x="74" y="16" width="14" height="74" rx="2"/><path class="e-ultra" d="M58 36a16 16 0 1 0 0 30a12 12 0 1 1 0-30z"/>',
+   '<circle class="e-red-l" cx="50" cy="38" r="20"/><path class="e-red-l" d="M50 58V92M36 76H64"/><circle class="e-gold" cx="50" cy="38" r="6"/>',
+   '<path class="e-red-l" d="M28 46c-10-22 22-26 22 2c0-28 32-24 22-2"/><path class="e-line" d="M50 46V70"/><rect class="e-line" x="26" y="70" width="48" height="22"/>',
+   '<path class="e-line" d="M50 12V92M38 26H62M32 40H68M26 54H74"/><circle class="e-gold" cx="50" cy="12" r="5"/>',
+   '<circle class="e-gold" cx="50" cy="18" r="8"/><circle class="e-red-l" cx="38" cy="60" r="22"/><circle class="e-ultra-l" cx="62" cy="60" r="22"/>',
+   '<path class="e-line" d="M20 28H80L72 42H28Z"/><rect class="e-line" x="30" y="42" width="40" height="30"/><circle class="e-ink" cx="32" cy="84" r="8"/><circle class="e-ink" cx="68" cy="84" r="8"/><polygon class="e-gold" points="'+starPts(50,57,8,3.2,6)+'"/>',
+   '<path class="e-gold-l" d="'+LEM+'" transform="translate(0 -32)"/><circle class="e-red-l" cx="50" cy="62" r="22"/><circle class="e-red" cx="50" cy="62" r="9"/>',
+   '<path class="e-line" d="M74 14V94M50 16V30"/><path class="e-line" d="M40 30H60L65 40V64H35V40Z"/><polygon class="e-gold" points="'+starPts(50,52,8,3.5,6)+'"/>',
+   '<circle class="e-line" cx="50" cy="52" r="36"/><circle class="e-gold" cx="50" cy="52" r="10"/><path class="e-line" d="M50 16V42M50 62V88M14 52H40M60 52H86M24.5 26.5L43 45M57 59L75.5 77.5M75.5 26.5L57 45M43 59L24.5 77.5"/>',
+   '<path class="e-line" d="M50 12V86M18 26H82M18 26L8 54M18 26L28 54M82 26L72 54M82 26L92 54M34 90H66"/><path class="e-gold" d="M6 54H30C28 66 8 66 6 54Z"/><path class="e-gold" d="M70 54H94C92 66 72 66 70 54Z"/>',
+   '<path class="e-line" d="M18 16H82M50 16V58"/><path class="e-red-l" d="M32 62H68L50 92Z"/><circle class="e-gold" cx="50" cy="40" r="5"/>',
+   '<path class="e-line" d="M6 74H94"/><path class="e-gold" d="M28 74A22 22 0 0 1 72 74Z"/><path class="e-gold-l" d="M50 44V32M28 54L19 46M72 54L81 46M22 70H10M78 70H90"/><path class="e-red" d="M50 86c-6-4-6-10 0-10s6 6 0 10z"/>',
+   '<path class="e-line" d="M18 22H42C42 38 34 42 30 42S18 38 18 22Z"/><path class="e-line" d="M58 58H82C82 74 74 78 70 78S58 74 58 58Z"/><path class="e-ultra-l" d="M36 40Q46 66 62 64"/><polygon class="e-gold" points="'+starPts(76,26,8,3,4)+'"/>',
+   '<circle class="e-line" cx="50" cy="52" r="34"/><path class="e-red-l" d="M50 84L33.6 28.5L78.5 61.3H21.5L66.4 28.5Z"/>',
+   '<rect class="e-line" x="38" y="32" width="24" height="62"/><path class="e-gold" d="M30 22L36 8L44 18L52 6L58 18L62 26Z" transform="rotate(-18 46 18)"/><path class="e-red-l" d="M86 4L70 30H80L62 54"/><path class="e-line" d="M46 50h8M46 70h8"/>',
+   '<polygon class="e-gold" points="'+starPts(50,38,30,10,8)+'"/><polygon class="e-ultra" points="'+starPts(22,82,7,2.6,8)+'"/><polygon class="e-ultra" points="'+starPts(50,88,7,2.6,8)+'"/><polygon class="e-ultra" points="'+starPts(78,82,7,2.6,8)+'"/>',
+   '<path class="e-gold" d="M62 12a24 24 0 1 0 0 44a18 18 0 1 1 0-44z"/><rect class="e-ink" x="12" y="66" width="14" height="28"/><rect class="e-ink" x="74" y="66" width="14" height="28"/><path class="e-ultra-l" d="M36 92Q50 74 64 92"/>',
+   '<circle class="e-gold" cx="50" cy="50" r="18"/><path class="e-red-l" d="'+Array.from({length:12},(_,k)=>{const a=k*Math.PI/6;return 'M'+(50+25*Math.cos(a)).toFixed(1)+' '+(50+25*Math.sin(a)).toFixed(1)+'L'+(50+38*Math.cos(a)).toFixed(1)+' '+(50+38*Math.sin(a)).toFixed(1);}).join('')+'"/>',
+   '<path class="e-line" d="M18 20L62 46"/><path class="e-gold" d="M58 40L84 30L76 62Z"/><path class="e-red" d="M30 28h12v10H30z"/><path class="e-line" d="M20 92a8 8 0 0 1 16 0M42 92a8 8 0 0 1 16 0M64 92a8 8 0 0 1 16 0"/>',
+   '<ellipse class="e-gold-l" cx="50" cy="52" rx="24" ry="38"/><circle class="e-red" cx="14" cy="14" r="6"/><circle class="e-ultra" cx="86" cy="14" r="6"/><circle class="e-gold" cx="14" cy="90" r="6"/><circle class="e-ink" cx="86" cy="90" r="6"/><circle class="e-line" cx="50" cy="38" r="5"/><path class="e-line" d="M50 43V66M40 52H60M50 66L42 78M50 66L58 78"/>'
+  ];
+  return '<g transform="translate(14 50) scale(.92)">' + E[i] + '</g>';
+}
+function courtEmblem(c){
+  const crowns = {
+    11:'<polygon class="e-gold" points="'+starPts(60,64,7,2.6,4)+'"/>',
+    12:'<path class="e-line" d="M46 72L60 58L74 72"/><path class="e-line" d="M46 80L60 66L74 80" opacity=".5"/>',
+    13:'<path class="e-gold" d="M44 74V58L52 66L60 54L68 66L76 58V74Z"/><path class="c-thin" d="M44 74V58L52 66L60 54L68 66L76 58V74Z"/>',
+    14:'<path class="e-gold" d="M41 74V55L47.5 64L54 53L60 63L66 53L72.5 64L79 55V74Z"/><path class="c-thin" d="M41 74V55L47.5 64L54 53L60 63L66 53L72.5 64L79 55V74Z"/><circle class="e-red" cx="60" cy="69" r="2.4"/>'
+  };
+  return crowns[c.n] + glyph(c.suit, 60, 118, 2.3);
+}
+function frontSVG(c){
+  let top, emb;
+  if (c.type === 'major'){ top = roman(c.n); emb = majorEmblem(c.n); }
+  else if (c.n <= 10){ top = c.n === 1 ? 'ÁT' : roman(c.n);
+    const sc = c.n === 1 ? 2.8 : (c.n <= 4 ? 1.2 : (c.n <= 6 ? 1.05 : 0.86));
+    emb = PIPS[c.n].map(([x,y]) => glyph(c.suit, 22 + x*0.76, 44 + y*1.12, sc)).join(''); }
+  else { top = RANK_VN[c.n].toUpperCase(); emb = courtEmblem(c); }
+  const tfs = top.length > 4 ? 10.5 : 16;
+  const nm = c.name; const nfs = Math.min(12, 98 / (nm.length * 0.5)).toFixed(1);
+  return '<svg viewBox="0 0 120 204" class="cardsvg" role="img" aria-label="'+esc(c.name)+'">'
+   + '<rect class="c-paper" width="120" height="204" rx="7"/><rect class="c-frame" x="5" y="5" width="110" height="194" rx="4"/><rect class="c-thin" x="8.5" y="8.5" width="103" height="187" rx="2.5"/>'
+   + '<text class="c-top" x="60" y="27" text-anchor="middle" style="font-size:'+tfs+'px;letter-spacing:'+(top.length>4?'1':'.5')+'px">'+esc(top)+'</text>'
+   + '<path class="c-thin" d="M24 35H96"/>' + emb
+   + '<rect class="c-band" x="12" y="167" width="96" height="23" rx="2"/>'
+   + '<text class="c-name" x="60" y="182.5" text-anchor="middle" style="font-size:'+nfs+'px">'+esc(nm)+'</text></svg>';
+}
+const BACK = (() => {
+  let dots = '';
+  for (let y = 18, row = 0; y <= 188; y += 12, row++) for (let x = (row % 2 ? 22 : 16); x <= 104; x += 12) {
+    if (Math.hypot(x - 60, (y - 102) * 0.85) < 34) continue;
+    dots += 'M'+x+' '+(y-3)+'l3 3-3 3-3-3z';
+  }
+  return '<svg viewBox="0 0 120 204" class="cardsvg" aria-hidden="true"><rect class="b-bg" width="120" height="204" rx="7"/><rect class="b-line" x="6" y="6" width="108" height="192" rx="4"/><path class="b-dot" d="'+dots+'"/><circle class="b-line" cx="60" cy="102" r="27"/><polygon class="b-gold" points="'+starPts(60,102,21,7,8)+'"/><circle class="b-bg" cx="60" cy="102" r="4"/></svg>';
+})();
+$('#brand-mark').outerHTML = BACK.replace('class="cardsvg"', 'class="cardsvg" style="width:34px;height:58px;flex:none;border-radius:4px"');
+
+/* ---------------- RANDOM ---------------- */
+function r32(){ const a = new Uint32Array(1); crypto.getRandomValues(a); return a[0]; }
+function rnd(n){ return r32() % n; }
+function rand01(){ return r32() / 4294967296; }
+
+/* ---------------- STATE ---------------- */
+const S = {mode:'app', pickRev:false, spread:'ppf', useRev:true, deck:null, shuffles:0, piles:null, dealt:[], phase:'setup', active:-1, savedAt:0};
+const cur = () => SP[S.spread];
+
+function shuffleDeck(){
+  if (!S.deck) S.deck = CARDS.map(c => ({id:c.id, rev:false}));
+  const d = S.deck;
+  for (let i = d.length - 1; i > 0; i--){ const j = rnd(i + 1); [d[i], d[j]] = [d[j], d[i]]; }
+  // xoay ngược một phần bộ bài như khi trộn trên mặt bàn
+  d.forEach(x => { if (rand01() < 0.5) x.rev = !x.rev; });
+  S.shuffles++;
+  S.phase = 'shuffled';
+}
+function startCut(){
+  const a = 20 + rnd(16), b = 20 + rnd(16);
+  S.piles = [S.deck.slice(0, a), S.deck.slice(a, a + b), S.deck.slice(a + b)];
+  S.phase = 'cutting';
+}
+function pickPile(k){
+  const order = [S.piles[k]].concat(S.piles.filter((_, i) => i !== k));
+  S.deck = order.flat(); S.piles = null;
+  const n = cur().pos.length;
+  S.dealt = S.deck.slice(0, n).map(d => ({id:d.id, rev:S.useRev && d.rev, flipped:false}));
+  S.phase = 'dealt'; S.active = -1; S.savedAt = 0;
+}
+function resetAll(){ S.deck = null; S.shuffles = 0; S.piles = null; S.dealt = []; S.phase = 'setup'; S.active = -1; S.savedAt = 0; }
+
+/* ---------------- RENDER: DRAW ---------------- */
+function placeStyle(sp, p){
+  const L = (p.x + 0.04) / sp.cols * 100, T = (p.y + 0.04) / sp.rows * 100;
+  const W = 0.92 / sp.cols * 100, H = 0.92 / sp.rows * 100;
+  return 'left:'+L.toFixed(3)+'%;top:'+T.toFixed(3)+'%;width:'+W.toFixed(3)+'%;height:'+H.toFixed(3)+'%';
+}
+function spreadBoxStyle(sp, cell){
+  return 'aspect-ratio:'+sp.cols+' / '+(sp.rows*1.7).toFixed(3)+';max-width:'+Math.round(sp.cols*cell)+'px';
+}
+function renderPicker(){
+  $('#spread-picker').innerHTML = SPREADS.map(s => '<button class="sp-opt" data-sp="'+s.id+'" aria-pressed="'+(s.id===S.spread)+'"><span class="nm">'+esc(s.name)+'</span><span class="ct">'+s.pos.length+' lá</span></button>').join('');
+  $('#sp-use').textContent = cur().sub + '. ' + cur().use;
+}
+const PHASE_IDX = {setup:1, shuffled:2, cutting:2, dealt:3, done:4};
+function renderSteps(){
+  const qDone = $('#q').value.trim().length > 0;
+  let now;
+  if (S.phase === 'setup') now = qDone ? (S.mode === 'real' ? 2 : 1) : 0;
+  else now = S.mode === 'real' ? ({entering:3, done:4}[S.phase]) : PHASE_IDX[S.phase];
+  $$('#steps li').forEach((li, i) => { li.className = i < now ? 'done' : (i === now ? 'now' : ''); });
+}
+function renderHint(){
+  const n = cur().pos.length, flipped = S.dealt.filter(d => d && d.flipped).length;
+  const H = S.mode === 'real' ? {
+    setup:['Trải bằng bộ bài thật', 'Làm theo các bước bên dưới với bộ bài của bạn. Trải và lật xong thì bấm nút cuối để nhập lá.'],
+    entering:['Nhập lá · '+flipped+'/'+n, 'Chọn chiều xuôi hoặc ngược, rồi chọn tên lá đã rút. App tự chuyển sang vị trí tiếp theo. Chạm một ô trên bàn để sửa vị trí đó.'],
+    done:['Đã nhập đủ '+n+' lá', 'Kéo xuống để đọc phần giải và Tổng hợp. Vẫn có thể chạm vào lá trên bàn để sửa.']
+  }[S.phase] : {
+    setup:['Chuẩn bị', 'Chọn kiểu trải và viết câu hỏi. Hít thở vài nhịp, giữ câu hỏi trong đầu rồi bấm Xáo bài.'],
+    shuffled:['Đã xáo '+S.shuffles+' lần', 'Xáo thêm đến khi bạn thấy đủ. Sau đó bấm Cắt bài.'],
+    cutting:['Cắt bài', 'Bộ bài đã chia thành ba chồng. Chọn một chồng để đặt lên trên cùng.'],
+    dealt:['Lật bài · '+flipped+'/'+n, 'Bài đã chia úp theo thứ tự. Lật lần lượt từ lá số 1: đọc ý nghĩa vị trí trước, sau đó mới xem lá.'],
+    done:['Đã lật đủ '+n+' lá', 'Kéo xuống phần Tổng hợp để nhìn toàn cảnh, rồi ghi lại cảm nhận của bạn.']
+  }[S.phase];
+  $('#hint').innerHTML = '<b>'+H[0]+'</b>'+H[1];
+}
+function renderButtons(){
+  const p = S.phase;
+  const sh = $('#btn-shuffle'); sh.disabled = !(p === 'setup' || p === 'shuffled'); sh.textContent = p === 'shuffled' ? 'Xáo thêm' : 'Xáo bài';
+  sh.className = 'btn ' + ((p==='setup') ? 'primary' : '');
+  const cut = $('#btn-cut'); cut.disabled = p !== 'shuffled'; cut.className = 'btn ' + (p==='shuffled' ? 'primary' : '');
+  const fa = $('#btn-flipall'); fa.disabled = p !== 'dealt'; fa.className = 'btn ' + (p==='dealt' ? 'gold' : '');
+  $('#btn-reset').disabled = p === 'setup';
+  const real = S.mode === 'real';
+  $$('#mode button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === S.mode)));
+  $('#app-actions').hidden = real;
+  $('#real-box').hidden = !real;
+  $('#rev-label').innerHTML = real
+    ? 'Bộ bài của tôi đọc lá ngược<br><span class="small">Bật nếu bạn để ý chiều của lá khi lật. Tắt thì mọi lá đọc theo chiều xuôi.</span>'
+    : 'Dùng lá ngược<br><span class="small">Khi xáo, mỗi lá có thể bị đảo chiều. Tắt nếu bạn mới học.</span>';
+  if (real) renderRealBox();
+  renderQCheck();
+}
+
+/* ---------------- HƯỚNG DẪN ĐẶT CÂU HỎI ---------------- */
+const QTOPICS = [
+ ['daily','Hằng ngày',[['Hôm nay tôi nên chú ý điều gì?','one'],['Tuần này tôi nên tập trung vào điều gì?','one'],['Điều gì sẽ giúp tôi có một ngày tốt hơn?','one']]],
+ ['self','Bản thân',[['Tôi cần biết điều gì về bản thân lúc này?','one'],['Tôi đang bỏ quên điều gì trong cuộc sống?','sao'],['Làm sao để tôi lấy lại năng lượng?','sao'],['Nỗi sợ nào đang giữ tôi lại, và tôi có thể làm gì với nó?','horse']]],
+ ['love','Tình cảm',[['Tôi cần hiểu điều gì về mối quan hệ hiện tại của mình?','rel'],['Tôi có thể làm gì để hai người hiểu nhau hơn?','rel'],['Điều gì đang cản tôi mở lòng với một mối quan hệ mới?','sao'],['Bài học nào từ mối tình cũ tôi cần mang theo?','ppf']]],
+ ['work','Công việc',[['Tôi nên tập trung vào điều gì trong công việc tháng này?','sao'],['Điều gì đang cản tôi hoàn thành dự án này?','sao'],['Làm sao để tôi làm việc tốt hơn với đồng nghiệp?','sao'],['Tôi cần biết gì trước khi quyết định đổi việc?','horse']]],
+ ['money','Tiền bạc',[['Thói quen nào đang ảnh hưởng đến tài chính của tôi?','sao'],['Bước nhỏ nào giúp tình hình tiền bạc của tôi ổn định hơn?','one'],['Tôi cần nhìn rõ điều gì trước khi bỏ tiền vào việc này?','horse']]],
+ ['choice','Quyết định',[['Tôi nên cân nhắc gì khi chọn giữa [A] và [B]?','choice'],['Nếu tôi chọn [A], điều gì có thể xảy ra?','sao'],['Tôi cần nhìn rõ điều gì trước khi đưa ra quyết định lớn này?','celtic']]]
+];
+let QT = 'daily';
+function renderQTopics(){
+  $('#q-topics').innerHTML = QTOPICS.map(([k, l]) => '<button data-qt="'+k+'" aria-pressed="'+(k===QT)+'">'+l+'</button>').join('');
+  const t = QTOPICS.find(x => x[0] === QT);
+  $('#q-templates').innerHTML = t[2].map(([q, sp], i) => '<button data-tq="'+i+'">'+esc(q)+'<span>Kiểu trải gợi ý: '+esc(SP[sp].name)+'</span></button>').join('');
+}
+function analyzeQ(raw){
+  const t = norm(raw).replace(/[?!.,;:]/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!t) return null;
+  const has = re => re.test(t);
+  const out = []; let sug = null;
+  const words = t.split(' ').length;
+  const choice = has(/\bhay\b/) && has(/\b(nen|chon|giua)\b/);
+  const yesno = has(/\b(co nen|nen hay khong|phai khong|duoc khong|co dung khong|co phai)\b/) || has(/\bkhong$/) || has(/^(co|lieu)\b/);
+  const timing = has(/\b(bao gio|khi nao|bao lau|luc nao|ngay nao|thang may|nam nao|may tuoi)\b/);
+  const others = has(/\b(anh ay|co ay|ban ay|nguoi ay|chi ay|em ay|ong ay|ba ay|nguoi yeu toi|chong toi|vo toi)\b.*\b(nghi|yeu|thich|cam thay|muon|quay lai|nho|co ai)\b/) || has(/\bnghi gi ve toi\b/);
+  const sensitive = has(/\b(benh|ung thu|phau thuat|kien tung|toa an|co thai)\b/);
+  const multi = (raw.match(/\?/g) || []).length >= 2;
+  const open = has(/\b(dieu gi|lam sao|lam the nao|nhu the nao|the nao|toi can|vi sao|tai sao|bai hoc|o dau|nhu nao)\b/);
+  if (choice){ out.push(['info', 'Bạn đang cân nhắc giữa hai hướng. Ghi rõ A và B trong câu hỏi, rồi dùng trải <b>Hai lựa chọn</b>.']); sug = 'choice'; }
+  else if (yesno) out.push(['warn', 'Đây là câu hỏi có/không. Tarot trả lời rõ hơn khi câu hỏi mở. Thử bắt đầu bằng “Điều gì sẽ giúp tôi…?” hoặc “Tôi cần biết gì về…?”.']);
+  if (timing) out.push(['warn', 'Tarot không đoán được thời điểm chính xác. Thử hỏi: “Tôi cần chuẩn bị gì để…?”.']);
+  if (others){ out.push(['warn', 'Câu hỏi đang đoán suy nghĩ của người khác. Hãy đặt bạn làm trung tâm: “Tôi có thể làm gì để…?” hoặc “Tôi nên nhìn mối quan hệ này thế nào?”.']); sug = sug || 'rel'; }
+  if (sensitive) out.push(['warn', 'Với sức khỏe hay pháp lý, hãy hỏi bác sĩ hoặc luật sư. Tarot ở đây chỉ dùng để suy ngẫm.']);
+  if (multi) out.push(['warn', 'Có vẻ bạn đang hỏi nhiều câu cùng lúc. Mỗi lần trải chỉ nên hỏi một câu.']);
+  if (words < 4) out.push(['info', 'Câu hỏi hơi ngắn. Thêm bối cảnh: chuyện gì, với ai, trong khoảng thời gian nào.']);
+  if (!out.some(x => x[0] === 'warn') && words >= 4) out.push(open ? ['ok', 'Câu hỏi tốt: mở, cụ thể và hướng về bạn.'] : ['ok', 'Câu hỏi ổn. Mở đầu bằng “Điều gì…” hoặc “Làm sao…” sẽ giúp phần giải rõ hơn.']);
+  if (!sug){
+    if (has(/\b(moi quan he|tinh cam|nguoi yeu|ban trai|ban gai|crush|hon nhan|vo chong)\b/)) sug = 'rel';
+    else if (has(/\b(hom nay|ngay mai|tuan nay)\b/)) sug = 'one';
+    else if (has(/\b(qua khu|dien bien|da xay ra)\b/)) sug = 'ppf';
+    else if (has(/\b(lam gi|lam sao|lam the nao|hanh dong|cach nao|nen tap trung)\b/)) sug = 'sao';
+  }
+  return {out, sug};
+}
+function renderQCheck(){
+  const el = $('#q-check'); const r = analyzeQ($('#q').value);
+  if (!r){ el.innerHTML = ''; return; }
+  let h = r.out.map(([k, t]) => '<p class="qc '+k+'"><i></i><span>'+t+'</span></p>').join('');
+  if (r.sug && r.sug !== S.spread) h += '<div class="qsug"><span>Gợi ý kiểu trải: <b>'+esc(SP[r.sug].name)+'</b></span>'+(S.phase === 'setup' ? '<button class="btn" data-qsp="'+r.sug+'">Dùng kiểu này</button>' : '')+'</div>';
+  el.innerHTML = h;
+}
+$('#q').addEventListener('input', renderQCheck);
+$('#q-check').addEventListener('click', e => {
+  const b = e.target.closest('[data-qsp]'); if (!b || S.phase !== 'setup') return;
+  S.spread = b.dataset.qsp; resetAll(); renderAll();
+});
+$('#q-topics').addEventListener('click', e => { const b = e.target.closest('[data-qt]'); if (!b) return; QT = b.dataset.qt; renderQTopics(); });
+$('#q-templates').addEventListener('click', e => {
+  const b = e.target.closest('[data-tq]'); if (!b) return;
+  const [text, sp] = QTOPICS.find(x => x[0] === QT)[2][+b.dataset.tq];
+  const q = $('#q'); q.value = text;
+  if (S.phase === 'setup' && sp !== S.spread){ S.spread = sp; resetAll(); renderAll(); }
+  else { renderSteps(); renderQCheck(); $('#felt-q').textContent = '“' + text + '”'; }
+  q.focus({preventScroll:true});
+  const k = text.indexOf('['); if (k >= 0) q.setSelectionRange(k, text.indexOf(']') + 1);
+});
+$('#q-more').addEventListener('click', () => {
+  location.hash = 'huong-dan';
+  setTimeout(() => { const t = document.getElementById('g-question'); if (t) t.scrollIntoView({behavior:'smooth', block:'start'}); }, 60);
+});
+function stackHTML(){ return '<div class="stack" id="stack"><div class="bk">'+BACK+'</div><div class="bk">'+BACK+'</div><div class="bk">'+BACK+'</div></div>'; }
+function renderDeck(){
+  const z = $('#deck-zone'), p = S.phase;
+  if (S.mode === 'real'){
+    z.innerHTML = stackHTML().replace(' id="stack"', '') + '<p class="deck-meta"><b>Bộ bài của bạn</b>'
+      + (p === 'setup' ? 'Xáo, cắt rồi đặt '+cur().pos.length+' lá theo sơ đồ bên dưới.' : 'Chạm vào một ô để nhập hoặc sửa lá ở vị trí đó.') + '</p>';
+    return;
+  }
+  if (p === 'cutting'){
+    z.innerHTML = S.piles.map((pl, i) => '<button class="pile" data-pile="'+i+'" aria-label="Chọn chồng '+(i+1)+'">'+stackHTML().replace(' id="stack"','')+'<span>Chồng '+(i+1)+' · '+pl.length+' lá</span></button>').join('');
+    return;
+  }
+  const left = (p === 'dealt' || p === 'done') ? 78 - S.dealt.length : 78;
+  const meta = p === 'setup' ? '<b>78 lá</b>22 Ẩn Chính, 56 Ẩn Phụ. Bộ bài đang theo thứ tự gốc.'
+    : p === 'shuffled' ? '<b>Đã xáo '+S.shuffles+' lần</b>'+(S.useRev ? 'Một số lá đã bị xoay ngược.' : 'Không dùng lá ngược.')
+    : '<b>Còn '+left+' lá</b>Đã chia '+S.dealt.length+' lá từ trên cùng.';
+  z.innerHTML = stackHTML() + '<p class="deck-meta">'+meta+'</p>';
+}
+function cardBtnHTML(i, d, p, sp, incoming){
+  const c = BY[d.id];
+  return '<button class="tcard'+(p.rot?' rot':'')+(d.flipped?' flipped':'')+(incoming?' incoming':'')+(S.active===i?' active':'')+'" data-i="'+i+'" style="'+placeStyle(sp,p)+'" aria-label="Vị trí '+(i+1)+': '+esc(p.n)+(d.flipped ? ', '+esc(c.name)+(d.rev?' ngược':'') : ', chưa lật')+'">'
+   + '<span class="inner"><span class="face back">'+BACK+'</span><span class="face front"><span class="rv'+(d.rev?' is-rev':'')+'">'+frontSVG(c)+'</span></span></span>'
+   + '<span class="pn">'+(i+1)+'</span></button>';
+}
+function renderTable(animateDeal){
+  const sp = cur(); const box = $('#spread');
+  box.setAttribute('style', spreadBoxStyle(sp, sp.cell));
+  $('#felt-title').textContent = sp.name;
+  const q = $('#q').value.trim();
+  $('#felt-q').textContent = q ? '“' + q + '”' : '';
+  if (S.mode === 'real'){
+    box.innerHTML = sp.pos.map((p, i) => { const d = S.dealt[i];
+      if (d) return cardBtnHTML(i, d, p, sp, false);
+      return '<button class="slot pick'+(p.rot?' rot':'')+(S.active===i?' on':'')+'" data-slot="'+i+'" style="'+placeStyle(sp,p)+'" aria-label="Vị trí '+(i+1)+': '+esc(p.n)+', chưa nhập"><span class="sn">'+(i+1)+'</span>'+(p.rot?'':'<span>'+esc(p.n)+'</span>')+'</button>';
+    }).join('');
+  } else if (!S.dealt.length){
+    box.innerHTML = sp.pos.map((p, i) => '<div class="slot'+(p.rot?' rot':'')+'" style="'+placeStyle(sp,p)+'"><span class="sn">'+(i+1)+'</span>'+(p.rot?'':'<span>'+esc(p.n)+'</span>')+'</div>').join('');
+  } else {
+    box.innerHTML = S.dealt.map((d, i) => cardBtnHTML(i, d, sp.pos[i], sp, animateDeal)).join('');
+    if (animateDeal){
+      const els = $$('.tcard', box);
+      requestAnimationFrame(() => requestAnimationFrame(() => els.forEach((el, i) => { el.style.transitionDelay = (i*90)+'ms'; el.classList.remove('incoming'); })));
+      setTimeout(() => els.forEach(el => el.style.transitionDelay = ''), els.length*90 + 600);
+    }
+  }
+  const celt = sp.id === 'celtic' ? 'Lá số 2 đặt nằm ngang, chéo lên lá số 1.' : '';
+  if (S.mode === 'real') $('#felt-foot').textContent = S.phase === 'setup' ? ('Đặt lá úp theo số thứ tự trên sơ đồ. ' + celt).trim() : 'Chạm vào ô hoặc lá để chọn vị trí cần nhập hoặc sửa.';
+  else $('#felt-foot').textContent = S.phase === 'dealt' ? 'Chạm vào một lá để lật.' : (S.phase === 'done' ? 'Chạm vào lá để xem phần giải tương ứng bên dưới.' : (sp.id==='celtic' ? 'Lá số 2 đặt nằm ngang, chéo lên lá số 1.' : ''));
+  renderDeck();
+}
+function readingItemHTML(i){
+  const sp = cur(), p = sp.pos[i], d = S.dealt[i];
+  let body;
+  if (d && d.flipped){
+    const c = BY[d.id];
+    body = '<div class="rcard"><button class="thumb" data-open="'+c.id+'" data-rev="'+(d.rev?1:0)+'" aria-label="Xem chi tiết '+esc(c.name)+'"><span class="rv'+(d.rev?' is-rev':'')+'">'+frontSVG(c)+'</span></button>'
+     + '<div class="rbody"><div class="cname">'+esc(c.name)+' <span class="chip '+(d.rev?'rev':'up')+'">'+(d.rev?'NGƯỢC':'XUÔI')+'</span><span class="en">'+esc(c.en)+'</span></div>'
+     + '<p class="kw">'+esc(d.rev ? c.r : c.k)+'</p><p>'+esc(d.rev ? c.d : c.u)+'</p>' + qBlockHTML(c, d.rev, p)
+     + '<p class="prompt">'+esc(p.p)+'</p><p class="meta">'+esc(metaLine(c))+'</p>'
+     + detailsHTML(c, d.rev, sp.pos.length <= 3) + '</div></div>';
+  } else {
+    body = '<p class="wait">'+(S.mode === 'real' ? 'Chưa nhập lá. Chạm ô số '+(i+1)+' trên bàn rồi chọn tên lá.' : d ?'Chạm lá số '+(i+1)+' trên bàn để lật.' : 'Lá sẽ được đặt ở đây sau khi xáo và cắt bài.')+'</p>';
+  }
+  return '<article class="ritem'+(S.active===i?' active':'')+'" data-ri="'+i+'"><div class="rnum">'+(i+1)+'</div><div class="rbody"><h3>'+esc(p.n)+'</h3><p class="pq">'+esc(p.q)+'</p>'+body+'</div></article>';
+}
+function metaLine(c){
+  if (c.type === 'major') return 'Ẩn Chính số '+roman(c.n)+' · Tương ứng: '+c.astro;
+  const s = SUITS[c.suit];
+  return 'Ẩn Phụ · '+s.name+' ('+s.el+': '+s.area+') · '+(c.n<=10 ? 'Số '+c.n+': '+NUM[c.n] : RANK_VN[c.n]+': '+COURT[c.n]);
+}
+function renderReading(){ $('#reading').innerHTML = cur().pos.map((_, i) => readingItemHTML(i)).join(''); }
+function updateItem(i){ const el = $('[data-ri="'+i+'"]'); if (el) el.outerHTML = readingItemHTML(i); }
+
+/* ---------------- SYNTHESIS ---------------- */
+const EL_MSG = {
+  W:'Lửa trội: chuyện chính xoay quanh hành động, đam mê, dự án. Đây là lúc chủ động.',
+  C:'Nước trội: cảm xúc và các mối quan hệ là trọng tâm. Hãy cho phép mình cảm nhận trước khi quyết định.',
+  S:'Khí trội: suy nghĩ, lời nói, quyết định hoặc xung đột đang chiếm chỗ. Coi chừng nghĩ quá nhiều.',
+  P:'Đất trội: tiền bạc, công việc, sức khỏe, những điều cụ thể. Câu trả lời nằm ở bước thực tế.'
+};
+const EL_MISS = {W:'thiếu Lửa: có thể bạn đang thiếu động lực hoặc sự chủ động', C:'thiếu Nước: cảm xúc đang bị gạt sang một bên', S:'thiếu Khí: còn thiếu một kế hoạch hoặc cuộc trò chuyện rõ ràng', P:'thiếu Đất: ý tưởng chưa được neo vào việc cụ thể'};
+function relation(a, b){
+  if (a === b) return 'same';
+  const k = [a, b].sort().join('');
+  if (k === 'SW' || k === 'CP') return 'support';
+  if (k === 'CW' || k === 'PS') return 'oppose';
+  return 'neutral';
+}
+function synthHTML(){
+  const sp = cur();
+  const items = S.dealt.map((d, i) => ({c:BY[d.id], rev:d.rev, p:sp.pos[i]}));
+  const n = items.length;
+  const majors = items.filter(x => x.c.type === 'major');
+  const minors = items.filter(x => x.c.type === 'minor');
+  const cnt = {W:0, C:0, S:0, P:0}; minors.forEach(x => cnt[x.c.suit]++);
+  const revs = items.filter(x => x.rev).length;
+  const courts = minors.filter(x => x.c.n > 10);
+  const notes = [];
+  const nm = x => x.c.name + (x.rev ? ' (ngược)' : '');
+
+  if (n === 1){
+    const x = items[0];
+    if (x.c.type === 'major') notes.push('Một lá Ẩn Chính: thông điệp mang tính bài học lớn, đáng để suy ngẫm cả tuần chứ không chỉ hôm nay.');
+    else { const s = SUITS[x.c.suit]; notes.push('Lá thuộc chất '+s.name+' (nguyên tố '+s.el+'): chuyện thường ngày trong lĩnh vực '+s.area+'.');
+      notes.push(x.c.n <= 10 ? 'Số '+x.c.n+' mang chủ đề: '+NUM[x.c.n].toLowerCase()+'.' : 'Lá triều đình: có thể là một người cụ thể, hoặc một vai bạn nên nhận lấy: '+COURT[x.c.n].toLowerCase()+'.'); }
+    if (x.rev) notes.push('Lá ngược: năng lượng của lá đang bị chặn hoặc hướng vào trong. Hãy hỏi mình điều gì đang cản nó.');
+  } else {
+    const m = majors.length;
+    if (m >= Math.ceil(n/2)) notes.push(m+'/'+n+' lá là Ẩn Chính ('+majors.map(nm).join(', ')+'). Tình huống mang tính bước ngoặt, liên quan đến bài học lớn hoặc yếu tố ngoài tầm kiểm soát.');
+    else if (m === 0) notes.push('Không có Ẩn Chính. Đây là chuyện đời thường, phần lớn nằm trong tầm tay bạn; kết quả phụ thuộc vào lựa chọn hằng ngày.');
+    else notes.push(m+' lá Ẩn Chính ('+majors.map(nm).join(', ')+') là điểm nhấn. Đọc '+(m>1?'chúng':'lá này')+' như trục chính, các lá còn lại là chi tiết.');
+
+    const sorted = Object.entries(cnt).sort((a, b) => b[1] - a[1]);
+    if (sorted[0][1] >= 2 && sorted[0][1] > sorted[1][1]) notes.push(EL_MSG[sorted[0][0]] + ' ('+sorted[0][1]+' lá '+SUITS[sorted[0][0]].name+')');
+    else if (sorted[0][1] >= 2 && sorted[0][1] === sorted[1][1]){
+      const a = sorted[0][0], b = sorted[1][0], rel = relation(a, b);
+      notes.push('Hai nguyên tố '+SUITS[a].el+' và '+SUITS[b].el+' cùng mạnh. '+(rel==='oppose' ? 'Chúng đối nghịch nhau, cho thấy giằng co giữa '+SUITS[a].area.split(',')[0]+' và '+SUITS[b].area.split(',')[0]+'.' : rel==='support' ? 'Chúng hỗ trợ nhau, hai mặt này có thể cùng đẩy bạn đi.' : 'Hãy xem hai lĩnh vực này đang kéo nhau thế nào.'));
+    }
+    if (n >= 5){ const miss = Object.keys(cnt).filter(k => cnt[k] === 0); if (miss.length && miss.length < 4) notes.push('Vắng '+miss.map(k => SUITS[k].name).join(', ')+': '+miss.map(k => EL_MISS[k]).join('; ')+'.'); }
+
+    const byRank = {}; minors.forEach(x => { (byRank[x.c.n] = byRank[x.c.n] || []).push(x); });
+    Object.entries(byRank).forEach(([r, arr]) => { if (arr.length >= 2){ r = +r;
+      notes.push((r <= 10 ? 'Số '+r : 'Lá '+RANK_VN[r])+' xuất hiện '+arr.length+' lần ('+arr.map(nm).join(', ')+'): '+(r <= 10 ? NUM[r] : COURT[r]).toLowerCase()+' là chủ đề lặp lại.'); } });
+
+    if (courts.length >= 2) notes.push('Có '+courts.length+' lá triều đình: nhiều người đang tham gia vào chuyện này, hoặc nhiều mặt tính cách của chính bạn đang lên tiếng.');
+    if (S.useRev){
+      if (revs >= Math.ceil(n/2)) notes.push(revs+'/'+n+' lá ngược: năng lượng đang bị chặn, dồn vào trong hoặc chưa chín. Đây là lúc nhìn vào trong hơn là hành động mạnh.');
+      else if (revs === 0 && n >= 3) notes.push('Không có lá ngược: năng lượng đang lưu thông, các chủ đề thể hiện ra bên ngoài khá rõ.');
+    }
+    let dig = 0;
+    for (let i = 0; i < n - 1 && dig < 2; i++){
+      const a = items[i], b = items[i+1];
+      if (a.c.type !== 'minor' || b.c.type !== 'minor') continue;
+      const rel = relation(a.c.suit, b.c.suit);
+      if (rel === 'oppose'){ notes.push('Tương quan nguyên tố: '+a.p.n+' ('+SUITS[a.c.suit].el+') và '+b.p.n+' ('+SUITS[b.c.suit].el+') đối nghịch, hai lá làm yếu nhau. Đây là chỗ dễ vướng.'); dig++; }
+      else if (rel === 'support'){ notes.push('Tương quan nguyên tố: '+a.p.n+' ('+SUITS[a.c.suit].el+') và '+b.p.n+' ('+SUITS[b.c.suit].el+') hỗ trợ nhau, mạch chuyển giữa hai vị trí này khá thuận.'); dig++; }
+    }
+  }
+
+  const total = n;
+  const segs = [['major', majors.length, 'var(--el-major)', 'Ẩn Chính'], ['W', cnt.W, 'var(--el-fire)', 'Lửa'], ['C', cnt.C, 'var(--el-water)', 'Nước'], ['S', cnt.S, 'var(--el-air)', 'Khí'], ['P', cnt.P, 'var(--el-earth)', 'Đất']];
+  const bar = '<div class="bar" role="img" aria-label="Tỷ lệ nhóm lá">'+segs.filter(s => s[1]).map(s => '<span style="width:'+(s[1]/total*100)+'%;background:'+s[2]+'"></span>').join('')+'</div>';
+  const tally = '<div class="tally">'+segs.map(s => '<span><i style="background:'+s[2]+'"></i>'+s[3]+' '+s[1]+'</span>').join('')+(S.useRev ? '<span>Ngược '+revs+'</span>' : '')+'<span>Triều đình '+courts.length+'</span></div>';
+  const story = '<ol class="story">'+items.map(x => '<li><b>'+esc(x.p.n)+'</b>: '+esc(nm(x))+' · '+esc((x.rev ? x.c.r : x.c.k).split(',')[0])+'</li>').join('')+'</ol>';
+  const last = items[items.length-1];
+  const qs = ['Lá nào khiến bạn phản ứng mạnh nhất khi lật? Vì sao?', 'Nếu xem lá “'+last.p.n+'” là một lời khuyên thay vì lời tiên đoán, bạn sẽ làm gì khác trong 7 ngày tới?', 'Điều gì trong trải bài này bạn đã biết từ trước nhưng chưa muốn thừa nhận?'];
+  return answerBoxHTML(items) + '<div class="box"><h3>Toàn cảnh</h3>'+bar+tally+'<ul class="notes">'+notes.map(t => '<li>'+esc(t)+'</li>').join('')+'</ul></div>'
+   + '<div class="box"><h3>Mạch truyện</h3><p class="small">Đọc liền một mạch, từ vị trí đầu đến cuối.</p>'+story
+   + '<h3 style="margin-top:6px">Câu hỏi để tự soi</h3><ul class="notes">'+qs.map(t => '<li>'+esc(t)+'</li>').join('')+'</ul>'
+   + '<div class="field"><label for="note">Ghi chú của bạn</label><textarea id="note" rows="3" placeholder="Ấn tượng đầu tiên, điều bạn định làm..."></textarea></div>'
+   + '<div class="save-row"><button class="btn gold" id="btn-save">Lưu vào nhật ký</button><span class="toast" id="save-toast" aria-live="polite"></span></div></div>';
+}
+function renderSynth(){
+  const show = S.phase === 'done';
+  $('#synth-wrap').hidden = !show;
+  if (show){ const keep = $('#note') ? $('#note').value : ''; $('#synth').innerHTML = synthHTML(); $('#note').value = keep; if (S.savedAt) $('#save-toast').textContent = 'Đã lưu vào nhật ký.'; renderAi(); }
+}
+
+/* ---------------- GIẢI THEO CÂU HỎI ---------------- */
+const TOPIC_NAME = {love:'Tình cảm', work:'Công việc', money:'Tiền bạc', self:'Bản thân', choice:'Lựa chọn', general:'Chung'};
+function detectTopic(q){
+  const t = ' ' + norm(q).replace(/[?!.,;:]/g, ' ') + ' ';
+  if (/\bhay\b/.test(t) && /\b(nen|chon|giua)\b/.test(t)) return 'choice';
+  if (/\b(tinh cam|tinh yeu|nguoi yeu|crush|moi quan he|ban trai|ban gai|hon nhan|vo chong|chong toi|vo toi|chia tay|tai hop|nguoi ay|anh ay|co ay|hen ho|ket hon|co yeu|yeu toi)\b/.test(t)) return 'love';
+  if (/\b(tien|tai chinh|dau tu|thu nhap|tiet kiem|chi tieu|kinh doanh|lam an|giau)\b/.test(t)) return 'money';
+  if (/\b(cong viec|viec lam|viec moi|du an|sep|dong nghiep|cong ty|su nghiep|thang tien|phong van|nghi viec|doi viec|hoc tap|thi cu|hoc)\b/.test(t)) return 'work';
+  if (/\b(ban than|nang luong|chua lanh|noi so|so hai|cam xuc cua toi|phat trien ban than)\b/.test(t)) return 'self';
+  return 'general';
+}
+const lc = s => s ? s.charAt(0).toLowerCase() + s.slice(1) : s;
+const firstSentence = s => s.split('. ')[0].replace(/\.$/, '');
+function topicText(c, rev, topic){
+  const D = DETAIL[c.id];
+  if (topic === 'love' || topic === 'work' || topic === 'money'){
+    return rev ? 'Lá đang ngược nên nghiêng về mặt trái ('+c.r+'). '+c.d : (topic === 'love' ? D[1] : D[2]);
+  }
+  return rev ? c.d : c.u;
+}
+const adviceOf = (c, rev) => rev ? DETAIL[c.id][4] : DETAIL[c.id][3];
+function qBlockHTML(c, rev, p){
+  const q = $('#q').value.trim();
+  if (!q) return '<p class="qnote">Viết câu hỏi ở ô câu hỏi để phần giải bám theo câu hỏi của bạn.</p>';
+  const topic = detectTopic(q);
+  return '<div class="qans"><h5>Theo câu hỏi của bạn'+(topic !== 'general' ? ' · '+TOPIC_NAME[topic] : '')+'</h5>'
+   + '<p>Ở vị trí «'+esc(p.n)+'» ('+esc(lc(firstSentence(p.q)))+'), '+esc(c.name)+(rev ? ' ngược' : '')+' cho thấy: '+esc(lc(topicText(c, rev, topic)))+'</p>'
+   + '<p><b>Áp vào câu hỏi:</b> '+esc(adviceOf(c, rev))+'</p></div>';
+}
+const KEYPOS = {one:0, ppf:2, sao:1, rel:4, horse:5, celtic:9};
+function answerBoxHTML(items){
+  const q = $('#q').value.trim();
+  const topic = q ? detectTopic(q) : 'general';
+  const nm = x => x.c.name + (x.rev ? ' (ngược)' : '');
+  let h = '<div class="box answer"><h3>Trả lời câu hỏi của bạn</h3>';
+  h += q ? '<p class="jq">“'+esc(q)+'”</p><p class="small">Chủ đề nhận diện: '+TOPIC_NAME[topic]+'. Mỗi lá được đọc theo chủ đề này và theo ý nghĩa vị trí của nó.</p>'
+         : '<p class="small">Bạn chưa ghi câu hỏi nên phần dưới đọc theo nghĩa chung. Viết câu hỏi ở ô câu hỏi, phần giải sẽ bám theo nó.</p>';
+  h += '<ol class="story">'+items.map(x => '<li><b>'+esc(x.p.n)+'</b> · '+esc(nm(x))+': '+esc(lc(topicText(x.c, x.rev, topic)))+'</li>').join('')+'</ol>';
+  if (S.spread === 'choice' && items.length === 5){
+    const score = arr => arr.reduce((s, x) => s + (x.rev ? -1 : 1), 0);
+    const a = score([items[1], items[2]]), b = score([items[3], items[4]]);
+    let verdict = 'Hai hướng khá cân nhau. Hãy để ý lá nào khiến bạn thấy nhẹ nhõm hơn khi đọc.';
+    if (S.useRev && a !== b) verdict = 'Theo chiều lá, hướng '+(a > b ? 'A' : 'B')+' có vẻ thuận hơn (ít lá ngược hơn). Đây chỉ là xu hướng; quyết định vẫn là của bạn.';
+    h += '<p><b>So sánh hai hướng.</b> A: '+esc(nm(items[1]))+' dẫn tới '+esc(nm(items[2]))+' ('+esc((items[2].rev ? items[2].c.r : items[2].c.k).split(',')[0])+'). B: '+esc(nm(items[3]))+' dẫn tới '+esc(nm(items[4]))+' ('+esc((items[4].rev ? items[4].c.r : items[4].c.k).split(',')[0])+'). '+verdict+'</p>';
+  } else {
+    const k = items[KEYPOS[S.spread] !== undefined ? KEYPOS[S.spread] : items.length - 1];
+    h += '<p><b>Điểm mấu chốt</b> nằm ở lá «'+esc(k.p.n)+'», '+esc(nm(k))+': '+esc(adviceOf(k.c, k.rev))+'</p>';
+  }
+  return h + '<div class="ai-box" id="ai-box"></div></div>';
+}
+
+/* Claude giải sâu (capability sample) */
+var SAMPLE, SAMPLE_OFF = false, aiCtl = null;
+const AI_ERR = {
+  rate_limited:'Bạn đã dùng Claude nhiều trong thời gian ngắn. Hãy thử lại sau ít phút.',
+  session_expired:'Phiên đăng nhập đã hết hạn. Hãy đăng nhập lại claude.ai rồi thử lại.',
+  refused:'Claude không giải trải bài này. Thử diễn đạt lại câu hỏi.',
+  empty_completion:'Claude chưa viết được gì. Thử lại sau.',
+  prompt_too_large:'Nội dung quá dài để gửi.',
+  upstream_error:'Kết nối bị gián đoạn. Bấm Giải lại để thử lần nữa.'
+};
+function aiKeyNow(){ return JSON.stringify([$('#q').value.trim(), S.spread, S.useRev, S.dealt.map(d => d && [d.id, d.rev])]); }
+function currentItems(){ const sp = cur(); return S.dealt.map((d, i) => ({c:BY[d.id], rev:d.rev, p:sp.pos[i]})); }
+function buildPrompt(items){
+  const q = $('#q').value.trim(), sp = cur();
+  const cards = items.map((x, i) => (i+1)+'. Vị trí «'+x.p.n+'» ('+x.p.q+') — lá: '+x.c.name+' ('+x.c.en+'), '+(x.rev ? 'NGƯỢC' : 'XUÔI')+'. Từ khóa: '+(x.rev ? x.c.r : x.c.k)+'. Nghĩa gốc: '+(x.rev ? x.c.d : x.c.u)).join('\n');
+  return 'Bạn là người đọc tarot giàu kinh nghiệm, viết tiếng Việt giản dị, dễ hiểu cho người mới. Hãy giải trải bài dưới đây BÁM SÁT CÂU HỎI của người hỏi: mỗi lá phải được nối với câu hỏi và với ý nghĩa vị trí của nó, không chỉ nhắc lại nghĩa chung.\n\n'
+   + 'Câu hỏi: ' + (q || '(không ghi câu hỏi — hãy đọc như lời nhắn chung cho giai đoạn hiện tại)') + '\n'
+   + 'Kiểu trải: ' + sp.name + ' (' + sp.sub + ')\n'
+   + 'Có dùng lá ngược: ' + (S.useRev ? 'có' : 'không') + '\n'
+   + 'Các lá (nghĩa theo hệ Rider–Waite–Smith):\n' + cards + '\n\n'
+   + 'Yêu cầu:\n'
+   + '- Viết đúng 4 phần, mỗi phần mở đầu bằng một dòng "## " + tên phần:\n'
+   + '  ## Trả lời ngắn: 2-3 câu trả lời thẳng vào câu hỏi.\n'
+   + '  ## Từng lá theo câu hỏi: mỗi lá một dòng bắt đầu bằng "- ", nêu vị trí, tên lá và lá đó nói gì về câu hỏi.\n'
+   + '  ## Tổng hợp: lá nào là trục chính, các lá liên kết với nhau thế nào (nguyên tố, con số, lá ngược nếu đáng chú ý).\n'
+   + '  ## Lời khuyên: 2-3 việc cụ thể người hỏi có thể làm, mỗi việc một dòng "- ", rồi kết bằng một câu hỏi để tự suy ngẫm.\n'
+   + '- Nếu câu hỏi là có/không hoặc hỏi thời điểm, trả lời theo xu hướng và điều người hỏi có thể làm, không phán chắc chắn.\n'
+   + '- Không coi suy đoán về suy nghĩ người khác là sự thật; không hù dọa; tarot cho thấy xu hướng, không định đoạt.\n'
+   + '- Nếu câu hỏi về sức khỏe, pháp lý hay khoản tiền lớn, nhắc nhẹ nên hỏi chuyên gia.\n'
+   + '- Chỉ dùng **in đậm** khi thật cần, không dùng bảng. Dài khoảng 250-450 từ.';
+}
+function mdHTML(t){
+  let out = '', inList = false;
+  for (const raw of esc(t).split('\n')){
+    const l = raw.trim(), li = /^[-*•]\s+/.test(l);
+    if (!li && inList){ out += '</ul>'; inList = false; }
+    if (!l) continue;
+    const s = l.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+    if (/^#{1,4}\s+/.test(l)) out += '<h4>'+s.replace(/^#{1,4}\s+/, '')+'</h4>';
+    else if (li){ if (!inList){ out += '<ul>'; inList = true; } out += '<li>'+s.replace(/^[-*•]\s+/, '')+'</li>'; }
+    else out += '<p>'+s+'</p>';
+  }
+  return out + (inList ? '</ul>' : '');
+}
+function renderAi(){
+  const box = $('#ai-box'); if (!box) return;
+  if (SAMPLE_OFF){ box.innerHTML = '<p class="small">Trang này chưa được phép dùng Claude, nên chỉ có phần giải tự động ở trên.</p>'; return; }
+  if (!SAMPLE){ box.hidden = true; return; }
+  box.hidden = false;
+  const a = (S.ai && S.ai.key === aiKeyNow()) ? S.ai : {status:'idle'};
+  if (a.status === 'idle') box.innerHTML = '<button class="btn gold" data-ai="ask">Nhờ Claude giải sâu theo câu hỏi</button><p class="small">Claude đọc câu hỏi cùng từng lá và viết lời giải riêng cho bạn. Việc này dùng lượt Claude trong tài khoản của bạn; lần đầu trang sẽ xin phép.</p>';
+  else if (a.status === 'loading') box.innerHTML = '<span class="eyebrow">Lời giải của Claude</span><div class="ai-out" id="ai-out">'+(a.text ? mdHTML(a.text) : '<p class="small">Claude đang suy nghĩ…</p>')+'</div><button class="btn" data-ai="stop">Dừng</button>';
+  else if (a.status === 'done') box.innerHTML = '<span class="eyebrow">Lời giải của Claude</span><div class="ai-out">'+mdHTML(a.text)+'</div>'+((a.truncated || a.stopped) ? '<p class="small">Lời giải bị dừng giữa chừng.</p>' : '')+'<button class="btn" data-ai="again">Giải lại</button>';
+  else box.innerHTML = (a.text ? '<div class="ai-out">'+mdHTML(a.text)+'</div>' : '')+'<p class="small">'+esc(a.msg)+'</p><button class="btn" data-ai="again">Giải lại</button>';
+}
+async function askClaude(fresh){
+  if (!SAMPLE || S.phase !== 'done') return;
+  if (aiCtl) aiCtl.abort();
+  const key = aiKeyNow(), ctl = aiCtl = new AbortController();
+  S.ai = {key, status:'loading', text:''}; renderAi();
+  const opts = {signal:ctl.signal, onText:({text}) => { if (S.ai.key !== key) return; S.ai.text = text; const o = $('#ai-out'); if (o) o.innerHTML = mdHTML(text); }};
+  if (fresh) opts.cache = false;
+  try {
+    const r = await SAMPLE(buildPrompt(currentItems()), opts);
+    if (S.ai.key !== key) return;
+    S.ai = {key, status:'done', text:r.text, truncated:r.truncated};
+  } catch (e) {
+    if (!S.ai || S.ai.key !== key) return;
+    const code = e && e.code;
+    if (['not_granted','sampling_disabled','not_declared','capability_disabled','capability_removed'].includes(code)){ SAMPLE_OFF = true; S.ai = null; }
+    else if (code === 'cancelled') S.ai = e.text ? {key, status:'done', text:e.text, stopped:true} : null;
+    else S.ai = {key, status:'error', text: code === 'refused' ? '' : (e.text || ''), msg: AI_ERR[code] || AI_ERR.upstream_error};
+  }
+  renderAi();
+}
+if (window.claude && typeof window.claude.use === 'function'){
+  window.claude.use('sample').then(s => { SAMPLE = s || null; renderAi(); }).catch(() => { SAMPLE = null; });
+} else SAMPLE = null;
+let qTimer = null;
+$('#q').addEventListener('input', () => {
+  if (!S.dealt.length) return;
+  clearTimeout(qTimer);
+  qTimer = setTimeout(() => { renderReading(); renderSynth(); setActive(S.active); }, 400);
+});
+function renderAll(animateDeal){ renderPicker(); renderSteps(); renderHint(); renderButtons(); renderTable(animateDeal); renderReading(); renderSynth(); }
+
+function flip(i){
+  const d = S.dealt[i]; if (!d) return;
+  setActive(i);
+  if (d.flipped) { const el = $('[data-ri="'+i+'"]'); if (el) el.scrollIntoView({block:'nearest', behavior:'smooth'}); return; }
+  d.flipped = true;
+  const el = $('.tcard[data-i="'+i+'"]'); if (el){ el.classList.add('flipped'); el.setAttribute('aria-label', 'Vị trí '+(i+1)+': '+cur().pos[i].n+', '+BY[d.id].name+(d.rev?' ngược':'')); }
+  updateItem(i);
+  if (S.dealt.every(x => x.flipped)){ S.phase = 'done'; renderSteps(); renderHint(); renderButtons(); renderSynth(); $('#felt-foot').textContent = 'Chạm vào lá để xem phần giải tương ứng bên dưới.'; }
+  else renderHint();
+}
+function setActive(i){
+  S.active = i;
+  $$('.tcard').forEach(el => el.classList.toggle('active', +el.dataset.i === i));
+  $$('.ritem').forEach(el => el.classList.toggle('active', +el.dataset.ri === i));
+  $$('.slot[data-slot]').forEach(el => el.classList.toggle('on', +el.dataset.slot === i));
+}
+
+/* ---------------- BỘ BÀI THẬT ---------------- */
+let PF = 'all';
+const DOTC = {major:'var(--el-major)', W:'var(--el-fire)', C:'var(--el-water)', S:'var(--el-air)', P:'var(--el-earth)'};
+function physSteps(sp){
+  const n = sp.pos.length;
+  const order = sp.pos.map((p, i) => (i+1)+' là '+p.n).join(', ');
+  return [
+    ['Chuẩn bị', 'Ngồi ở chỗ yên tĩnh, đặt bộ bài trước mặt. Viết câu hỏi vào ô phía trên và đọc thầm vài lần.'],
+    ['Xáo bài', 'Xáo tay hoặc trộn bài trên mặt bàn đến khi thấy đủ, vừa xáo vừa nghĩ về câu hỏi.' + (S.useRev
+      ? ' Muốn có lá ngược: chia bộ bài làm đôi, xoay một nửa 180° rồi xáo lại với nhau.'
+      : ' Không dùng lá ngược: trước khi xáo, xoay tất cả lá về cùng một chiều.')],
+    ['Cắt bài', 'Dùng tay trái chia bộ bài thành 3 chồng, chọn một chồng đặt lên trên cùng rồi gộp lại.'],
+    ['Rút ' + n + ' lá', 'Lấy ' + n + ' lá từ trên cùng, hoặc trải hình quạt rồi chọn theo cảm nhận. Đặt úp theo sơ đồ trên bàn: ' + order + '.' + (sp.id === 'celtic' ? ' Lá số 2 đặt nằm ngang, đè chéo lên lá số 1.' : '')],
+    ['Lật bài', 'Lật từng lá theo thứ tự, lật sang ngang như lật trang sách để không làm đổi chiều lá.' + (S.useRev ? ' Lá có hình lộn đầu khi nhìn từ phía bạn ngồi là lá ngược.' : '')],
+    ['Báo cho app', 'Bấm nút bên dưới, rồi nhập từng lá đã rút' + (S.useRev ? ' cùng chiều xuôi hoặc ngược' : '') + '. App sẽ giải theo vị trí và tổng hợp.']
+  ];
+}
+function physListHTML(){ return '<ol class="phys">' + physSteps(cur()).map(([t, d]) => '<li><div><b>'+esc(t)+'</b>'+esc(d)+'</div></li>').join('') + '</ol>'; }
+function renderRealBox(){
+  const box = $('#real-box'), sp = cur();
+  if (S.phase === 'setup'){
+    box.innerHTML = physListHTML() + '<button class="btn primary" id="btn-start-entry">Tôi đã trải xong, nhập lá</button>';
+    return;
+  }
+  const i = S.active < 0 ? 0 : S.active, p = sp.pos[i], d = S.dealt[i];
+  const filled = S.dealt.filter(Boolean).length;
+  box.innerHTML = '<div class="entry">'
+   + '<div><span class="eyebrow">Vị trí '+(i+1)+' / '+sp.pos.length+' · đã nhập '+filled+'</span><h3 class="entry-title">'+esc(p.n)+'</h3><p class="small">'+esc(p.q)+'</p>'
+   + (d ? '<p class="entry-cur">Đang chọn: <b>'+esc(BY[d.id].name)+(d.rev ? ' (ngược)' : '')+'</b>. Chọn lá khác để thay.</p>' : '') + '</div>'
+   + (S.useRev ? '<div class="seg" role="group" aria-label="Chiều của lá"><button data-ori="0" aria-pressed="'+(!S.pickRev)+'">Xuôi</button><button data-ori="1" aria-pressed="'+S.pickRev+'">Ngược</button></div>' : '')
+   + '<input type="search" id="pick-q" placeholder="Gõ tên lá, ví dụ: 3 coc, an si" autocomplete="off" aria-label="Tìm tên lá">'
+   + '<div class="filters" id="pick-f">'+FILTERS.map(([k, l]) => '<button data-pf="'+k+'" aria-pressed="'+(k===PF)+'">'+l+'</button>').join('')+'</div>'
+   + '<div class="pick-list" id="pick-list"></div>'
+   + '<div class="entry-nav"><button class="btn" data-nav="-1"'+(i===0?' disabled':'')+'>← Vị trí trước</button><button class="btn" data-nav="1"'+(i===sp.pos.length-1?' disabled':'')+'>Vị trí sau →</button>'
+   + (d ? '<button class="btn" data-clear>Bỏ lá này</button>' : '') + '<button class="btn" data-restart>Làm lại từ đầu</button></div>'
+   + '<details class="phys-more"><summary>Xem lại hướng dẫn trải bài</summary>' + physListHTML() + '</details></div>';
+  renderPickList();
+}
+function renderPickList(){
+  const el = $('#pick-list'); if (!el) return;
+  const qi = $('#pick-q'); const q = norm(qi ? qi.value.trim() : '');
+  const i = S.active, curId = S.dealt[i] ? S.dealt[i].id : null;
+  const used = new Set(S.dealt.filter((d, k) => d && k !== i).map(d => d.id));
+  const list = CARDS.filter(c => (PF === 'all' || (PF === 'major' ? c.type === 'major' : c.suit === PF)) && (!q || norm(c.name + ' ' + c.en).includes(q)));
+  el.innerHTML = list.length
+    ? list.map(c => '<button data-pick="'+c.id+'" aria-pressed="'+(c.id===curId)+'"'+(used.has(c.id) ? ' disabled title="Đã nhập ở vị trí khác"' : '')+'><i style="background:'+DOTC[c.suit || 'major']+'"></i>'+esc(c.name)+'</button>').join('')
+    : '<p class="small">Không tìm thấy lá nào. Thử gõ không dấu, ví dụ “hoang hau coc”.</p>';
+}
+function startEntry(){ S.phase = 'entering'; S.dealt = cur().pos.map(() => null); S.active = 0; S.pickRev = false; S.savedAt = 0; renderAll(); setActive(0); }
+function nextEmpty(i){ const n = S.dealt.length; for (let k = 1; k <= n; k++){ const j = (i + k) % n; if (!S.dealt[j]) return j; } return -1; }
+function assignCard(id){
+  const i = S.active;
+  S.dealt[i] = {id, rev:S.useRev && S.pickRev, flipped:true};
+  const next = nextEmpty(i);
+  if (next < 0) S.phase = 'done'; else S.active = next;
+  S.pickRev = S.dealt[S.active] ? S.dealt[S.active].rev : false;
+  afterChange(true);
+}
+function goPos(j){
+  if (j < 0 || j >= cur().pos.length) return;
+  S.active = j; S.pickRev = S.dealt[j] ? S.dealt[j].rev : false;
+  setActive(j); renderRealBox();
+}
+function afterChange(focus){
+  if (S.phase === 'done' && S.dealt.some(d => !d)) S.phase = 'entering';
+  renderSteps(); renderHint(); renderTable(false); renderReading(); renderRealBox(); renderSynth(); setActive(S.active);
+  if (focus && window.matchMedia('(pointer:fine)').matches){ const q = $('#pick-q'); if (q) q.focus({preventScroll:true}); }
+}
+$('#mode').addEventListener('click', e => {
+  const b = e.target.closest('[data-mode]'); if (!b || b.dataset.mode === S.mode) return;
+  S.mode = b.dataset.mode; resetAll(); renderAll();
+});
+$('#real-box').addEventListener('click', e => {
+  if (e.target.closest('#btn-start-entry')){ startEntry(); return; }
+  const o = e.target.closest('[data-ori]');
+  if (o){ S.pickRev = o.dataset.ori === '1'; const d = S.dealt[S.active]; if (d){ d.rev = S.pickRev; afterChange(false); } else renderRealBox(); return; }
+  const f = e.target.closest('[data-pf]');
+  if (f){ PF = f.dataset.pf; $$('#pick-f button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.pf === PF))); renderPickList(); return; }
+  const pk = e.target.closest('[data-pick]'); if (pk){ assignCard(pk.dataset.pick); return; }
+  const nv = e.target.closest('[data-nav]'); if (nv){ goPos(S.active + (+nv.dataset.nav)); return; }
+  if (e.target.closest('[data-clear]')){ S.dealt[S.active] = null; afterChange(false); return; }
+  if (e.target.closest('[data-restart]')){ resetAll(); renderAll(); }
+});
+$('#real-box').addEventListener('input', e => { if (e.target.id === 'pick-q') renderPickList(); });
+$('#real-box').addEventListener('keydown', e => {
+  if (e.target.id === 'pick-q' && e.key === 'Enter'){ const b = $('#pick-list [data-pick]:not(:disabled)'); if (b){ e.preventDefault(); assignCard(b.dataset.pick); } }
+});
+
+/* ---------------- EVENTS: DRAW ---------------- */
+$('#spread-picker').addEventListener('click', e => {
+  const b = e.target.closest('[data-sp]'); if (!b) return;
+  if (b.dataset.sp === S.spread) return;
+  S.spread = b.dataset.sp; resetAll(); renderAll();
+});
+$('#q').addEventListener('input', () => { renderSteps(); const q = $('#q').value.trim(); $('#felt-q').textContent = q ? '“'+q+'”' : ''; });
+$('#use-rev').addEventListener('change', e => {
+  S.useRev = e.target.checked;
+  if (S.mode === 'real'){ if (!S.useRev){ S.dealt.forEach(d => { if (d) d.rev = false; }); S.pickRev = false; } afterChange(false); }
+  else renderDeck();
+});
+$('#btn-shuffle').addEventListener('click', () => {
+  shuffleDeck(); renderSteps(); renderHint(); renderButtons(); renderDeck();
+  const st = $('#stack'); if (st){ st.classList.add('shuffling'); setTimeout(() => st.classList.remove('shuffling'), 800); }
+});
+$('#btn-cut').addEventListener('click', () => { startCut(); renderSteps(); renderHint(); renderButtons(); renderDeck(); });
+$('#deck-zone').addEventListener('click', e => {
+  const b = e.target.closest('[data-pile]'); if (!b) return;
+  pickPile(+b.dataset.pile); renderAll(true);
+});
+$('#btn-flipall').addEventListener('click', () => { S.dealt.forEach((d, i) => { if (!d.flipped) setTimeout(() => flip(i), i * 120); }); });
+$('#btn-reset').addEventListener('click', () => { resetAll(); renderAll(); });
+$('#spread').addEventListener('click', e => {
+  if (S.mode === 'real'){
+    const t = e.target.closest('.tcard, [data-slot]'); if (!t) return;
+    const i = +(t.dataset.i !== undefined ? t.dataset.i : t.dataset.slot);
+    if (S.phase === 'setup') startEntry();
+    goPos(i); renderHint();
+    if (window.matchMedia('(max-width:860px)').matches) $('#real-box').scrollIntoView({block:'nearest', behavior:'smooth'});
+    return;
+  }
+  const b = e.target.closest('.tcard'); if (!b) return;
+  const i = +b.dataset.i;
+  if (S.dealt[i].flipped){ setActive(i); const el = $('[data-ri="'+i+'"]'); if (el) el.scrollIntoView({block:'nearest', behavior:'smooth'}); }
+  else flip(i);
+});
+$('#reading').addEventListener('click', e => {
+  const t = e.target.closest('[data-open]');
+  if (t){ openDetail(t.dataset.open, t.dataset.rev === '1'); return; }
+  const it = e.target.closest('[data-ri]'); if (it && S.dealt[+it.dataset.ri]) setActive(+it.dataset.ri);
+});
+$('#synth').addEventListener('click', e => {
+  const ai = e.target.closest('[data-ai]');
+  if (ai){ const k = ai.dataset.ai; if (k === 'stop'){ if (aiCtl) aiCtl.abort(); } else askClaude(k === 'again'); return; }
+  if (!e.target.closest('#btn-save')) return;
+  const list = jLoad();
+  const entry = {t:Date.now(), mode:S.mode, sp:S.spread, q:$('#q').value.trim(), rev:S.useRev, cards:S.dealt.map(d => [d.id, d.rev ? 1 : 0]), note:$('#note').value.trim()};
+  if (S.ai && S.ai.status === 'done' && S.ai.key === aiKeyNow()) entry.ai = S.ai.text;
+  if (S.savedAt){ const idx = list.findIndex(x => x.t === S.savedAt); if (idx >= 0){ entry.t = S.savedAt; list[idx] = entry; } else list.unshift(entry); }
+  else list.unshift(entry);
+  const ok = jSave(list);
+  S.savedAt = entry.t;
+  $('#save-toast').textContent = ok ? 'Đã lưu vào nhật ký.' : 'Trình duyệt này đang chặn lưu trữ, nên chưa lưu được. Bạn có thể chép ghi chú ra nơi khác.';
+});
+
+/* ---------------- DETAIL OVERLAY ---------------- */
+let lastFocus = null;
+function openDetail(id, rev){
+  const c = BY[id]; lastFocus = document.activeElement;
+  $('#ov-card').innerHTML = '<span class="rv'+(rev?' is-rev':'')+'">'+frontSVG(c)+'</span>';
+  let group;
+  if (c.type === 'major') group = '<div class="ov-sec"><h4>Nhóm</h4><p>Ẩn Chính số '+roman(c.n)+'. Tương ứng chiêm tinh theo Golden Dawn: '+esc(c.astro)+'.</p></div>';
+  else { const s = SUITS[c.suit]; group = '<div class="ov-sec"><h4>Nhóm</h4><p>Ẩn Phụ, chất '+s.name+' ('+s.en+'), nguyên tố '+s.el+': '+s.area+'.</p></div>'
+    + '<div class="ov-sec"><h4>'+(c.n<=10 ? 'Con số '+c.n : 'Vai triều đình')+'</h4><p>'+(c.n<=10 ? NUM[c.n] : RANK_VN[c.n]+': '+COURT[c.n])+'.</p></div>'; }
+  const D = DETAIL[c.id];
+  const os = (t, b) => '<div class="ov-sec"><h4>'+t+'</h4>'+b+'</div>';
+  $('#ov-body').innerHTML = '<span class="eyebrow">'+esc(c.en)+'</span><h2 id="ov-title">'+esc(c.name)+'</h2>'
+   + os('Hiểu lá này', '<p>'+understandHTML(c)+'</p>')
+   + os('Hình ảnh trên lá', '<p>'+esc(D[0])+' <span class="small">(theo bộ Rider–Waite–Smith)</span></p>')
+   + os('Xuôi', '<p class="kw">'+esc(c.k)+'</p><p>'+esc(c.u)+'</p><p><b>Lời khuyên:</b> '+esc(D[3])+'</p>')
+   + os('Ngược', '<p class="kw">'+esc(c.r)+'</p><p>'+esc(c.d)+'</p><p><b>Lời khuyên:</b> '+esc(D[4])+'</p>')
+   + os('Tình cảm', '<p>'+esc(D[1])+'</p>')
+   + os('Công việc &amp; tiền bạc', '<p>'+esc(D[2])+'</p>')
+   + (PERSON[c.id] ? os('Nếu lá chỉ một người', '<p>'+esc(PERSON[c.id])+'</p>') : '')
+   + os('Câu tự hỏi', '<p><i>'+esc(D[5])+'</i></p>') + group;
+  $('#overlay').hidden = false; $('#ov-close').focus();
+}
+function closeDetail(){ $('#overlay').hidden = true; if (lastFocus) try { lastFocus.focus(); } catch(e){} }
+$('#ov-close').addEventListener('click', closeDetail);
+$('#overlay').addEventListener('click', e => { if (e.target.id === 'overlay') closeDetail(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#overlay').hidden) closeDetail(); });
+
+/* ---------------- GUIDE ---------------- */
+(function buildGuide(){
+  let rows = ''; for (let i = 1; i <= 5; i++) rows += '<tr><td><b>'+(i===1?'Át (1)':i)+'</b></td><td>'+NUM[i]+'</td><td><b>'+(i+5)+'</b></td><td>'+NUM[i+5]+'</td></tr>';
+  $('#num-table').innerHTML = rows;
+  $('#guide-spreads').innerHTML = SPREADS.map(sp => {
+    const cell = Math.min(70, 300 / sp.cols);
+    return '<div class="box spcard"><div><span class="eyebrow">'+sp.pos.length+' lá</span><h3>'+esc(sp.name)+'</h3><p class="small">'+esc(sp.use)+'</p></div>'
+     + '<div class="mini"><div class="spread" style="'+spreadBoxStyle(sp, cell)+'">'+sp.pos.map((p, i) => '<div class="slot'+(p.rot?' rot':'')+'" style="'+placeStyle(sp,p)+'"><span class="sn">'+(i+1)+'</span></div>').join('')+'</div></div>'
+     + '<ol>'+sp.pos.map(p => '<li><b>'+esc(p.n)+'</b>: '+esc(p.q)+'</li>').join('')+'</ol>'
+     + '<button class="btn" data-use="'+sp.id+'">Dùng kiểu này</button></div>';
+  }).join('');
+  const ex = [['S5','Quá khứ','Một cuộc tranh luận vừa qua, có thể bạn “thắng”, nhưng để lại khoảng cách với đồng nghiệp. Năng lượng Khí: lời nói, lý lẽ.'],
+              ['M9','Hiện tại','Ẩn Sĩ cho thấy bạn đang rút vào trong, cần thời gian riêng để nghĩ lại cách mình làm việc. Đây là lá Ẩn Chính duy nhất, nên là trục của trải bài.'],
+              ['P8','Tương lai','Hướng ra là mài giũa tay nghề: làm từng việc cụ thể và làm thật kỹ. Năng lượng Đất: việc thực tế.']];
+  $('#example').innerHTML = ex.map(([id, pos, t]) => '<div class="ex-row"><div class="thumb">'+frontSVG(BY[id])+'</div><div class="rbody"><div class="cname">'+esc(pos)+' · '+esc(BY[id].name)+'</div><p>'+esc(t)+'</p></div></div>').join('');
+})();
+$('#guide-spreads').addEventListener('click', e => {
+  const b = e.target.closest('[data-use]'); if (!b) return;
+  S.spread = b.dataset.use; resetAll(); renderAll(); location.hash = 'rut-bai'; window.scrollTo(0, 0);
+});
+$$('.toc [data-go]').forEach(b => b.addEventListener('click', () => { const t = document.getElementById(b.dataset.go); if (t) t.scrollIntoView({behavior:'smooth', block:'start'}); }));
+
+/* ---------------- LOOKUP ---------------- */
+const FILTERS = [['all','Tất cả'],['major','Ẩn Chính'],['W','Gậy'],['C','Cốc'],['S','Kiếm'],['P','Tiền']];
+let LF = 'all';
+function norm(s){ return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd'); }
+function renderFilters(){ $('#filters').innerHTML = FILTERS.map(([k, l]) => '<button data-f="'+k+'" aria-pressed="'+(k===LF)+'">'+l+'</button>').join(''); }
+function renderGrid(){
+  const q = norm($('#lookup-q').value.trim());
+  const list = CARDS.filter(c => (LF === 'all' || (LF === 'major' ? c.type === 'major' : c.suit === LF)) && (!q || norm(c.name+' '+c.en+' '+c.k+' '+c.r).includes(q)));
+  $('#lookup-count').textContent = list.length + ' / 78 lá';
+  $('#grid78').innerHTML = list.length ? list.map(c => '<button class="gcard" data-open="'+c.id+'"><span class="thumb">'+frontSVG(c)+'</span><span class="gn">'+esc(c.name)+'</span><span class="gk">'+esc(c.k)+'</span></button>').join('')
+    : '<p class="small">Không có lá nào khớp “'+esc($('#lookup-q').value)+'”. Thử từ khóa khác, ví dụ “thay đổi” hoặc “tiền”.</p>';
+}
+$('#filters').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if (!b) return; LF = b.dataset.f; renderFilters(); renderGrid(); });
+$('#lookup-q').addEventListener('input', renderGrid);
+$('#grid78').addEventListener('click', e => { const b = e.target.closest('[data-open]'); if (b) openDetail(b.dataset.open, false); });
+
+/* ---------------- JOURNAL ---------------- */
+const JKEY = 'ban-trai-tarot-nhat-ky';
+function jLoad(){ try { return JSON.parse(localStorage.getItem(JKEY) || '[]'); } catch(e){ return []; } }
+function jSave(a){ try { localStorage.setItem(JKEY, JSON.stringify(a)); return true; } catch(e){ return false; } }
+let pendingDel = null;
+function renderJournal(){
+  const list = jLoad();
+  if (!list.length){
+    $('#journal').innerHTML = '<div class="empty box"><h3>Chưa có lượt trải nào</h3><p>Sau khi lật đủ bài, phần Tổng hợp có nút <b>Lưu vào nhật ký</b>. Mỗi lượt lưu gồm câu hỏi, các lá đã rút và ghi chú của bạn.</p><p class="small">Đọc lại nhật ký sau vài tuần là cách tốt để kiểm chứng và hiểu các lá theo trải nghiệm của chính bạn.</p><a class="btn primary" href="#rut-bai" style="text-decoration:none;text-align:center;align-self:flex-start">Bắt đầu rút bài</a></div>';
+    return;
+  }
+  $('#journal').innerHTML = '<div class="jlist">'+list.map(en => {
+    const sp = SP[en.sp] || SPREADS[0];
+    const dt = new Date(en.t);
+    const when = dt.toLocaleDateString('vi-VN', {day:'2-digit', month:'2-digit', year:'numeric'}) + ' · ' + dt.toLocaleTimeString('vi-VN', {hour:'2-digit', minute:'2-digit'});
+    return '<article class="box jitem"><div class="jhead"><h3>'+esc(sp.name)+'</h3><span class="small">'+when+(en.mode === 'real' ? ' · Bộ bài thật' : '')+'</span></div>'
+     + (en.q ? '<p class="jq">“'+esc(en.q)+'”</p>' : '<p class="small">Không ghi câu hỏi</p>')
+     + '<div class="jcards">'+en.cards.map(([id, r], i) => '<span>'+(i+1)+'. '+esc((sp.pos[i]||{}).n || '')+': '+esc(BY[id] ? BY[id].name : id)+(r ? ' (ngược)' : '')+'</span>').join('')+'</div>'
+     + (en.note ? '<p class="jnote">'+esc(en.note)+'</p>' : '')
+     + '<div class="save-row"><button class="btn" data-jopen="'+en.t+'">Mở lại trên bàn</button><button class="btn" data-jdel="'+en.t+'">'+(pendingDel === en.t ? 'Bấm lần nữa để xoá' : 'Xoá')+'</button></div></article>';
+  }).join('')+'</div>';
+}
+$('#journal').addEventListener('click', e => {
+  const o = e.target.closest('[data-jopen]'), d = e.target.closest('[data-jdel]');
+  if (o){
+    const en = jLoad().find(x => x.t === +o.dataset.jopen); if (!en) return;
+    S.mode = en.mode === 'real' ? 'real' : 'app';
+    S.spread = SP[en.sp] ? en.sp : 'ppf'; resetAll();
+    if (S.mode === 'real') S.active = 0;
+    S.useRev = !!en.rev; $('#use-rev').checked = S.useRev;
+    S.dealt = en.cards.map(([id, r]) => ({id, rev:!!r, flipped:true})); S.phase = 'done'; S.savedAt = en.t;
+    $('#q').value = en.q || '';
+    S.ai = en.ai ? {key:aiKeyNow(), status:'done', text:en.ai} : null;
+    location.hash = 'rut-bai'; renderAll(); $('#note').value = en.note || ''; window.scrollTo(0, 0);
+  }
+  if (d){
+    const t = +d.dataset.jdel;
+    if (pendingDel === t){ jSave(jLoad().filter(x => x.t !== t)); pendingDel = null; if (S.savedAt === t) S.savedAt = 0; }
+    else { pendingDel = t; setTimeout(() => { if (pendingDel === t){ pendingDel = null; if (!$('#view-nhat-ky').hidden) renderJournal(); } }, 4000); }
+    renderJournal();
+  }
+});
+
+/* ---------------- ROUTING ---------------- */
+const VIEWS = ['rut-bai', 'huong-dan', 'tra-cuu', 'nhat-ky'];
+function route(){
+  let h = location.hash.slice(1); if (!VIEWS.includes(h)) h = 'rut-bai';
+  VIEWS.forEach(v => { $('#view-'+v).hidden = v !== h; });
+  $$('nav.tabs a').forEach(a => { if (a.getAttribute('href') === '#'+h) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  if (h === 'nhat-ky') renderJournal();
+}
+window.addEventListener('hashchange', route);
+
+renderFilters(); renderGrid(); renderQTopics(); renderAll(); route();
+})();
+</script>
+</body>
+</html>
