@@ -53,6 +53,12 @@ header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:spac
 .brand svg{width:34px;height:56px;flex:none}
 .brand h1{font-size:32px;letter-spacing:.01em}
 .brand p{font-size:13px;color:var(--muted)}
+.top-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.app-switch{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line)}
+.app-switch a{padding:8px 22px;border-radius:999px;text-align:center;text-decoration:none;font-weight:600;font-size:14.5px;color:var(--muted)}
+.app-switch a:hover{color:var(--fg)}
+.app-switch a[aria-current="page"]{background:var(--accent);color:var(--accent-fg);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+@media (max-width:620px){.top-right{align-items:stretch;width:100%}.app-switch a{padding:9px 12px}}
 nav.tabs{display:flex;flex-wrap:wrap;gap:4px}
 nav.tabs a{padding:8px 14px;border-radius:999px;text-decoration:none;color:var(--muted);font-weight:500;font-size:14px}
 nav.tabs a:hover{color:var(--fg);background:var(--surface-2)}
@@ -416,15 +422,20 @@ tr:last-child td{border-bottom:0}
 <header class="top">
   <div class="brand">
     <svg viewBox="0 0 120 204" aria-hidden="true" id="brand-mark"></svg>
-    <div><h1>Bàn Trải Tarot</h1><p>Rút bài, đọc từng vị trí, tổng hợp và ghi lại</p></div>
+    <div><h1 id="brand-title">Bàn Trải Tarot</h1><p id="brand-sub">Rút bài, đọc từng vị trí, tổng hợp và ghi lại</p></div>
   </div>
-  <nav class="tabs" aria-label="Mục">
-    <a href="#rut-bai">Rút bài</a>
-    <a href="#tu-vi">Lá số tử vi</a>
-    <a href="#huong-dan">Hướng dẫn</a>
-    <a href="#tra-cuu">Tra cứu 78 lá</a>
-    <a href="#nhat-ky">Nhật ký</a>
-  </nav>
+  <div class="top-right">
+    <nav class="app-switch" id="app-switch" aria-label="Chọn ứng dụng">
+      <a href="#rut-bai" data-app="tarot">Tarot</a>
+      <a href="#tu-vi" data-app="tuvi">Tử vi</a>
+    </nav>
+    <nav class="tabs" id="tarot-tabs" aria-label="Mục tarot">
+      <a href="#rut-bai">Rút bài</a>
+      <a href="#huong-dan">Hướng dẫn</a>
+      <a href="#tra-cuu">Tra cứu 78 lá</a>
+      <a href="#nhat-ky">Nhật ký</a>
+    </nav>
+  </div>
 </header>
 
 <main>
@@ -2189,10 +2200,19 @@ let tvReady = false;
 
 /* ---------------- ROUTING ---------------- */
 const VIEWS = ['rut-bai', 'tu-vi', 'huong-dan', 'tra-cuu', 'nhat-ky'];
+let lastTarotView = 'rut-bai';
 function route(){
   let h = location.hash.slice(1); if (!VIEWS.includes(h)) h = 'rut-bai';
   VIEWS.forEach(v => { $('#view-'+v).hidden = v !== h; });
-  $$('nav.tabs a').forEach(a => { if (a.getAttribute('href') === '#'+h) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  $$('#tarot-tabs a').forEach(a => { if (a.getAttribute('href') === '#'+h) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  const tuvi = h === 'tu-vi';
+  if (!tuvi) lastTarotView = h;
+  const tarotLink = $('#app-switch [data-app="tarot"]');
+  tarotLink.setAttribute('href', '#' + lastTarotView);
+  $$('#app-switch a').forEach(a => { if ((a.dataset.app === 'tuvi') === tuvi) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+  $('#tarot-tabs').hidden = tuvi;
+  $('#brand-title').textContent = tuvi ? 'Lá Số Tử Vi' : 'Bàn Trải Tarot';
+  $('#brand-sub').textContent = tuvi ? 'Lập lá số, an sao và luận giải theo 12 cung' : 'Rút bài, đọc từng vị trí, tổng hợp và ghi lại';
   if (h === 'nhat-ky') renderJournal();
   if (h === 'tu-vi' && !tvReady){ tvReady = true; tvInit(); }
 }
