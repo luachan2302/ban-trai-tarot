@@ -352,16 +352,21 @@ tr:last-child td{border-bottom:0}
 .tv-cell.is-menh{box-shadow:inset 0 0 0 2px var(--accent)}
 .tv-pn{display:flex;justify-content:space-between;align-items:baseline;gap:4px;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 .tv-pn small{font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0;font-size:10.5px;white-space:nowrap}
-.tv-than{align-self:flex-start;font-size:9.5px;font-weight:700;padding:0 5px;border-radius:3px;border:1px solid var(--accent);color:var(--accent)}
+.tv-marks{display:flex;flex-wrap:wrap;gap:3px;align-items:center}
+.tv-than{font-size:9.5px;font-weight:700;padding:0 5px;border-radius:3px;border:1px solid var(--accent);color:var(--accent);line-height:1.5}
 .tv-main{display:flex;flex-direction:column;font-weight:700;font-size:13px;color:var(--fg)}
-.tv-main i{font-style:normal;font-size:9.5px;color:var(--accent);margin-left:4px}
+.tv-main .s{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:4px}
+.tv-main b{white-space:nowrap}
+.tv-main i{font-style:normal;font-size:9.5px;color:var(--accent)}
+.tv-aux span{white-space:nowrap}
+.tv-foot .ts{white-space:nowrap}
 .tv-main .vcd{font-weight:500;color:var(--muted);font-size:11px;font-style:italic}
 .tv-aux{display:flex;flex-wrap:wrap;gap:0 7px;font-size:11px}
 .tv-aux .g{color:var(--ok)} .tv-aux .b{color:var(--danger)}
 .tv-aux i{font-style:normal;font-size:9px;color:var(--accent);margin-left:2px}
 .tv-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:4px;font-size:10.5px;color:var(--muted)}
 .tv-foot b{color:var(--fg);font-variant-numeric:tabular-nums}
-.tv-tt{display:inline-block;background:var(--fg);color:var(--bg);font-size:9px;padding:0 4px;border-radius:3px;font-weight:700;margin-right:2px}
+.tv-tt{display:inline-block;background:var(--fg);color:var(--bg);font-size:9.5px;padding:0 5px;border-radius:3px;font-weight:700;line-height:1.6}
 .tv-center{grid-column:2 / 4;grid-row:2 / 4;background:var(--bg);padding:12px;display:flex;flex-direction:column;gap:3px;font-size:12.5px;text-align:center;justify-content:center;min-width:0}
 .tv-center h3{font-size:22px;margin-bottom:4px}
 .tv-center .k{color:var(--muted)}
@@ -369,11 +374,13 @@ tr:last-child td{border-bottom:0}
 .tv-legend .g{color:var(--ok)} .tv-legend .b{color:var(--danger)}
 @media (max-width:600px){
   .tv-cell{min-height:122px;padding:4px;font-size:10px;gap:2px}
-  .tv-pn{font-size:9px;flex-direction:column;gap:0}
-  .tv-pn small{font-size:9px}
+  .tv-pn{font-size:9.5px;flex-direction:column;gap:0}
+  .tv-pn small{font-size:10px}
   .tv-main{font-size:10.5px}
-  .tv-aux{font-size:9px;gap:0 4px}
-  .tv-foot{font-size:9px}
+  .tv-main i{font-size:9.5px}
+  .tv-aux{font-size:10px;gap:0 4px}
+  .tv-foot{font-size:10px}
+  .tv-than,.tv-tt{font-size:8.5px;padding:0 3px}
   .tv-center{font-size:10px;padding:6px}
   .tv-center h3{font-size:15px}
 }
@@ -518,7 +525,7 @@ tr:last-child td{border-bottom:0}
     <div>
       <p class="tv-banner" id="tv-banner" hidden>Đang hiển thị <b>lá số ví dụ</b>. Nhập ngày giờ sinh của bạn rồi bấm <b>Lập lá số</b>.</p>
       <div class="tv-chart" id="tv-chart"></div>
-      <div class="tv-legend"><span><b>Đậm</b>: chính tinh</span><span class="g">Xanh: cát tinh</span><span class="b">Đỏ: sát tinh</span><span><span class="tv-tt">T</span>Tuần <span class="tv-tt">Tr</span>Triệt</span><span>Số góc trái: tuổi bắt đầu đại vận</span><span>Nền vàng: đại vận hiện tại</span></div>
+      <div class="tv-legend"><span><b>Đậm</b>: chính tinh</span><span class="g">Xanh: cát tinh</span><span class="b">Đỏ: sát tinh</span><span><span class="tv-tt">Tuần</span> <span class="tv-tt">Triệt</span></span><span>Số góc trái: tuổi bắt đầu đại vận</span><span>Nền vàng: đại vận hiện tại</span></div>
     </div>
   </div>
 
@@ -2017,14 +2024,14 @@ const hoaTag = (p, s) => p.hoa[s] ? '<i>'+p.hoa[s]+'</i>' : '';
 function renderTvChart(c){
   const cells = c.P.map(p => {
     const [r, col] = GRID[p.z];
-    const main = p.main.length ? p.main.map(s => '<span>'+s+hoaTag(p, s)+'</span>').join('') : '<span class="vcd">Vô chính diệu</span>';
+    const main = p.main.length ? p.main.map(s => '<span class="s"><b>'+s+'</b>'+hoaTag(p, s)+'</span>').join('') : '<span class="vcd">Vô chính diệu</span>';
     const aux = p.aux.map(s => '<span class="'+(GOOD.includes(s) ? 'g' : 'b')+'">'+s+hoaTag(p, s)+'</span>').join('');
     const isDv = c.dvNow && c.dvNow.z === p.z;
     return '<button class="tv-cell'+(p.z === c.menh ? ' is-menh' : '')+(isDv ? ' is-dv' : '')+'" data-z="'+p.z+'" style="grid-row:'+r+';grid-column:'+col+'" aria-label="Cung '+p.name+' tại '+CHI[p.z]+'">'
       + '<span class="tv-pn"><span>'+p.name+'</span><small>'+canChi(p.can, p.z)+'</small></span>'
-      + (p.z === c.than ? '<span class="tv-than">THÂN</span>' : '')
+      + ((p.z === c.than || p.tuan || p.triet) ? '<span class="tv-marks">'+(p.z === c.than ? '<span class="tv-than">THÂN</span>' : '')+(p.tuan ? '<span class="tv-tt">Tuần</span>' : '')+(p.triet ? '<span class="tv-tt">Triệt</span>' : '')+'</span>' : '')
       + '<span class="tv-main">'+main+'</span><span class="tv-aux">'+aux+'</span>'
-      + '<span class="tv-foot"><b>'+p.dv+'</b><span>'+(p.tuan ? '<span class="tv-tt">T</span>' : '')+(p.triet ? '<span class="tv-tt">Tr</span>' : '')+p.ts+'</span></span></button>';
+      + '<span class="tv-foot"><b>'+p.dv+'</b><span class="ts">'+p.ts+'</span></span></button>';
   }).join('');
   const nm = c.inp.name ? esc(c.inp.name) : (c.inp.sample ? 'Lá số ví dụ' : 'Lá số');
   const L = c.L;
